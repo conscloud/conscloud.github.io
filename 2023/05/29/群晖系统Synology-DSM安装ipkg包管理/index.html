@@ -16,35 +16,27 @@
   <meta name="author" content="ZhJy">
   <meta name="keywords" content="">
   
-    <meta name="description" content="自建Emby验证服务器（实现白嫖）群晖默认自带nginx服务，通过增加nginx反代配置，实现将Emby的验证劫持到本地，骗过emby服务器，从而解锁硬解功能，实现视频播放硬件解码，降低服务器CPU压力。 注：我的Emby服务器是DOCKER部署。 1.配置nginx新建一个nginx配置文件，命名随意（例如emby.conf），在配置文件中写入下面的配置信息： 12345678910111213">
+    <meta name="description" content="开启SSH功能打开终端，我使用的是xshell，使用群晖的管理员账号和密码登录，登录成功后，可使用下面命令切换到root账号： 1sudo -i  之后输入密码（与管理员的密码相同） 下载bootstrap并安装：123wget http:&#x2F;&#x2F;ipkg.nslu2-linux.org&#x2F;feeds&#x2F;optware&#x2F;syno-i686&#x2F;cross&#x2F;unstable&#x2F;syno-i686-bootstra">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自建Emby验证服务器">
-<meta property="og:url" content="http://example.com/2023/05/29/%E8%87%AA%E5%BB%BAEmby%E9%AA%8C%E8%AF%81%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">
+<meta property="og:title" content="群晖系统Synology DSM安装ipkg包管理">
+<meta property="og:url" content="http://example.com/2023/05/29/%E7%BE%A4%E6%99%96%E7%B3%BB%E7%BB%9FSynology-DSM%E5%AE%89%E8%A3%85ipkg%E5%8C%85%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="ZhJy的随笔">
-<meta property="og:description" content="自建Emby验证服务器（实现白嫖）群晖默认自带nginx服务，通过增加nginx反代配置，实现将Emby的验证劫持到本地，骗过emby服务器，从而解锁硬解功能，实现视频播放硬件解码，降低服务器CPU压力。 注：我的Emby服务器是DOCKER部署。 1.配置nginx新建一个nginx配置文件，命名随意（例如emby.conf），在配置文件中写入下面的配置信息： 12345678910111213">
+<meta property="og:description" content="开启SSH功能打开终端，我使用的是xshell，使用群晖的管理员账号和密码登录，登录成功后，可使用下面命令切换到root账号： 1sudo -i  之后输入密码（与管理员的密码相同） 下载bootstrap并安装：123wget http:&#x2F;&#x2F;ipkg.nslu2-linux.org&#x2F;feeds&#x2F;optware&#x2F;syno-i686&#x2F;cross&#x2F;unstable&#x2F;syno-i686-bootstra">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292103557.webp">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292105504.webp">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292126065.webp">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292124432.webp">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292131273.webp">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292132905.webp">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292133083.webp">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292136890.webp">
-<meta property="article:published_time" content="2023-05-29T12:42:16.000Z">
-<meta property="article:modified_time" content="2023-05-29T13:41:09.750Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305270954319.png">
+<meta property="article:published_time" content="2023-05-29T13:47:11.000Z">
+<meta property="article:modified_time" content="2023-05-29T13:51:04.625Z">
 <meta property="article:author" content="ZhJy">
 <meta property="article:tag" content="群晖">
-<meta property="article:tag" content="分享">
-<meta property="article:tag" content="Emby">
+<meta property="article:tag" content="DSM">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292103557.webp">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305270954319.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>自建Emby验证服务器 - ZhJy的随笔</title>
+  <title>群晖系统Synology DSM安装ipkg包管理 - ZhJy的随笔</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -210,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="自建Emby验证服务器"></span>
+            <span id="subtitle" data-typed-text="群晖系统Synology DSM安装ipkg包管理"></span>
           
         </div>
 
@@ -221,7 +213,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-29 20:42" pubdate>
+        <time datetime="2023-05-29 21:47" pubdate>
           2023年5月29日 晚上
         </time>
       </span>
@@ -233,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.8k 字
+          1.8k 字
         
       </span>
     
@@ -244,7 +236,7 @@
         
         
         
-          24 分钟
+          15 分钟
         
       </span>
     
@@ -282,47 +274,35 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">自建Emby验证服务器</h1>
+            <h1 style="display: none">群晖系统Synology DSM安装ipkg包管理</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="自建Emby验证服务器（实现白嫖）"><a href="#自建Emby验证服务器（实现白嫖）" class="headerlink" title="自建Emby验证服务器（实现白嫖）"></a>自建Emby验证服务器（实现白嫖）</h1><p>群晖默认自带nginx服务，通过增加nginx反代配置，实现将Emby的验证劫持到本地，骗过emby服务器，从而解锁硬解功能，实现视频播放硬件解码，降低服务器CPU压力。</p>
-<p>注：我的Emby服务器是DOCKER部署。</p>
-<h3 id="1-配置nginx"><a href="#1-配置nginx" class="headerlink" title="1.配置nginx"></a>1.配置nginx</h3><p>新建一个nginx配置文件，命名随意（例如emby.conf），在配置文件中写入下面的配置信息：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs conf">server &#123;<br> listen 443 ssl;<br> server_name mb3admin.com;<br> ssl_certificate /volume6/web/mb3admin.com/mb3admin.com.cert.pem;<br> ssl_certificate_key /volume6/web/mb3admin.com/mb3admin.com.key.pem;<br> ssl_session_timeout 5m;<br> ssl_protocols TLSv1 TLSv1.1 TLSv1.2;<br> ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;<br> ssl_prefer_server_ciphers on;<br> location = /webdefault/images/logo.jpg &#123;<br> alias /usr/syno/share/nginx/logo.jpg;<br> &#125;<br><br> location @error_page &#123;<br> root /usr/syno/share/nginx;<br> rewrite (.*) /error.html break;<br> &#125;<br><br> location ^~ /.well-known/acme-challenge &#123;<br> root /var/lib/letsencrypt;<br> default_type text/plain;<br> &#125;<br><br> location / &#123;<br> rewrite ^ / redirect;<br> &#125;<br><br> location ~ ^/$ &#123;<br> rewrite / https://$host:5001/ redirect;<br> &#125;<br><br> add_header Access-Control-Allow-Origin *;<br> add_header Access-Control-Allow-Headers *;<br> add_header Access-Control-Allow-Method *;<br> add_header Access-Control-Allow-Credentials true;<br> location /admin/service/registration/validateDevice &#123;<br> default_type application/json;<br> return 200 &#x27;&#123;&quot;cacheExpirationDays&quot;: 7,&quot;message&quot;: &quot;Device Valid&quot;,&quot;resultCode&quot;: &quot;GOOD&quot;&#125;&#x27;;<br> &#125;<br><br> location /admin/service/registration/validate &#123;<br> default_type application/json;<br> return 200 &#x27;&#123;&quot;featId&quot;:&quot;&quot;,&quot;registered&quot;:true,&quot;expDate&quot;:&quot;2099-01-01&quot;,&quot;key&quot;:&quot;&quot;&#125;&#x27;;<br> &#125;<br><br> location /admin/service/registration/getStatus &#123;<br> default_type application/json;<br> return 200 &#x27;&#123;&quot;deviceStatus&quot;:&quot;&quot;,&quot;planType&quot;:&quot;&quot;,&quot;subscriptions&quot;:&#123;&#125;&#125;&#x27;;<br> &#125;<br> &#125;<br></code></pre></td></tr></table></figure>
+                <h2 id="开启SSH功能"><a href="#开启SSH功能" class="headerlink" title="开启SSH功能"></a>开启SSH功能</h2><p>打开终端，我使用的是xshell，使用群晖的管理员账号和密码登录，登录成功后，可使用下面命令切换到root账号：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo -i<br></code></pre></td></tr></table></figure>
 
-<p>将文件保存到指定位置，通过软链接到&#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;目录下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ln -s /volume/XX/XX/emby.conf /etc/nginx/conf.d/emby.conf<br></code></pre></td></tr></table></figure>
+<p>之后输入密码（与管理员的密码相同）</p>
+<h2 id="下载bootstrap并安装："><a href="#下载bootstrap并安装：" class="headerlink" title="下载bootstrap并安装："></a>下载bootstrap并安装：</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget http://ipkg.nslu2-linux.org/feeds/optware/syno-i686/cross/unstable/syno-i686-bootstrap_1.2-7_i686.xsh<br>chmod +x syno-i686-bootstrap_1.2-7_i686.xsh<br>sh syno-i686-bootstrap_1.2-7_i686.xsh<br></code></pre></td></tr></table></figure>
 
-<h3 id="2-申请证书"><a href="#2-申请证书" class="headerlink" title="2.申请证书"></a>2.申请证书</h3><p>到<a target="_blank" rel="noopener" href="https://www.gmcert.org/subForm">https://www.gmcert.org/subForm</a>这个网站申请申请签发证书，参考下面填写：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292103557.webp" srcset="/img/loading.gif" lazyload></p>
-<p>一个是加密算法选 RSA, 密钥长度至少选 2048, 然后除主题名称为<code>mb3admin.com</code>之外其他的按照规则随意填写。点开高级选项：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292105504.webp" srcset="/img/loading.gif" lazyload></p>
-<p>然后勾选 <code>自动包含CA证书链</code> ，最后是证书有效天数，写 <code>824</code> 天即可。下载生成的证书，同时也将CA证书下载起来：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292126065.webp" srcset="/img/loading.gif" lazyload></p>
-<p>将 <code>mb3admin.com.key.pem</code> 和 <code>mb3admin.com.cert.pem</code>文件上传到第一步配置文件中目录位置，我这里是&#x2F;volume6&#x2F;web&#x2F;mb3admin.com&#x2F;。</p>
-<h3 id="3-重启nginx服务"><a href="#3-重启nginx服务" class="headerlink" title="3.重启nginx服务"></a>3.重启nginx服务</h3><p>测试nginx配置文件是否正常</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nginx -t<br></code></pre></td></tr></table></figure>
+<p>终端返回：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs shell">Optware Bootstrap for syno-i686.<br>Extracting archive... please wait<br>bootstrap/<br>bootstrap/bootstrap.sh<br>bootstrap/ipkg-opt.ipk<br>bootstrap/ipkg.sh<br>1216+1 records in<br>1216+1 records out<br>bootstrap/optware-bootstrap.ipk<br>bootstrap/wget.ipk<br>249302 bytes (249 kB) copied, 0.00421063 s, 59.2 MB/s<br>Creating temporary ipkg repository...<br>Installing optware-bootstrap package...<br>Unpacking optware-bootstrap.ipk...Done.<br>Configuring optware-bootstrap.ipk...Modifying /etc/rc.local<br>Done.<br>Installing ipkg...<br>Unpacking ipkg-opt.ipk...Done.<br>Configuring ipkg-opt.ipk...Done.<br>Removing temporary ipkg repository...<br>Installing wget...<br>Installing wget (1.12-2) to root...<br>Configuring wget<br>Successfully terminated.<br>Creating /opt/etc/ipkg/cross-feed.conf...<br>Setup complete.<br></code></pre></td></tr></table></figure>
 
-<p>重载nginx配置文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nginx -s reload<br></code></pre></td></tr></table></figure>
+<p>安装完成，建议重启，不过我没重启也没问题，可以使用。 之后执行更新：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ipkg update<br></code></pre></td></tr></table></figure>
 
-<h3 id="4-将证书文件追加到Emby服务器"><a href="#4-将证书文件追加到Emby服务器" class="headerlink" title="4.将证书文件追加到Emby服务器"></a>4.将证书文件追加到Emby服务器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cat xx/mb3admin.com.cert.pem &gt;&gt; /etc/ssl/certs/ca-certificates.crt<br></code></pre></td></tr></table></figure>
+<p>如果执行ipkg失败，提示没有找到该命令（- ash : ipkg : command not found），需要添加一下环境变量：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/syno/sbin:/usr/syno/bin:/usr/local/sbin:/usr/local/bin</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-built_in">export</span> PATH</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="5-修改DNS或者HOSTS文件"><a href="#5-修改DNS或者HOSTS文件" class="headerlink" title="5.修改DNS或者HOSTS文件"></a>5.修改DNS或者HOSTS文件</h3><p>可以在本地电脑中修改HOSTS文件，将mb3admin.com指向群晖IP地址，也可以直接在路由器中直接进行域名劫持，将mb3admin.com指向群晖IP</p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292124432.webp" srcset="/img/loading.gif" lazyload></p>
-<h3 id="6-浏览器添加CA证书"><a href="#6-浏览器添加CA证书" class="headerlink" title="6.浏览器添加CA证书"></a>6.浏览器添加CA证书</h3><p>将CA证书添加到本地电脑：</p>
-<p>将GMCert_RSACA01.cert.pem 文件名改为GMCert_RSACA01.cer，双击安装</p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292131273.webp" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292132905.webp" srcset="/img/loading.gif" lazyload></p>
-<p>然后在浏览器中打开下面两个浏览器，验证是否成功：</p>
-<p><a target="_blank" rel="noopener" href="https://mb3admin.com/admin/service/registration/validateDevice">https://mb3admin.com/admin/service/registration/validateDevice</a></p>
-<p><a target="_blank" rel="noopener" href="https://mb3admin.com/admin/service/registration/validateDevice/666">https://mb3admin.com/admin/service/registration/validateDevice/666</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292133083.webp" srcset="/img/loading.gif" lazyload></p>
-<h3 id="7-在Emby服务器中输入秘钥"><a href="#7-在Emby服务器中输入秘钥" class="headerlink" title="7.在Emby服务器中输入秘钥"></a>7.在Emby服务器中输入秘钥</h3><p>管理Emby Server-Emby Premiere中随便输入一个秘钥，见证奇迹：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292136890.webp" srcset="/img/loading.gif" lazyload></p>
-<p>结束！</p>
+<p>我们来安装个Screen试一下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">root@DiskStation:~# ipkg install screen<br>Installing screen (4.0.3-2) to root...<br>Downloading http://ipkg.nslu2-linux.org/feeds/optware/syno-i686/cross/unstable/screen_4.0.3-2_i686.ipk<br>Installing termcap (1.3.1-2) to root...<br>Downloading http://ipkg.nslu2-linux.org/feeds/optware/syno-i686/cross/unstable/t ermcap_1.3.1-2_i686.ipk<br>Configuring screen<br>Configuring termcap<br>Successfully terminated.<br></code></pre></td></tr></table></figure>
+
+<p>没问题。</p>
+<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">rm syno-i686-bootstrap_1.2-7_i686.xsh<br></code></pre></td></tr></table></figure>
+
+<h2 id="安装后wget版本降低问题处理"><a href="#安装后wget版本降低问题处理" class="headerlink" title="安装后wget版本降低问题处理"></a>安装后wget版本降低问题处理</h2><p>安装了包管理后，wget版本好像变降低了，无法从有些https网站下载文件，只要将原有的wget链接到&#x2F;opt&#x2F;bin目录下即可</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ln -s /usr/bin/wget /opt/bin/wget<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -341,7 +321,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%88%86%E4%BA%AB/" class="category-chain-item">分享</a>
+  <a href="/categories/%E7%BE%A4%E6%99%96/" class="category-chain-item">群晖</a>
   
   
 
@@ -358,9 +338,7 @@
       
         <a href="/tags/%E7%BE%A4%E6%99%96/">#群晖</a>
       
-        <a href="/tags/%E5%88%86%E4%BA%AB/">#分享</a>
-      
-        <a href="/tags/Emby/">#Emby</a>
+        <a href="/tags/DSM/">#DSM</a>
       
     </div>
   
@@ -372,8 +350,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>自建Emby验证服务器</div>
-      <div>http://example.com/2023/05/29/自建Emby验证服务器/</div>
+      <div>群晖系统Synology DSM安装ipkg包管理</div>
+      <div>http://example.com/2023/05/29/群晖系统Synology-DSM安装ipkg包管理/</div>
     </div>
     <div class="license-meta">
       
@@ -417,18 +395,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/05/29/%E7%BE%A4%E6%99%96%E7%B3%BB%E7%BB%9FSynology-DSM%E5%AE%89%E8%A3%85ipkg%E5%8C%85%E7%AE%A1%E7%90%86/" title="群晖系统Synology DSM安装ipkg包管理">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">群晖系统Synology DSM安装ipkg包管理</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/28/%E5%9F%BA%E4%BA%8Efluid%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="基于fluid主题的hexo博客搭建">
-                        <span class="hidden-mobile">基于fluid主题的hexo博客搭建</span>
+                      <a href="/2023/05/29/%E8%87%AA%E5%BB%BAEmby%E9%AA%8C%E8%AF%81%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="自建Emby验证服务器">
+                        <span class="hidden-mobile">自建Emby验证服务器</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
