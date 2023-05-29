@@ -188,7 +188,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="👻 来了大爷，向下看 👇🏻"></span>
+            <span id="subtitle" data-typed-text="👻 来了大爷，看下来看下来 👇🏻"></span>
           
         </div>
 
@@ -219,67 +219,6 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/05/28/%E5%88%A9%E7%94%A8%E7%BE%A4%E6%99%96%E8%87%AA%E5%B8%A6%E7%9A%84-Nginx-%E5%81%9A%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0Aria2-Https%E8%AE%BF%E9%97%AE/" target="_self">
-          利用群晖自带的 Nginx 做反向代理实现Aria2 Https访问
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/05/28/%E5%88%A9%E7%94%A8%E7%BE%A4%E6%99%96%E8%87%AA%E5%B8%A6%E7%9A%84-Nginx-%E5%81%9A%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0Aria2-Https%E8%AE%BF%E9%97%AE/" target="_self">
-        <div>
-          前记给Aria2服务器所用的SSL证书往往不支持Aria2所使用的6800端口，为此就需要用Nginx来实现同时提供HTTP和Aria2 JSONRPC服务了。但是群晖 UI 界面的反代没有办法编辑配置。 解决思路想到的解决方案有两个，第一是通过 Docker 再装一个 Nginx 来做反代，第二是通过群晖自身的 Nginx 来做反代；最后选择了通过自身 Nginx 来做反代 Nginx配置/us
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-05-28 22:33" pubdate>
-              2023-05-28
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%BE%A4%E6%99%96/" class="category-chain-item">群晖</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%BE%A4%E6%99%96/">#群晖</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
 
   <div class="row mx-auto index-card">
     
@@ -557,13 +496,267 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2023/05/28/hello-world/" target="_self">
+        <a href="/2022/10/29/%E8%87%AA%E5%BB%BAEmby%E9%AA%8C%E8%AF%81%E6%9C%8D%E5%8A%A1%E5%99%A8/" target="_self">
+          自建Emby验证服务器
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/10/29/%E8%87%AA%E5%BB%BAEmby%E9%AA%8C%E8%AF%81%E6%9C%8D%E5%8A%A1%E5%99%A8/" target="_self">
+        <div>
+          自建Emby验证服务器（实现白嫖）群晖默认自带nginx服务，通过增加nginx反代配置，实现将Emby的验证劫持到本地，骗过emby服务器，从而解锁硬解功能，实现视频播放硬件解码，降低服务器CPU压力。 注：我的Emby服务器是DOCKER部署。 1.配置nginx新建一个nginx配置文件，命名随意（例如emby.conf），在配置文件中写入下面的配置信息： 12345678910111213
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-10-29 20:42" pubdate>
+              2022-10-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%88%86%E4%BA%AB/" class="category-chain-item">分享</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%BE%A4%E6%99%96/">#群晖</a>
+            
+              <a href="/tags/%E5%88%86%E4%BA%AB/">#分享</a>
+            
+              <a href="/tags/Emby/">#Emby</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/10/28/%E5%88%A9%E7%94%A8%E7%BE%A4%E6%99%96%E8%87%AA%E5%B8%A6%E7%9A%84-Nginx-%E5%81%9A%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0Aria2-Https%E8%AE%BF%E9%97%AE/" target="_self">
+          利用群晖自带的 Nginx 做反向代理实现Aria2 Https访问
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/10/28/%E5%88%A9%E7%94%A8%E7%BE%A4%E6%99%96%E8%87%AA%E5%B8%A6%E7%9A%84-Nginx-%E5%81%9A%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0Aria2-Https%E8%AE%BF%E9%97%AE/" target="_self">
+        <div>
+          前记给Aria2服务器所用的SSL证书往往不支持Aria2所使用的6800端口，为此就需要用Nginx来实现同时提供HTTP和Aria2 JSONRPC服务了。但是群晖 UI 界面的反代没有办法编辑配置。 解决思路想到的解决方案有两个，第一是通过 Docker 再装一个 Nginx 来做反代，第二是通过群晖自身的 Nginx 来做反代；最后选择了通过自身 Nginx 来做反代 Nginx配置/us
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-10-28 22:33" pubdate>
+              2022-10-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BE%A4%E6%99%96/" class="category-chain-item">群晖</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%BE%A4%E6%99%96/">#群晖</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/07/29/Windows%E5%B9%B3%E5%8F%B0%E5%8F%8C%E7%BD%91%E5%8D%A1%E6%B7%BB%E5%8A%A0%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1/" target="_self">
+          Windows平台双网卡添加静态路由
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/07/29/Windows%E5%B9%B3%E5%8F%B0%E5%8F%8C%E7%BD%91%E5%8D%A1%E6%B7%BB%E5%8A%A0%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1/" target="_self">
+        <div>
+          双网卡下添加静态路由系统平台： WIN10 情况描述： 电脑上安装了2个网卡，一个连接外网（自动分配IP，路由地址为192.168.0.x）， 一个连接内网（网卡静态IP为10.10.130.130，网关10.10.130.254，子网掩码255.255.255.0，内网网段10.37.0.0） 任务目标： 按需访问内外网 操作方法： 用管理员权限打开CMD,  删除默认路由：输入 route d
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-29 20:36" pubdate>
+              2022-07-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%88%86%E4%BA%AB/" class="category-chain-item">分享</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%88%86%E4%BA%AB/">#分享</a>
+            
+              <a href="/tags/Windwos/">#Windwos</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/05/29/Linux-Shell%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/" target="_self">
+          Linux Shell文本处理工具介绍
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/05/29/Linux-Shell%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/" target="_self">
+        <div>
+          搞定 Linux Shell 文本处理工具，看完这篇还不够~Linux Shell是一种基本功，由于怪异的语法加之较差的可读性，通常被Python等脚本代替。既然是基本功，那就需要掌握，毕竟学习Shell脚本的过程中，还是能了解到很多Linux系统的内容。 Linux 脚本大师不是人人都可以达到的，但是用一些简单的Shell实现一些常见的基本功能还是很有必要的。 下面我介绍 Linux 下使用 S
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-05-29 20:16" pubdate>
+              2022-05-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%88%86%E4%BA%AB/" class="category-chain-item">分享</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%88%86%E4%BA%AB/">#分享</a>
+            
+              <a href="/tags/Linux/">#Linux</a>
+            
+              <a href="/tags/Shell/">#Shell</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/1977/01/01/hello-world/" target="_self">
           Hello World
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/05/28/hello-world/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/1977/01/01/hello-world/" target="_self">
         <div>
           Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick
         </div>
@@ -573,8 +766,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-05-28 08:01" pubdate>
-              2023-05-28
+            <time datetime="1977-01-01 20:16" pubdate>
+              1977-01-01
             </time>
           </div>
         

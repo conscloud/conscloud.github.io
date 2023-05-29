@@ -16,27 +16,35 @@
   <meta name="author" content="ZhJy">
   <meta name="keywords" content="">
   
-    <meta name="description" content="现象：系统版本DSM7.1，当选择启用防火墙时，编辑规则会报“无法加载配置文件数据”，也无法在防火墙配置规则中进行下拉选择。 启用SSH服务登录到群晖后台如果不知道如何开启SSH服务，请参考：群晖开启SSH及免密码登录配置 - ZhJy的随笔 修复防火墙配置文件 分别查看&#x2F;usr&#x2F;syno&#x2F;etc&#x2F;firewall.d&#x2F;及&#x2F;usr&#x2F;syno&#x2F;etc.defaults&#x2F;firewall.d两个目录">
+    <meta name="description" content="自建Emby验证服务器（实现白嫖）群晖默认自带nginx服务，通过增加nginx反代配置，实现将Emby的验证劫持到本地，骗过emby服务器，从而解锁硬解功能，实现视频播放硬件解码，降低服务器CPU压力。 注：我的Emby服务器是DOCKER部署。 1.配置nginx新建一个nginx配置文件，命名随意（例如emby.conf），在配置文件中写入下面的配置信息： 12345678910111213">
 <meta property="og:type" content="article">
-<meta property="og:title" content="群晖无法启用防火墙问题修复">
-<meta property="og:url" content="http://example.com/2023/05/28/%E7%BE%A4%E6%99%96%E6%97%A0%E6%B3%95%E5%90%AF%E7%94%A8%E9%98%B2%E7%81%AB%E5%A2%99%E9%97%AE%E9%A2%98%E4%BF%AE%E5%A4%8D/index.html">
+<meta property="og:title" content="自建Emby验证服务器">
+<meta property="og:url" content="http://example.com/2022/10/29/%E8%87%AA%E5%BB%BAEmby%E9%AA%8C%E8%AF%81%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">
 <meta property="og:site_name" content="ZhJy的随笔">
-<meta property="og:description" content="现象：系统版本DSM7.1，当选择启用防火墙时，编辑规则会报“无法加载配置文件数据”，也无法在防火墙配置规则中进行下拉选择。 启用SSH服务登录到群晖后台如果不知道如何开启SSH服务，请参考：群晖开启SSH及免密码登录配置 - ZhJy的随笔 修复防火墙配置文件 分别查看&#x2F;usr&#x2F;syno&#x2F;etc&#x2F;firewall.d&#x2F;及&#x2F;usr&#x2F;syno&#x2F;etc.defaults&#x2F;firewall.d两个目录">
+<meta property="og:description" content="自建Emby验证服务器（实现白嫖）群晖默认自带nginx服务，通过增加nginx反代配置，实现将Emby的验证劫持到本地，骗过emby服务器，从而解锁硬解功能，实现视频播放硬件解码，降低服务器CPU压力。 注：我的Emby服务器是DOCKER部署。 1.配置nginx新建一个nginx配置文件，命名随意（例如emby.conf），在配置文件中写入下面的配置信息： 12345678910111213">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305270917016.png">
-<meta property="article:published_time" content="2023-05-28T09:25:57.000Z">
-<meta property="article:modified_time" content="2023-05-29T06:52:16.654Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292103557.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292105504.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292126065.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292124432.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292131273.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292132905.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292133083.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292136890.webp">
+<meta property="article:published_time" content="2022-10-29T12:42:16.000Z">
+<meta property="article:modified_time" content="2023-05-29T13:39:11.146Z">
 <meta property="article:author" content="ZhJy">
 <meta property="article:tag" content="群晖">
-<meta property="article:tag" content="DSM">
+<meta property="article:tag" content="分享">
+<meta property="article:tag" content="Emby">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305270917016.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292103557.webp">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>群晖无法启用防火墙问题修复 - ZhJy的随笔</title>
+  <title>自建Emby验证服务器 - ZhJy的随笔</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +210,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="群晖无法启用防火墙问题修复"></span>
+            <span id="subtitle" data-typed-text="自建Emby验证服务器"></span>
           
         </div>
 
@@ -213,8 +221,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-28 17:25" pubdate>
-          2023年5月28日 下午
+        <time datetime="2022-10-29 20:42" pubdate>
+          2022年10月29日 晚上
         </time>
       </span>
     
@@ -225,7 +233,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          595 字
+          2.8k 字
         
       </span>
     
@@ -236,7 +244,7 @@
         
         
         
-          5 分钟
+          24 分钟
         
       </span>
     
@@ -274,26 +282,47 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">群晖无法启用防火墙问题修复</h1>
+            <h1 style="display: none">自建Emby验证服务器</h1>
             
             
               <div class="markdown-body">
                 
-                <p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305241504372.png" srcset="/img/loading.gif" lazyload></p>
-<p><strong>现象</strong>：系统版本DSM7.1，当选择启用防火墙时，编辑规则会报“无法加载配置文件数据”，也无法在防火墙配置规则中进行下拉选择。</p>
-<h3 id="启用SSH服务登录到群晖后台"><a href="#启用SSH服务登录到群晖后台" class="headerlink" title="启用SSH服务登录到群晖后台"></a>启用SSH服务登录到群晖后台</h3><p>如果不知道如何开启SSH服务，请参考：<a target="_blank" rel="noopener" href="https://www.okko.tk/2023/05/28/%E7%BE%A4%E6%99%96%E5%BC%80%E5%90%AFSSH%E5%8F%8A%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%E9%85%8D%E7%BD%AE">群晖开启SSH及免密码登录配置 - ZhJy的随笔</a></p>
-<h3 id="修复防火墙配置文件"><a href="#修复防火墙配置文件" class="headerlink" title="修复防火墙配置文件"></a>修复防火墙配置文件</h3><ol>
-<li>分别查看<code>/usr/syno/etc/firewall.d/</code>及<code>/usr/syno/etc.defaults/firewall.d</code>两个目录下是否至少有三个json文件，我这分别为1.json、2.json及firewall_settings.json三个文件</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305271047706.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305271048888.png" srcset="/img/loading.gif" lazyload></p>
-<ol>
-<li>使用cat命令分别查看1.json及2.json文件内容是否为空，或者json格式不正确，我这里是在&#x2F;usr&#x2F;syno&#x2F;etc&#x2F;firewall.d&#x2F;这个目录下的两个数字开头的文件内容为空，而etc.defaults&#x2F;firewall.d&#x2F;下面同名的文件是有内容的。</li>
-<li>将&#x2F;usr&#x2F;syno&#x2F;etc.defaults&#x2F;firewall.d&#x2F;下的1.json、2.json复制到&#x2F;usr&#x2F;syno&#x2F;etc&#x2F;firewall.d&#x2F;目录下。</li>
-<li>回到页面验证，现在已经可以开户防火墙，并配置相关规则了</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305271055709.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><p>That is all!</p>
+                <h1 id="自建Emby验证服务器（实现白嫖）"><a href="#自建Emby验证服务器（实现白嫖）" class="headerlink" title="自建Emby验证服务器（实现白嫖）"></a>自建Emby验证服务器（实现白嫖）</h1><p>群晖默认自带nginx服务，通过增加nginx反代配置，实现将Emby的验证劫持到本地，骗过emby服务器，从而解锁硬解功能，实现视频播放硬件解码，降低服务器CPU压力。</p>
+<p>注：我的Emby服务器是DOCKER部署。</p>
+<h3 id="1-配置nginx"><a href="#1-配置nginx" class="headerlink" title="1.配置nginx"></a>1.配置nginx</h3><p>新建一个nginx配置文件，命名随意（例如emby.conf），在配置文件中写入下面的配置信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs conf">server &#123;<br> listen 443 ssl;<br> server_name mb3admin.com;<br> ssl_certificate /volume6/web/mb3admin.com/mb3admin.com.cert.pem;<br> ssl_certificate_key /volume6/web/mb3admin.com/mb3admin.com.key.pem;<br> ssl_session_timeout 5m;<br> ssl_protocols TLSv1 TLSv1.1 TLSv1.2;<br> ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;<br> ssl_prefer_server_ciphers on;<br> location = /webdefault/images/logo.jpg &#123;<br> alias /usr/syno/share/nginx/logo.jpg;<br> &#125;<br><br> location @error_page &#123;<br> root /usr/syno/share/nginx;<br> rewrite (.*) /error.html break;<br> &#125;<br><br> location ^~ /.well-known/acme-challenge &#123;<br> root /var/lib/letsencrypt;<br> default_type text/plain;<br> &#125;<br><br> location / &#123;<br> rewrite ^ / redirect;<br> &#125;<br><br> location ~ ^/$ &#123;<br> rewrite / https://$host:5001/ redirect;<br> &#125;<br><br> add_header Access-Control-Allow-Origin *;<br> add_header Access-Control-Allow-Headers *;<br> add_header Access-Control-Allow-Method *;<br> add_header Access-Control-Allow-Credentials true;<br> location /admin/service/registration/validateDevice &#123;<br> default_type application/json;<br> return 200 &#x27;&#123;&quot;cacheExpirationDays&quot;: 7,&quot;message&quot;: &quot;Device Valid&quot;,&quot;resultCode&quot;: &quot;GOOD&quot;&#125;&#x27;;<br> &#125;<br><br> location /admin/service/registration/validate &#123;<br> default_type application/json;<br> return 200 &#x27;&#123;&quot;featId&quot;:&quot;&quot;,&quot;registered&quot;:true,&quot;expDate&quot;:&quot;2099-01-01&quot;,&quot;key&quot;:&quot;&quot;&#125;&#x27;;<br> &#125;<br><br> location /admin/service/registration/getStatus &#123;<br> default_type application/json;<br> return 200 &#x27;&#123;&quot;deviceStatus&quot;:&quot;&quot;,&quot;planType&quot;:&quot;&quot;,&quot;subscriptions&quot;:&#123;&#125;&#125;&#x27;;<br> &#125;<br> &#125;<br></code></pre></td></tr></table></figure>
+
+<p>将文件保存到指定位置，通过软链接到&#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;目录下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ln -s /volume/XX/XX/emby.conf /etc/nginx/conf.d/emby.conf<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-申请证书"><a href="#2-申请证书" class="headerlink" title="2.申请证书"></a>2.申请证书</h3><p>到<a target="_blank" rel="noopener" href="https://www.gmcert.org/subForm">https://www.gmcert.org/subForm</a>这个网站申请申请签发证书，参考下面填写：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292103557.webp" srcset="/img/loading.gif" lazyload></p>
+<p>一个是加密算法选 RSA, 密钥长度至少选 2048, 然后除主题名称为<code>mb3admin.com</code>之外其他的按照规则随意填写。点开高级选项：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292105504.webp" srcset="/img/loading.gif" lazyload></p>
+<p>然后勾选 <code>自动包含CA证书链</code> ，最后是证书有效天数，写 <code>824</code> 天即可。下载生成的证书，同时也将CA证书下载起来：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292126065.webp" srcset="/img/loading.gif" lazyload></p>
+<p>将 <code>mb3admin.com.key.pem</code> 和 <code>mb3admin.com.cert.pem</code>文件上传到第一步配置文件中目录位置，我这里是&#x2F;volume6&#x2F;web&#x2F;mb3admin.com&#x2F;。</p>
+<h3 id="3-重启nginx服务"><a href="#3-重启nginx服务" class="headerlink" title="3.重启nginx服务"></a>3.重启nginx服务</h3><p>测试nginx配置文件是否正常</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nginx -t<br></code></pre></td></tr></table></figure>
+
+<p>重载nginx配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nginx -s reload<br></code></pre></td></tr></table></figure>
+
+<h4 id="4-将证书文件追加到Emby服务器"><a href="#4-将证书文件追加到Emby服务器" class="headerlink" title="4.将证书文件追加到Emby服务器"></a>4.将证书文件追加到Emby服务器</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cat xx/mb3admin.com.cert.pem &gt;&gt; /etc/ssl/certs/ca-certificates.crt<br></code></pre></td></tr></table></figure>
+
+<h4 id="5-修改DNS或者HOSTS文件"><a href="#5-修改DNS或者HOSTS文件" class="headerlink" title="5.修改DNS或者HOSTS文件"></a>5.修改DNS或者HOSTS文件</h4><p>可以在本地电脑中修改HOSTS文件，将mb3admin.com指向群晖IP地址，也可以直接在路由器中直接进行域名劫持，将mb3admin.com指向群晖IP</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292124432.webp" srcset="/img/loading.gif" lazyload></p>
+<h4 id="6-浏览器添加CA证书"><a href="#6-浏览器添加CA证书" class="headerlink" title="6.浏览器添加CA证书"></a>6.浏览器添加CA证书</h4><p>将CA证书添加到本地电脑：</p>
+<p>将GMCert_RSACA01.cert.pem 文件名改为GMCert_RSACA01.cer，双击安装</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292131273.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292132905.webp" srcset="/img/loading.gif" lazyload></p>
+<p>然后在浏览器中打开下面两个浏览器，验证是否成功：</p>
+<p><a target="_blank" rel="noopener" href="https://mb3admin.com/admin/service/registration/validateDevice">https://mb3admin.com/admin/service/registration/validateDevice</a></p>
+<p><a target="_blank" rel="noopener" href="https://mb3admin.com/admin/service/registration/validateDevice/666">https://mb3admin.com/admin/service/registration/validateDevice/666</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292133083.webp" srcset="/img/loading.gif" lazyload></p>
+<h4 id="7-在Emby服务器中输入秘钥"><a href="#7-在Emby服务器中输入秘钥" class="headerlink" title="7.在Emby服务器中输入秘钥"></a>7.在Emby服务器中输入秘钥</h4><p>管理Emby Server-Emby Premiere中随便输入一个秘钥，见证奇迹：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305292136890.webp" srcset="/img/loading.gif" lazyload></p>
+<p>结束！</p>
 
                 
               </div>
@@ -312,7 +341,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%BE%A4%E6%99%96/" class="category-chain-item">群晖</a>
+  <a href="/categories/%E5%88%86%E4%BA%AB/" class="category-chain-item">分享</a>
   
   
 
@@ -329,7 +358,9 @@
       
         <a href="/tags/%E7%BE%A4%E6%99%96/">#群晖</a>
       
-        <a href="/tags/DSM/">#DSM</a>
+        <a href="/tags/%E5%88%86%E4%BA%AB/">#分享</a>
+      
+        <a href="/tags/Emby/">#Emby</a>
       
     </div>
   
@@ -341,8 +372,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>群晖无法启用防火墙问题修复</div>
-      <div>http://example.com/2023/05/28/群晖无法启用防火墙问题修复/</div>
+      <div>自建Emby验证服务器</div>
+      <div>http://example.com/2022/10/29/自建Emby验证服务器/</div>
     </div>
     <div class="license-meta">
       
@@ -354,7 +385,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月28日</div>
+          <div>2022年10月29日</div>
         </div>
       
       
@@ -386,9 +417,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/05/28/%E5%9F%BA%E4%BA%8Efluid%E4%B8%BB%E9%A2%98%E7%9A%84hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="基于fluid主题的hexo博客搭建">
+                      <a href="/2023/05/28/Openwrt%E7%8A%B6%E6%80%81%E4%BF%A1%E6%81%AF%E6%8E%A8%E9%80%81%E5%88%B0HA%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/" title="Openwrt状态信息推送到HA的两种实现方法">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">基于fluid主题的hexo博客搭建</span>
+                        <span class="hidden-mobile">Openwrt状态信息推送到HA的两种实现方法</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -396,8 +427,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/28/%E7%BE%A4%E6%99%96%E5%BC%80%E5%90%AFSSH%E5%8F%8A%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%E9%85%8D%E7%BD%AE/" title="群晖开启SSH及免密码登录配置">
-                        <span class="hidden-mobile">群晖开启SSH及免密码登录配置</span>
+                      <a href="/2022/10/28/%E5%88%A9%E7%94%A8%E7%BE%A4%E6%99%96%E8%87%AA%E5%B8%A6%E7%9A%84-Nginx-%E5%81%9A%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0Aria2-Https%E8%AE%BF%E9%97%AE/" title="利用群晖自带的 Nginx 做反向代理实现Aria2 Https访问">
+                        <span class="hidden-mobile">利用群晖自带的 Nginx 做反向代理实现Aria2 Https访问</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
