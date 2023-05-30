@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>黑群晖918+ CPU不自动变频</title>
+    <link href="/2023/05/30/%E9%BB%91%E7%BE%A4%E6%99%96CPU%E4%B8%8D%E8%87%AA%E5%8A%A8%E5%8F%98%E9%A2%91/"/>
+    <url>/2023/05/30/%E9%BB%91%E7%BE%A4%E6%99%96CPU%E4%B8%8D%E8%87%AA%E5%8A%A8%E5%8F%98%E9%A2%91/</url>
+    
+    <content type="html"><![CDATA[<p><strong>硬件配置：</strong></p><ul><li>CPU：i3-8100</li><li>主板：昂达B365SD4-ITX</li><li>内存：12G</li></ul><p><strong>系统版本：</strong>918+ 7.1.1-42962</p><p>安装黑群晖系统后，发现CPU一直处于最高频率在运行，不会自动变频，并且available cpufreq governors只有<code>powersave</code>,<code>performance</code>, <code>userspace</code>这三个，而不通常的performance 、power save 、user<em>space</em>、conservative 和 ondemand 五种。</p><p>偶然的机会在<a href="https://xpenology.com/forum/topic/19846-cpu-frequency-scaling-for-ds918/">CPU Frequency scaling for DS918+ - Software Modding - XPEnology Community</a>看到了解决方案。</p><blockquote><p>项目地址：<a href="https://github.com/Trauma/cpufreq-userspace-scaler">https://github.com/Trauma/cpufreq-userspace-scaler</a></p><h1 id="cpufreq-userspace-scaler"><a href="#cpufreq-userspace-scaler" class="headerlink" title="cpufreq-userspace-scaler"></a>cpufreq-userspace-scaler</h1><h5 id="Cpu-frequency-scaling-script-for-cpufreq-userspace-governor"><a href="#Cpu-frequency-scaling-script-for-cpufreq-userspace-governor" class="headerlink" title="Cpu frequency scaling script for cpufreq userspace governor"></a>Cpu frequency scaling script for cpufreq userspace governor</h5><h2 id="If-you’re-missing-ondemand-or-conservative-governors-this-script-is-for-you"><a href="#If-you’re-missing-ondemand-or-conservative-governors-this-script-is-for-you" class="headerlink" title="If you’re missing ondemand or conservative governors, this script is for you."></a>If you’re missing ondemand or conservative governors, this script is for you.</h2><p>This script is scaling cpu frequency according to current average load. You can set 2 frequency steps : low, mid. This 2 thresholds will automatically set cpu frequency accordingly :</p><ul><li>the threshold will set the cpu to his minimal frequency, unless you force it to <code>lowload</code> <code>scalingminfreq</code></li><li>the threshold will set the cpu to approximate mid range cpu frequency, if load goes higher it will scale to max <code>midload</code> <code>scalingmaxfreq</code></li></ul><p>If you set and&#x2F;or the cpu will never override those values.<code>scalingmaxfreq</code> <code>scalingminfreq</code></p><h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage :"></a>Usage :</h3><h3 id="Parameters"><a href="#Parameters" class="headerlink" title="Parameters :"></a>Parameters :</h3><table><thead><tr><th>Variable name</th><th>Default</th><th>Type</th><th>Comments</th></tr></thead><tbody><tr><td>lowload</td><td>auto &#x2F; 30%</td><td>integer between 000 and 999</td><td>050 &#x3D; load average : 0.50</td></tr><tr><td>midload</td><td>auto &#x2F; 60%</td><td>integer between 000 and 999</td><td>065 &#x3D; load average : 0.65</td></tr><tr><td>scalingminfreq</td><td>auto</td><td>integer in hertz</td><td>800000 &#x3D; 800 Mhz</td></tr><tr><td>scalingmaxfreq</td><td>auto</td><td>integer in hertz</td><td>2500000 &#x3D; 2,5 Ghz</td></tr></tbody></table><h3 id="Default-commande-line"><a href="#Default-commande-line" class="headerlink" title="Default commande line :"></a>Default commande line :</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">&gt;</span><span class="language-bash">./scaling.sh &amp;</span><br></code></pre></td></tr></table></figure><h3 id="Custom-command-line-example"><a href="#Custom-command-line-example" class="headerlink" title="Custom command line example :"></a>Custom command line example :</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">&gt;<span class="hljs-attribute">lowload</span>=100 <span class="hljs-attribute">midload</span>=200 <span class="hljs-attribute">scalingmaxfreq</span>=2000000 <span class="hljs-attribute">scalingminfreq</span>=1500000 ./scaling.sh &amp;<br></code></pre></td></tr></table></figure><h3 id="Systemd-service-installer"><a href="#Systemd-service-installer" class="headerlink" title="Systemd service installer"></a>Systemd service installer</h3><p><em>for DSM 7.0 and above</em></p><ol><li>If needed, set desired lowload and midload values in <code>cpufreq-userspace-scaler.service</code></li><li>Launch the installer <code>./install.sh</code></li></ol></blockquote><p>使用方法：</p><p>1、将上述项目中的三个文件下载到群晖里</p><p>2、SSH登录到服务器</p><p>3、执行.&#x2F;install.sh</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>群晖</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>群晖</tag>
+      
+      <tag>分享</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>黑群晖引导自动编译</title>
     <link href="/2023/05/30/%E9%BB%91%E7%BE%A4%E6%99%96%E5%BC%95%E5%AF%BC%E8%87%AA%E5%8A%A8%E7%BC%96%E8%AF%91/"/>
     <url>/2023/05/30/%E9%BB%91%E7%BE%A4%E6%99%96%E5%BC%95%E5%AF%BC%E8%87%AA%E5%8A%A8%E7%BC%96%E8%AF%91/</url>
@@ -51,9 +78,9 @@
     
     <tags>
       
-      <tag>教程</tag>
-      
       <tag>群晖</tag>
+      
+      <tag>教程</tag>
       
     </tags>
     
