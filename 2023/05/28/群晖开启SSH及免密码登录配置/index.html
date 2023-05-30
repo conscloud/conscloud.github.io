@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305300820463.webp">
 <meta property="article:published_time" content="2023-05-28T09:22:32.000Z">
-<meta property="article:modified_time" content="2023-05-30T00:21:16.814Z">
+<meta property="article:modified_time" content="2023-05-30T01:57:00.368Z">
 <meta property="article:author" content="ZhJy">
 <meta property="article:tag" content="群晖">
 <meta property="article:tag" content="DSM">
@@ -282,12 +282,12 @@
                 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305300820463.webp" srcset="/img/loading.gif" lazyload></p>
 <p>群晖开启root账户免密登录与linux服务器的操作大致相同。 </p>
 <p>我的群晖DSM版本是7.1.1</p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305270925295.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305300956813.webp" srcset="/img/loading.gif" lazyload></p>
 <h3 id="1-开启SSH服务"><a href="#1-开启SSH服务" class="headerlink" title="1.开启SSH服务"></a>1.开启SSH服务</h3><p>群晖从7开始默认关闭了“admin”账户，并禁用最大权限的系统账户“root”登录网页控制台。</p>
 <p>先使用群晖安装时建立的普通管理员账户（加入了administrators用户组的用户）登录web控制台后，依次点击“控制面板”-“终端机和SNMP”，勾选“启用SSH功能”，再点击右下角的“应用”按钮即完成开启SSH服务。<strong>建议修改默认端口号。</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305270928199.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305300956733.webp" srcset="/img/loading.gif" lazyload></p>
 <h3 id="2-允许ROOT账号登录"><a href="#2-允许ROOT账号登录" class="headerlink" title="2.允许ROOT账号登录"></a>2.允许ROOT账号登录</h3><p>通过普通管理员账户进行ssh登录，输入sudo - i 回车后再次输入管理员密码，就能切换到root账户。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305270932547.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305300954437.webp" srcset="/img/loading.gif" lazyload></p>
 <p>给root账户设置密码,其中xxx为你想要设置的密码。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">synouser --setpw root xxx<br></code></pre></td></tr></table></figure>
 

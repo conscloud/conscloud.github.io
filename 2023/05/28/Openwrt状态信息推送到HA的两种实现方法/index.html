@@ -23,14 +23,14 @@
 <meta property="og:site_name" content="ZhJy的随笔">
 <meta property="og:description" content="家里目前使用x86平台软路由作为主路由拨号，在群晖vmm虚拟机中安装了HAOS智能家居系统，HA中基于upnp的集成组件对路由器的监控项目不是很全，因此想将一些路由器的状态信息接入到HA中进行实时监控展示。这里介绍两种方法： 一、通过http模式推送1、在进入HA系统-用户-长期访问令牌-创建令牌，新建一个长期访问令牌 2、写一个shell脚本openwrt_post.sh，获取路由器的状态信息">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305272159687.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305300953810.webp">
 <meta property="article:published_time" content="2023-05-28T06:55:27.000Z">
-<meta property="article:modified_time" content="2023-05-28T14:28:22.553Z">
+<meta property="article:modified_time" content="2023-05-30T01:53:48.099Z">
 <meta property="article:author" content="ZhJy">
 <meta property="article:tag" content="openwrt">
 <meta property="article:tag" content="HomeAssistant">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305272159687.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305300953810.webp">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -279,7 +279,7 @@
             
               <div class="markdown-body">
                 
-                <p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305272159687.png" srcset="/img/loading.gif" lazyload></p>
+                <p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305300953810.webp" srcset="/img/loading.gif" lazyload></p>
 <p>家里目前使用x86平台软路由作为主路由拨号，在群晖vmm虚拟机中安装了HAOS智能家居系统，HA中基于upnp的集成组件对路由器的监控项目不是很全，因此想将一些路由器的状态信息接入到HA中进行实时监控展示。这里介绍两种方法：</p>
 <h3 id="一、通过http模式推送"><a href="#一、通过http模式推送" class="headerlink" title="一、通过http模式推送"></a>一、通过http模式推送</h3><p>1、在进入HA系统-用户-长期访问令牌-创建令牌，新建一个长期访问令牌</p>
 <p>2、写一个shell脚本openwrt_post.sh，获取路由器的状态信息，我这里取了CPU频率、温度、使用率、内存使用率、科学上网及开机时长。脚本如下：</p>
