@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305300822499.webp">
 <meta property="article:published_time" content="2023-05-28T09:33:43.000Z">
-<meta property="article:modified_time" content="2023-05-30T00:22:58.344Z">
+<meta property="article:modified_time" content="2023-05-30T00:49:52.156Z">
 <meta property="article:author" content="ZhJy">
 <meta property="article:tag" content="教程">
 <meta property="article:tag" content="HEXO">
@@ -313,7 +313,7 @@
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">&gt;hexo s<br>INFO  <span class="hljs-built_in">Start</span> processing<br>INFO  Hexo is running at http://localhost:<span class="hljs-number">4000</span> . Press Ctrl+C to stop.<br></code></pre></td></tr></table></figure>
 
 <p>浏览器访问<a href="http://localhost:4000就可以看到下面这页面了：">http://localhost:4000就可以看到下面这页面了：</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305281920328.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305300845356.webp" srcset="/img/loading.gif" lazyload></p>
 <h3 id="3-更换主题"><a href="#3-更换主题" class="headerlink" title="3.更换主题"></a>3.更换主题</h3><h4 id="3-1安装主题"><a href="#3-1安装主题" class="headerlink" title="3.1安装主题"></a>3.1安装主题</h4><p><strong>方式一</strong></p>
 <p>Hexo 5.0.0 版本以上，推荐通过 npm 直接安装，进入博客目录执行命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install --save hexo-theme-fluid<br></code></pre></td></tr></table></figure>
@@ -338,7 +338,7 @@
 <p>完了执行下面两条命令，就可以看到新主题的样式了：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">hexo clean<br>hexo s<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305281955091.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305300846684.webp" srcset="/img/loading.gif" lazyload></p>
 <h4 id="3-4更新主题"><a href="#3-4更新主题" class="headerlink" title="3.4更新主题"></a>3.4更新主题</h4><p><strong>方式一</strong></p>
 <blockquote>
 <p>适用于通过 Npm 安装主题。</p>
@@ -372,7 +372,7 @@
 <p><a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/">配置指南 | Hexo Fluid 用户手册 (fluid-dev.com)</a></p>
 <h3 id="4-部署到Github"><a href="#4-部署到Github" class="headerlink" title="4.部署到Github"></a>4.部署到Github</h3><p>通过 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a> 插件可以实现一键将博客部署到github提供的 pages 服务。</p>
 <h4 id="4-1新建存储库"><a href="#4-1新建存储库" class="headerlink" title="4.1新建存储库"></a>4.1新建存储库</h4><p>建立名为 <code>&lt;repository的名字&gt;.github.io</code> 的储存库，这样你的博客网址为 <code>&lt;你的 GitHub 用户名&gt;.github.io</code>，例如下面这样：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305282020235.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305300846389.webp" srcset="/img/loading.gif" lazyload></p>
 <h4 id="4-1安装hexo-deployer-git"><a href="#4-1安装hexo-deployer-git" class="headerlink" title="4.1安装hexo-deployer-git"></a>4.1安装hexo-deployer-git</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">npm install hexo<span class="hljs-literal">-deployer-git</span> <br></code></pre></td></tr></table></figure>
 
 <h4 id="4-2修改-config-yml文件"><a href="#4-2修改-config-yml文件" class="headerlink" title="4.2修改_config.yml文件"></a>4.2修改<code>_config.yml</code>文件</h4><p>在配置文件中追加下面的内容：</p>
@@ -385,26 +385,26 @@
 <p>前往 <code>https://&lt;你的 GitHub 用户名&gt;.github.io/</code> 查看网站。</p>
 <h3 id="5-部署到vercel"><a href="#5-部署到vercel" class="headerlink" title="5.部署到vercel"></a>5.部署到vercel</h3><p>部署到github一个是速度不够快，另一个是国内的网络环境有时可能无法访问，推荐部署到<a target="_blank" rel="noopener" href="https://vercel.com/">Vercel</a>,配合自定义域名，可以提高访问速度。</p>
 <h4 id="5-1新建工程"><a href="#5-1新建工程" class="headerlink" title="5.1新建工程"></a>5.1新建工程</h4><p>首先先注册一个vercel账号后，在页面中点击<code>New Project</code>，创建工程。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305282033030.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305300846837.webp" srcset="/img/loading.gif" lazyload></p>
 <p>然后通过绑定的 <code>github</code> 或者导入需要部署的项目。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305282036266.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305300846729.webp" srcset="/img/loading.gif" lazyload></p>
 <p>因为导入的项目是打包好的静态页，<code>FRAMEWORK PRESET</code> 选择 <code>Other</code> 。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305282036659.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305300847718.webp" srcset="/img/loading.gif" lazyload></p>
 <p>点击 <code>deployed</code> 进行部署，如果部署失败可以查看报错信息是不是上一步的某些选项没有覆盖。部署成功后会进入如图所示的界面：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305282038893.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305300847721.webp" srcset="/img/loading.gif" lazyload></p>
 <h4 id="5-2自定义域名"><a href="#5-2自定义域名" class="headerlink" title="5.2自定义域名"></a>5.2自定义域名</h4><p><strong>域名可以购买或者去<a target="_blank" rel="noopener" href="https://www.freenom.com/zh/index.html?lang=zh">Freenom</a>申请免费的域名，但是Freenom域名听说有可能存在被收回的风险。</strong></p>
 <ul>
 <li>默认情况下部署成功后 <code>vercel</code> 会给你生成一个默认的域名，如果想要修改成自己的域名可将域名名称修改成自己的。</li>
 <li>当选择修改成自己的域名名称后，<code>vercel</code> 会检查域名指向的 <code>DNS</code> 对不对，如果不对的话会提示你域名的 DNS 应该如何配置，按照 <code>vercel</code> 提示的 <code>DNS</code> 信息</li>
 </ul>
 <p>在自己的域名的 <code>DNS</code> 配置中进行配置，如图在 setting 中配置自定义域名：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305282042641.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305282046481.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305300848352.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305300848160.webp" srcset="/img/loading.gif" lazyload></p>
 <p>待生效后，就可以用自定义的域名访问了。</p>
 <h4 id="5-4修改Vrecel服务器区域"><a href="#5-4修改Vrecel服务器区域" class="headerlink" title="5.4修改Vrecel服务器区域"></a>5.4修改Vrecel服务器区域</h4><p>在Settings-Functions中修改区域为香港。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305282049763.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305300848122.webp" srcset="/img/loading.gif" lazyload></p>
 <p>我用的是freenom的免费域名，通过cloudfare管理，服务器区域修改为香港后，在晚上高峰期测试的延迟情况：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305282051918.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305300849770.webp" srcset="/img/loading.gif" lazyload></p>
 <h3 id="6-总结"><a href="#6-总结" class="headerlink" title="6.总结"></a>6.总结</h3><p>好像就是这样就完事了。</p>
 <p>哦！感谢下列文章作者：</p>
 <p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">文档 | Hexo</a></p>
