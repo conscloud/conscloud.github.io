@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>黑群晖显示真实CPU信息</title>
+    <link href="/2023/05/31/%E9%BB%91%E7%BE%A4%E6%99%96%E6%98%BE%E7%A4%BA%E7%9C%9F%E5%AE%9ECPU%E4%BF%A1%E6%81%AF/"/>
+    <url>/2023/05/31/%E9%BB%91%E7%BE%A4%E6%99%96%E6%98%BE%E7%A4%BA%E7%9C%9F%E5%AE%9ECPU%E4%BF%A1%E6%81%AF/</url>
+    
+    <content type="html"><![CDATA[<p><strong>黑群晖信息中心显示的CPU信息不正确，例如918+对应的CPU为J3455，而不是本机真实的CPU信息，逼死强迫症，可以通过打补丁让其显示真实的CPU信息，操作方法如下：</strong></p><h2 id="在线安装"><a href="#在线安装" class="headerlink" title="在线安装"></a>在线安装</h2><ol><li><p>通过ssh登录到群晖后台</p></li><li><p>切换到root账号下，并切换到期望存放补丁文件的目录</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo -i<br>cd /volumue5/download<br></code></pre></td></tr></table></figure></li><li><p>通过wget命令下载补丁文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget https://github.com/FOXBI/ch_cpuinfo/releases/download/ch_cpuinfo/ch_cpuinfo.tar<br></code></pre></td></tr></table></figure></li><li><p>解压补丁包文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">tar xvf ch_cpuinfo.tar<br>chmod +x ch_cpuinfo<br></code></pre></td></tr></table></figure></li><li><p>执行补丁文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">./ch_cpuinfo<br></code></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305311942781.webp" alt="输入1为首次执行"></p><p>&gt;输入1表示首次执行</p><p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305311942949.webp" alt="输入2为重新执行"></p><p>&gt;输入2表示重新安装</p><p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305311943165.webp" alt="输入3为恢复默认"></p><p>&gt;输入3表示恢复默认</p></li><li><p>执行完毕后，退出账号并重新登录，刷新页面就会看到信息中心已经显示了正确的CPU信息了</p><p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202305311955386.webp"></p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>群晖</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>教程</tag>
+      
+      <tag>群晖</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>黑群晖918+ CPU不自动变频</title>
     <link href="/2023/05/30/%E9%BB%91%E7%BE%A4%E6%99%96CPU%E4%B8%8D%E8%87%AA%E5%8A%A8%E5%8F%98%E9%A2%91/"/>
     <url>/2023/05/30/%E9%BB%91%E7%BE%A4%E6%99%96CPU%E4%B8%8D%E8%87%AA%E5%8A%A8%E5%8F%98%E9%A2%91/</url>
@@ -78,9 +105,9 @@
     
     <tags>
       
-      <tag>群晖</tag>
-      
       <tag>教程</tag>
+      
+      <tag>群晖</tag>
       
     </tags>
     
