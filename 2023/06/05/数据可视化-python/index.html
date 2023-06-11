@@ -1,0 +1,884 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/static/img/favicon.svg">
+  <link rel="icon" href="/static/img/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZhJy">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="数据可视化matplotlib，它是一个数学绘图库，我们将使用它来制作简单的图表，如折线图和散点图。然后，我们将基于随机漫步概念生成一个更有趣的数据集——根据一系列随机决策生成的图表。 Pygal包，它专注于生成适合在数字设备上显示的图表。通过使用Pygal，可在用户与图表交互时突出元素以及调整其大小，还可轻松地调整整个图表的尺寸，使其适合在微型智能手表或巨型显示器上显示。 1.生成数据1.1ma">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据可视化-python">
+<meta property="og:url" content="http://example.com/2023/06/05/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-python/index.html">
+<meta property="og:site_name" content="ZhJy的随笔">
+<meta property="og:description" content="数据可视化matplotlib，它是一个数学绘图库，我们将使用它来制作简单的图表，如折线图和散点图。然后，我们将基于随机漫步概念生成一个更有趣的数据集——根据一系列随机决策生成的图表。 Pygal包，它专注于生成适合在数字设备上显示的图表。通过使用Pygal，可在用户与图表交互时突出元素以及调整其大小，还可轻松地调整整个图表的尺寸，使其适合在微型智能手表或巨型显示器上显示。 1.生成数据1.1ma">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.python.org/static/img/python-logo@2x.png">
+<meta property="article:published_time" content="2023-06-05T00:46:22.000Z">
+<meta property="article:modified_time" content="2023-06-07T14:18:51.066Z">
+<meta property="article:author" content="ZhJy">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.python.org/static/img/python-logo@2x.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>数据可视化-python - ZhJy的随笔</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":"9ed6b05bc34a1a8444354ca8f54caf27","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ZhJy的随笔</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/static/img/default.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="数据可视化-python"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-06-05 08:46" pubdate>
+          2023年6月5日 早上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          82 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">数据可视化-python</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h1><p>matplotlib，它是一个数学绘图库，我们将使用它来制作简单的图表，如折线图和散点图。然后，我们将基于随机漫步概念生成一个更有趣的数据集——根据一系列随机决策生成的图表。</p>
+<p>Pygal包，它专注于生成适合在数字设备上显示的图表。通过使用Pygal，可在用户与图表交互时突出元素以及调整其大小，还可轻松地调整整个图表的尺寸，使其适合在微型智能手表或巨型显示器上显示。</p>
+<h2 id="1-生成数据"><a href="#1-生成数据" class="headerlink" title="1.生成数据"></a>1.生成数据</h2><h3 id="1-1matplotlib画廊"><a href="#1-1matplotlib画廊" class="headerlink" title="1.1matplotlib画廊"></a>1.1matplotlib画廊</h3><p>要查看使用matplotlib可制作的各种图表，请访问<a target="_blank" rel="noopener" href="http://matplotlib.org/">https://matplotlib.org</a>的示例画廊。单击画廊中的图表，就可查看用于生成图表的代码。</p>
+<p>中文文档地址：<a target="_blank" rel="noopener" href="https://www.matplotlib.org.cn/">Matplotlib</a></p>
+<h3 id="1-2绘制简单折线图"><a href="#1-2绘制简单折线图" class="headerlink" title="1.2绘制简单折线图"></a>1.2绘制简单折线图</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br>squares = [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">9</span>, <span class="hljs-number">16</span>, <span class="hljs-number">25</span>]<br>plt.plot(squares)<br>plt.show()<br></code></pre></td></tr></table></figure>
+
+<p>我们首先导入了模块pyplot，并给它指定了别名plt，以免反复输入pyplot。在线示例大都这样做，因此这里也这样做。模块pyplot包含很多用于生成图表的函数。</p>
+<p>我们创建了一个列表，在其中存储了前述平方数，再将这个列表传递给函数plot()，这个函数尝试根据这些数字绘制出有意义的图形。</p>
+<p><strong>如何让显示中文</strong></p>
+<p>如何电脑已安装了相应的字体如‘微软雅黑’，则可以设置<code>plt.rcParams[&#39;font.sans-serif&#39;] = [&#39;Microsoft YaHei&#39;]</code>指定字体，即可实现中文显示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-comment"># from matplotlib.font_manager import FontProperties</span><br><br><span class="hljs-comment"># # 指定中文字体文件路径</span><br><span class="hljs-comment"># font_path = &#x27;C:\Windows\Fonts\msyh.ttc&#x27;</span><br><br><span class="hljs-comment"># # 加载字体文件</span><br><span class="hljs-comment"># font_prop = FontProperties(fname=font_path)</span><br><br><span class="hljs-comment"># 设置中文显示</span><br><span class="hljs-comment"># plt.rcParams[&#x27;font.family&#x27;] = font_prop.get_name()</span><br>plt.rcParams[<span class="hljs-string">&#x27;font.sans-serif&#x27;</span>] = [<span class="hljs-string">&#x27;Microsoft YaHei&#x27;</span>]<br><br>squares = [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">9</span>, <span class="hljs-number">16</span>, <span class="hljs-number">25</span>]<br>plt.plot(squares,linewidth=<span class="hljs-number">5</span>)<br><br>plt.title(<span class="hljs-string">&quot;平方数折线图&quot;</span>,fontsize=<span class="hljs-number">24</span>)<br>plt.xlabel(<span class="hljs-string">&quot;数值&quot;</span>,fontsize=<span class="hljs-number">14</span>)<br>plt.ylabel(<span class="hljs-string">&quot;值的平方&quot;</span>,fontsize=<span class="hljs-number">14</span>)<br><br>plt.tick_params(axis=<span class="hljs-string">&#x27;both&#x27;</span>,labelsize=<span class="hljs-number">24</span>)<br><br>plt.show()<br></code></pre></td></tr></table></figure>
+
+<p><strong><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306050939247.webp" srcset="/img/loading.gif" lazyload alt="image-20230605093937708"></strong></p>
+<h3 id="1-3使用scatter-绘制一系列点"><a href="#1-3使用scatter-绘制一系列点" class="headerlink" title="1.3使用scatter()绘制一系列点"></a>1.3使用scatter()绘制一系列点</h3><p>要绘制一系列的点，可向scatter()传递两个分别包含<em>x</em>值和<em>y</em>值的列表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br><span class="hljs-comment">#图表标签及标题支持中文显示</span><br>plt.rcParams[<span class="hljs-string">&#x27;font.sans-serif&#x27;</span>] = [<span class="hljs-string">&#x27;Microsoft YaHei&#x27;</span>]<br><br><br>x_values = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]<br>y_values = [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">9</span>, <span class="hljs-number">16</span>, <span class="hljs-number">25</span>]<br><br>plt.scatter(x_values,y_values,s=<span class="hljs-number">100</span>,c=<span class="hljs-string">&#x27;#80bee1&#x27;</span>,linewidths=<span class="hljs-number">0.5</span>)<br><br>plt.title(<span class="hljs-string">&quot;平方数散点图&quot;</span>,fontsize=<span class="hljs-number">18</span>)<br>plt.xlabel(<span class="hljs-string">&quot;X轴&quot;</span>,fontsize=<span class="hljs-number">10</span>)<br>plt.ylabel(<span class="hljs-string">&quot;Y轴&quot;</span>,fontsize=<span class="hljs-number">10</span>)<br><br>plt.tick_params(axis=<span class="hljs-string">&#x27;both&#x27;</span>,labelsize=<span class="hljs-number">14</span>)<br><br>plt.show()<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306050948560.webp" srcset="/img/loading.gif" lazyload alt="image-20230605094856375"></p>
+<h3 id="1-4自动计算数据"><a href="#1-4自动计算数据" class="headerlink" title="1.4自动计算数据"></a>1.4自动计算数据</h3><p>手工计算列表要包含的值可能效率低下，需要绘制的点很多时尤其如此。可以不必手工计算包含点坐标的列表，而让Python循环来替我们完成这种计算。</p>
+<p>matplotlib允许你给散点图中的各个点指定颜色。默认为蓝色点和黑色轮廓，在散点图包含的数据点不多时效果很好。但绘制很多点时，黑色轮廓可能会粘连在一起。要删除数据点的轮廓，可在调用scatter()时传递实参edgecolor&#x3D;’none’</p>
+<p><strong>自定义颜色</strong></p>
+<p>要修改数据点的颜色，可向scatter()传递参数c，并将其设置为要使用的颜色的名称，如下所示</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">plt.scatter(x_values, y_values, c=<span class="hljs-string">&#x27;red&#x27;</span>, dgecolor=<span class="hljs-string">&#x27;none&#x27;</span>, s=<span class="hljs-number">40</span>)<br></code></pre></td></tr></table></figure>
+
+<p>你还可以使用RGB颜色模式自定义颜色：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">plt.scatter(x_values, y_values, c=(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.8</span>), edgecolor=<span class="hljs-string">&#x27;none&#x27;</span>, s=<span class="hljs-number">40</span>)<br></code></pre></td></tr></table></figure>
+
+<p>值越接近0，指定的颜色越深，值越接近1，指定的颜色越浅。</p>
+<p><strong>颜色映射</strong></p>
+<p>颜色映射（colormap）是一系列颜色，它们从起始颜色渐变到结束颜色。在可视化中，颜色映射用于突出数据的规律，例如，你可能用较浅的颜色来显示较小的值，并使用较深的颜色来显示较大的值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">plt.scatter(x_values, y_values, c=y_values, cmap=plt.cm.Blues, <br> edgecolor=<span class="hljs-string">&#x27;none&#x27;</span>, s=<span class="hljs-number">40</span>)<br></code></pre></td></tr></table></figure>
+
+<p>我们将参数c设置成了一个<em>y</em>值列表，并使用参数cmap告诉pyplot使用哪个颜色映射。这些代码将<em>y</em>值较小的点显示为浅蓝色，并将<em>y</em>值较大的点显示为深蓝色.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306051039323.webp" srcset="/img/loading.gif" lazyload alt="image-20230605103920134"></p>
+<p><em>注意：要了解pyplot中所有的颜色映射，请访问<a target="_blank" rel="noopener" href="http://matplotlib.org/%EF%BC%8C%E5%8D%95%E5%87%BBExamples%EF%BC%8C%E5%90%91%E4%B8%8B%E6%BB%9A%E5%8A%A8%E5%88%B0Color">http://matplotlib.org/，单击Examples，向下滚动到Color</a> Examples，再单击olormaps_reference。</em></p>
+<p><img src="https://matplotlib.org/stable/_images/sphx_glr_colormap_reference_001.png" srcset="/img/loading.gif" lazyload alt="Perceptually Uniform Sequential colormaps"></p>
+<p><img src="https://matplotlib.org/stable/_images/sphx_glr_colormap_reference_002.png" srcset="/img/loading.gif" lazyload alt="Sequential colormaps"></p>
+<p><img src="https://matplotlib.org/stable/_images/sphx_glr_colormap_reference_003.png" srcset="/img/loading.gif" lazyload alt="Sequential (2) colormaps"></p>
+<p><img src="https://matplotlib.org/stable/_images/sphx_glr_colormap_reference_004.png" srcset="/img/loading.gif" lazyload alt="Diverging colormaps"></p>
+<p><img src="https://matplotlib.org/stable/_images/sphx_glr_colormap_reference_005.png" srcset="/img/loading.gif" lazyload alt="Cyclic colormaps"></p>
+<p><img src="https://matplotlib.org/stable/_images/sphx_glr_colormap_reference_006.png" srcset="/img/loading.gif" lazyload alt="Qualitative colormaps"></p>
+<p><img src="https://matplotlib.org/stable/_images/sphx_glr_colormap_reference_007.png" srcset="/img/loading.gif" lazyload alt="Miscellaneous colormaps"></p>
+<h3 id="1-5自动保存图片"><a href="#1-5自动保存图片" class="headerlink" title="1.5自动保存图片"></a>1.5自动保存图片</h3><p>要让程序自动将图表保存到文件中，可将对plt.show()的调用替换为对plt.savefig()的调用：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">plt.savefig(<span class="hljs-string">&#x27;squares_plot.png&#x27;</span>, bbox_inches=<span class="hljs-string">&#x27;tight&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>第一个实参指定要以什么样的文件名保存图表，这个文件将存储到scatter_squares.py所在的目录中；第二个实参指定将图表多余的空白区域裁剪掉</p>
+<h3 id="1-6随机漫步"><a href="#1-6随机漫步" class="headerlink" title="1.6随机漫步"></a>1.6随机漫步</h3><p>随机漫步是这样行走得到的路径：每次行走都完全是随机的，没有明确的方向，结果是由一系列随机决策决定的。</p>
+<p>在自然界、物理学、生物学、化学和经济领域，随机漫步都有其实际用途。例如，漂浮在水滴上的花粉因不断受到水分子的挤压而在水面上移动。水滴中的分子运动是随机的，因此花粉在水面上的运动路径犹如随机漫步。我们稍后将编写的代码模拟了现实世界的很多情形。</p>
+<p>RandomWalk类：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> choice<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">RandomWalk</span>():<br>    <span class="hljs-string">&quot;&quot;&quot;&quot;一个生成随机漫步数据的类&quot;&quot;&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self,num_points=<span class="hljs-number">5000</span></span>):<br>        <span class="hljs-string">&quot;&quot;&quot;&quot;初始化随机漫步的属性&quot;&quot;&quot;</span><br>        self.num_points = num_points<br><br>        <span class="hljs-comment">#所有的随机漫步都始于(0,0)</span><br>        self.x_values = [<span class="hljs-number">0</span>]<br>        self.y_vlaues = [<span class="hljs-number">0</span>]<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">fill_walk</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;计算随机漫步包含的所有点&quot;&quot;&quot;</span><br><br>        <span class="hljs-comment">#不断漫步，直到列表达到指定的长度</span><br>        <span class="hljs-keyword">while</span> <span class="hljs-built_in">len</span>(self.x_values) &lt; self.num_points:<br>            <span class="hljs-comment">#决定前进的方向及沿这个方向前进的距离</span><br>            x_direction = choice([<span class="hljs-number">1</span>,-<span class="hljs-number">1</span>])<br>            x_distance = choice([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>])<br>            x_step = x_direction * x_distance<br><br>            y_direction = choice([<span class="hljs-number">1</span>,-<span class="hljs-number">1</span>])<br>            y_distance = choice([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>])<br>            y_step = y_direction * y_distance<br><br>            <span class="hljs-comment">#拒绝原地踏步</span><br>            <span class="hljs-keyword">if</span> x_step ==<span class="hljs-number">0</span> <span class="hljs-keyword">and</span> y_step ==<span class="hljs-number">0</span>:<br>                <span class="hljs-keyword">continue</span><br><br>            <span class="hljs-comment">#计算下一个点的x和y值</span><br>            next_x = self.x_values[-<span class="hljs-number">1</span>] + x_step<br>            next_y = self.y_vlaues[-<span class="hljs-number">1</span>] + y_step<br><br>            self.x_values.append(next_x)<br>            self.y_vlaues.append(next_y)<br><br></code></pre></td></tr></table></figure>
+
+<p>图形化展示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br><span class="hljs-keyword">from</span> random_walk <span class="hljs-keyword">import</span> RandomWalk<br><br><span class="hljs-comment">#只要程序处于活动状态，就不断地模拟随机漫步</span><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    <span class="hljs-comment">#创建一个RandomWalk实例，并将其包含的点都绘制出来</span><br>    my_randomwalk = RandomWalk()<br>    my_randomwalk.fill_walk()<br><br>    <span class="hljs-comment">#图形化显示</span><br>    plt.scatter(my_randomwalk.x_values,my_randomwalk.y_vlaues,s=<span class="hljs-number">10</span>)<br>    plt.suptitle(<span class="hljs-string">&quot;随机漫步&quot;</span>,fontproperties=<span class="hljs-string">&#x27;SimHei&#x27;</span>)<br>    plt.show()<br><br>    keep_running = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;进行一个随机漫步吗？(y/n)&quot;</span>)<br>    <span class="hljs-keyword">if</span> keep_running == <span class="hljs-string">&#x27;n&#x27;</span>:<br>        <span class="hljs-keyword">break</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>给点着色</strong></p>
+<p>我们将使用颜色映射来指出漫步中各点的先后顺序，并删除每个点的黑色轮廓，让它们的颜色更明显。为根据漫步中各点的先后顺序进行着色，我们传递参数c，并将其设置为一个列表，其中包含各点的先后顺序。由于这些点是按顺序绘制的，因此给参数c指定的列表只需包含数字1~5000</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">point_numbers = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(rw.num_points)) <br> plt.scatter(rw.x_values, rw.y_values, c=point_numbers, cmap=plt.cm.Blues, <br> edgecolor=<span class="hljs-string">&#x27;none&#x27;</span>, s=<span class="hljs-number">15</span>)<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306051501014.webp" srcset="/img/loading.gif" lazyload alt="image-20230605150139479"></p>
+<p><strong>隐藏坐标轴</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 隐藏坐标轴,plt.scatter模式下：</span><br>plt.axis(<span class="hljs-literal">False</span>)<br><span class="hljs-comment"># ax.scatter模式下两种方式都可以：</span><br>ax.axis(<span class="hljs-literal">False</span>)<br>ax.xaxis.set_visible(<span class="hljs-literal">False</span>)<br></code></pre></td></tr></table></figure>
+
+<p>为修改坐标轴，使用了函数plt.axes()（见Ø）来将每条坐标轴的可见性都设置为False。随着你越来越多地进行数据可视化，经常会看到这种串接方法的方式。为修改坐标轴，使用了函数plt.axes()（见Ø）来将每条坐标轴的可见性都设置为False。随着你越来越多地进行数据可视化，经常会看到这种串接方法的方式。</p>
+<p><strong>chatgpt解释plt.scatter与ax.scatter的区别：</strong></p>
+<blockquote>
+<p><code>plt.scatter</code> 和 <code>ax.scatter</code> 都用于绘制散点图，它们的区别在于使用的绘图方式和用法上略有不同。</p>
+<p><code>plt.scatter</code> 是 <code>pyplot</code> 模块提供的函数，它是面向过程的绘图方式。你可以直接调用 <code>plt.scatter</code> 来创建一个散点图，并且在同一个函数调用中设置图形的各种属性，如点的大小、颜色、标签等。这种方式适合简单的绘图需求。</p>
+<p>示例：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs stylus">&gt;import matplotlib<span class="hljs-selector-class">.pyplot</span> as plt<br><br>&gt;x = <span class="hljs-selector-attr">[1, 2, 3, 4]</span><br>&gt;y = <span class="hljs-selector-attr">[5, 6, 7, 8]</span><br><br>&gt;plt<span class="hljs-selector-class">.scatter</span>(x, y, marker=<span class="hljs-string">&#x27;o&#x27;</span>, <span class="hljs-attribute">color</span>=<span class="hljs-string">&#x27;blue&#x27;</span>)<br>&gt;plt<span class="hljs-selector-class">.xlabel</span>(<span class="hljs-string">&#x27;X&#x27;</span>)<br>&gt;plt<span class="hljs-selector-class">.ylabel</span>(<span class="hljs-string">&#x27;Y&#x27;</span>)<br>&gt;plt<span class="hljs-selector-class">.title</span>(<span class="hljs-string">&#x27;Scatter Plot&#x27;</span>)<br>&gt;plt<span class="hljs-selector-class">.show</span>()<br></code></pre></td></tr></table></figure>
+
+<p><code>ax.scatter</code> 是使用面向对象的方式进行绘图，它需要先创建一个图形对象 <code>fig</code> 和一个子图对象 <code>ax</code>，然后通过 <code>ax.scatter</code> 调用子图对象的方法来创建散点图，并设置图形的属性。这种方式更灵活，适合复杂的图形绘制需求，可以通过操作子图对象来进行更多的自定义设置。</p>
+<p>示例：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs stylus">&gt;import matplotlib<span class="hljs-selector-class">.pyplot</span> as plt<br><br>&gt;x = <span class="hljs-selector-attr">[1, 2, 3, 4]</span><br>&gt;y = <span class="hljs-selector-attr">[5, 6, 7, 8]</span><br><br>&gt;fig, ax = plt<span class="hljs-selector-class">.subplots</span>()<br>&gt;ax<span class="hljs-selector-class">.scatter</span>(x, y, marker=<span class="hljs-string">&#x27;o&#x27;</span>, <span class="hljs-attribute">color</span>=<span class="hljs-string">&#x27;blue&#x27;</span>)<br>&gt;ax<span class="hljs-selector-class">.set_xlabel</span>(<span class="hljs-string">&#x27;X&#x27;</span>)<br>&gt;ax<span class="hljs-selector-class">.set_ylabel</span>(<span class="hljs-string">&#x27;Y&#x27;</span>)<br>&gt;ax<span class="hljs-selector-class">.set_title</span>(<span class="hljs-string">&#x27;Scatter Plot&#x27;</span>)<br>&gt;plt<span class="hljs-selector-class">.show</span>()<br></code></pre></td></tr></table></figure>
+
+<p>总结来说，<code>plt.scatter</code> 是面向过程的方式，直接在当前图形上绘制散点图，而 <code>ax.scatter</code> 是面向对象的方式，需要先创建图形对象和子图对象，然后调用子图对象的方法来绘制散点图。使用面向对象的方式可以更灵活地控制图形的各个元素和属性。</p>
+</blockquote>
+<h3 id="1-7调整尺寸以适应屏幕"><a href="#1-7调整尺寸以适应屏幕" class="headerlink" title="1.7调整尺寸以适应屏幕"></a>1.7调整尺寸以适应屏幕</h3><p>图表适合屏幕大小时，更能有效地将数据中的规律呈现出来。为让绘图窗口更适合屏幕大小，可像下面这样调整matplotlib输出的尺寸。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">plt.figure(figsize=(<span class="hljs-number">10</span>, <span class="hljs-number">6</span>))<br></code></pre></td></tr></table></figure>
+
+<p>可以增加分辨率参数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">plt.figure(dpi=<span class="hljs-number">128</span>, figsize=(<span class="hljs-number">10</span>, <span class="hljs-number">6</span>))<br><br>fig , ax = plt.subplots(dpi=<span class="hljs-number">128</span>,figsize=(<span class="hljs-number">10</span>,<span class="hljs-number">6</span>))<br></code></pre></td></tr></table></figure>
+
+<h3 id="1-8使用Pygal模拟掷骰子"><a href="#1-8使用Pygal模拟掷骰子" class="headerlink" title="1.8使用Pygal模拟掷骰子"></a>1.8使用Pygal模拟掷骰子</h3><p>在数学领域，常常利用掷骰子来解释各种数据分析。</p>
+<p>要了解使用Pygal可创建什么样的图表，请查看图表类型画廊：访问<a target="_blank" rel="noopener" href="http://www.pygal.org/%EF%BC%8C%E5%8D%95%E5%87%BBDocumentation%EF%BC%8C%E5%86%8D%E5%8D%95%E5%87%BBChart">http://www.pygal.org/，单击Documentation，再单击Chart</a> types。每个示例都包含源代码，让你知道这些图表是如何生成的</p>
+<p><strong>设置刻度标签中文</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">ax.tick_params(axis=<span class="hljs-string">&#x27;x&#x27;</span>)  <span class="hljs-comment"># 设置刻度标签旋转角度</span><br><span class="hljs-keyword">for</span> label <span class="hljs-keyword">in</span> ax.get_xticklabels():<br>    label.set_fontproperties(<span class="hljs-string">&#x27;SimHei&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+
+
+<p><strong>zip()函数的使用：</strong></p>
+<blockquote>
+<p>可以使用<code>zip()</code>函数将两个列表组合成一个元组列表。<code>zip()</code>函数将按索引位置将两个列表中的元素逐个配对，返回一个包含元组的迭代器。然后，你可以将迭代器转换为列表。以下是示例代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">&gt;list1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br>&gt;list2 = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>]<br><br>&gt;combined_list = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">zip</span>(list1, list2))<br><br>&gt;<span class="hljs-built_in">print</span>(combined_list)<br></code></pre></td></tr></table></figure>
+
+<p>输出结果为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">&gt;[(<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;a&#x27;</span>), (<span class="hljs-number">2</span>, <span class="hljs-string">&#x27;b&#x27;</span>), (<span class="hljs-number">3</span>, <span class="hljs-string">&#x27;c&#x27;</span>)]<br></code></pre></td></tr></table></figure>
+
+<p>在示例中，<code>zip(list1, list2)</code>将列表<code>list1</code>和<code>list2</code>中的元素逐个配对，得到一个元组的迭代器。然后，通过<code>list()</code>函数将迭代器转换为列表，得到了一个包含元组的列表<code>combined_list</code>。</p>
+</blockquote>
+<h2 id="2-下载数据"><a href="#2-下载数据" class="headerlink" title="2.下载数据"></a>2.下载数据</h2><p>要在文本文件中存储数据，最简单的方式是将数据作为一系列以逗号分隔的值（CSV）写入文件</p>
+<p>csv模块包含在Python标准库中，可用于分析CSV文件中的数据行。</p>
+<ul>
+<li>enumerate()：用来获取每个元素的索引及其值。</li>
+</ul>
+<h3 id="2-1模块datetime"><a href="#2-1模块datetime" class="headerlink" title="2.1模块datetime()"></a>2.1模块datetime()</h3><p>方法strptime()可接受各种实参，并根据它们来决定如何解读日期:</p>
+<table>
+<thead>
+<tr>
+<th>实参</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%A</td>
+<td>星期的名称，如Monday</td>
+</tr>
+<tr>
+<td>%B</td>
+<td>月份名，如January</td>
+</tr>
+<tr>
+<td>%m</td>
+<td>用数字表示的月份（01~12）</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>用数字表示月份中的一天（01~31）</td>
+</tr>
+<tr>
+<td>%Y</td>
+<td>四位的年份，如2015</td>
+</tr>
+<tr>
+<td>%y</td>
+<td>两位的年份，如15</td>
+</tr>
+<tr>
+<td>%H</td>
+<td>24小时制的小时数（00~23）</td>
+</tr>
+<tr>
+<td>%I</td>
+<td>12小时制的小时数（01~12）</td>
+</tr>
+<tr>
+<td>%p</td>
+<td>am或pm</td>
+</tr>
+<tr>
+<td>%M</td>
+<td>分钟数（00~59）</td>
+</tr>
+<tr>
+<td>%S</td>
+<td>秒数（00~61）</td>
+</tr>
+</tbody></table>
+<h3 id="2-2fill-between-方法"><a href="#2-2fill-between-方法" class="headerlink" title="2.2fill_between()方法"></a>2.2fill_between()方法</h3><p>fill_between()，它接受一个<em>x</em>值系列和两个<em>y</em>值系列，并填充两个<em>y</em>值系列之间的空间</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Python">plt.plot(dates, highs, c=<span class="hljs-string">&#x27;red&#x27;</span>, alpha=<span class="hljs-number">0.5</span>) <br>plt.plot(dates, lows, c=<span class="hljs-string">&#x27;blue&#x27;</span>, alpha=<span class="hljs-number">0.5</span>)<br>plt.fill_between(dates, highs, lows, facecolor=<span class="hljs-string">&#x27;blue&#x27;</span>, alpha=<span class="hljs-number">0.1</span>)<br></code></pre></td></tr></table></figure>
+
+<p>实参alpha指定颜色的透明度。Alpha值为0表示完全透明，1（默认设置）表示完全不透明。通过将alpha设置为0.5，可让红色和蓝色折线的颜色看起来更浅。</p>
+<p>我们向fill_between()传递了一个<em>x</em>值系列：列表dates，还传递了两个<em>y</em>值系列：highs和lows。实参facecolor指定了填充区域的颜色，我们还将alpha设置成了较小的值0.1，让填充区域将两个数据系列连接起来的同时不分散观察者的注意力</p>
+<h2 id="3-人口地图数据"><a href="#3-人口地图数据" class="headerlink" title="3.人口地图数据"></a>3.人口地图数据</h2><p>Pygal中的地图制作工具要求数据为特定的格式：用国别码表示国家，以及用数字表示人口数量。处理地理政治数据时，经常需要用到几个标准化国别码集。</p>
+<p>我们的数据中，国别码是三位的，而pygal的地图工具使用两位国别码。要使用pygal绘制世界地图。需要安装依赖包。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pip install pygal_maps_world<br></code></pre></td></tr></table></figure>
+
+<p>国别码位于<code>i18n</code>模块</p>
+<p><code>from pygal_maps_world.i18n import COUNTRIES</code>这样就导入了, COUNTRIES是一个字典，键是两位国别码，值是具体国家名。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> code, name <span class="hljs-keyword">in</span> COUNTRIES.items():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;name&#125;</span> : <span class="hljs-subst">&#123;code&#125;</span>&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>完整代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> json<br><span class="hljs-keyword">import</span> pygal<br><br><span class="hljs-keyword">from</span> countries_codes <span class="hljs-keyword">import</span> get_country_code<br><br>filename = <span class="hljs-string">r&#x27;E:\Learning\python\16_下载数据\population_json.json&#x27;</span><br><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(filename) <span class="hljs-keyword">as</span> f:<br>    pop_data = json.load(f)<br><br>cc_population = &#123;&#125;<br><span class="hljs-keyword">for</span> pop_dict <span class="hljs-keyword">in</span> pop_data:<br>    <span class="hljs-keyword">if</span> pop_dict[<span class="hljs-string">&#x27;Year&#x27;</span>] == <span class="hljs-number">2016</span>:<br>        country = pop_dict[<span class="hljs-string">&#x27;Country Name&#x27;</span>]<br>        population = pop_dict[<span class="hljs-string">&#x27;Value&#x27;</span>]<br>        code = get_country_code(country)<br>        <span class="hljs-keyword">if</span> code:<br>            cc_population[code] = population<br><br><span class="hljs-comment"># print(cc_population)</span><br>cc_pops_1, cc_pops_2, cc_pops_3 = &#123;&#125;, &#123;&#125;, &#123;&#125;<br><br><span class="hljs-keyword">for</span> cc,pop <span class="hljs-keyword">in</span> cc_population.items():<br>    <span class="hljs-keyword">if</span> pop &lt; <span class="hljs-number">100000000</span>:<br>        cc_pops_1[cc] = pop<br>    <span class="hljs-keyword">elif</span> pop &lt; <span class="hljs-number">1000000000</span>:<br>        cc_pops_2[cc] = pop<br>    <span class="hljs-keyword">else</span>:<br>        cc_pops_3[cc] = pop<br><br>wm = pygal.maps.world.World()<br>wm.title = <span class="hljs-string">&#x27;2016年世界人口分布&#x27;</span><br><br>wm.add(<span class="hljs-string">&#x27;0-10m&#x27;</span>, cc_pops_1) <br>wm.add(<span class="hljs-string">&#x27;10m-1bn&#x27;</span>, cc_pops_2) <br>wm.add(<span class="hljs-string">&#x27;&gt;1bn&#x27;</span>, cc_pops_3)<br><br><span class="hljs-comment"># wm.add(&#x27;2016&#x27;,cc_population)</span><br><span class="hljs-comment"># wm.add(&#x27;North America&#x27;, [&#x27;us&#x27;,&#x27;ca&#x27;,&#x27;mx&#x27;])</span><br><span class="hljs-comment"># wm.add(&#x27;Central America&#x27;, [&#x27;bz&#x27;, &#x27;cr&#x27;, &#x27;gt&#x27;, &#x27;hn&#x27;, &#x27;ni&#x27;, &#x27;pa&#x27;, &#x27;sv&#x27;]) </span><br><span class="hljs-comment"># wm.add(&#x27;South America&#x27;, [&#x27;ar&#x27;, &#x27;bo&#x27;, &#x27;br&#x27;, &#x27;cl&#x27;, &#x27;co&#x27;, &#x27;ec&#x27;, &#x27;gf&#x27;, </span><br><span class="hljs-comment">#                          &#x27;gy&#x27;, &#x27;pe&#x27;, &#x27;py&#x27;, &#x27;sr&#x27;, &#x27;uy&#x27;, &#x27;ve&#x27;])</span><br><br>wm.render_to_file(<span class="hljs-string">&quot;world-population.svg&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> pygal_maps_world.i18n <span class="hljs-keyword">import</span> COUNTRIES<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_country_code</span>(<span class="hljs-params">country_name</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;根据国家名，返回2位的国别代码&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">for</span> code,name <span class="hljs-keyword">in</span> COUNTRIES.items():<br>        <span class="hljs-keyword">if</span> country_name == name:<br>            <span class="hljs-keyword">return</span> code<br>        <span class="hljs-keyword">elif</span> country_name == <span class="hljs-string">&#x27;Congo, Rep.&#x27;</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;cg&#x27;</span><br>        <span class="hljs-keyword">elif</span> country_name == <span class="hljs-string">&#x27;Congo, Dem. Rep.&#x27;</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;cd&#x27;</span><br>        <span class="hljs-keyword">elif</span> country_name == <span class="hljs-string">&#x27;Yemen, Rep.&#x27;</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;ye&#x27;</span><br>        <span class="hljs-keyword">elif</span> country_name == <span class="hljs-string">&#x27;Korea, Dem. People’s Rep.&#x27;</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;kp&#x27;</span><br>        <span class="hljs-keyword">elif</span> country_name == <span class="hljs-string">&#x27;Korea, Rep.&#x27;</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;kr&#x27;</span><br>        <span class="hljs-keyword">elif</span> country_name == <span class="hljs-string">&#x27;Libya&#x27;</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;ly&#x27;</span><br><br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306071919358.webp" srcset="/img/loading.gif" lazyload alt="image-20230607191924825"></p>
+<p>人口数据：</p>
+<p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/img/population_json.json">population_json.json</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Python/">#Python</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>数据可视化-python</div>
+      <div>http://example.com/2023/06/05/数据可视化-python/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ZhJy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年6月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/06/05/Python%E5%AD%A6%E4%B9%A0%E6%9D%82%E8%AE%B0/" title="Python学习杂记">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Python学习杂记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/06/01/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Python学习笔记">
+                        <span class="hidden-mobile">Python学习笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="twikoo"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      Fluid.utils.createScript('https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js', function() {
+        var options = Object.assign(
+          {"envId":"https://twikoo.okko.tk","region":"ap-shanghai","path":"window.location.pathname"},
+          {
+            el: '#twikoo',
+            path: 'window.location.pathname',
+            onCommentLoaded: function() {
+              var imgSelector = '#twikoo .tk-content img:not(.tk-owo-emotion)';
+              Fluid.plugins.imageCaption(imgSelector);
+              Fluid.plugins.fancyBox(imgSelector);
+            }
+          }
+        )
+        twikoo.init(options)
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/static/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

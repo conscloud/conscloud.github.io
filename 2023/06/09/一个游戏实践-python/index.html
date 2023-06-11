@@ -1,0 +1,1171 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/static/img/favicon.svg">
+  <link rel="icon" href="/static/img/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZhJy">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一个游戏实践-Python学习0. 游戏概述 玩家控制着一艘最初出现在屏幕底部中央的飞船。玩家可以使用箭头键左右移动飞船，还可使用空格键进行射击。游戏开始时，一群外星人出现在天空中，他们在屏幕中向下移动。玩家的任务是射杀这些外星人。玩家将所有外星人都消灭干净后，将出现一群新的外星人，他们移动的速度更快。只要有外星人撞到了玩家的飞船或到达了屏幕底部，玩家就损失一艘飞船。玩家损失三艘飞船后，游戏结束。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个游戏实践-python">
+<meta property="og:url" content="http://example.com/2023/06/09/%E4%B8%80%E4%B8%AA%E6%B8%B8%E6%88%8F%E5%AE%9E%E8%B7%B5-python/index.html">
+<meta property="og:site_name" content="ZhJy的随笔">
+<meta property="og:description" content="一个游戏实践-Python学习0. 游戏概述 玩家控制着一艘最初出现在屏幕底部中央的飞船。玩家可以使用箭头键左右移动飞船，还可使用空格键进行射击。游戏开始时，一群外星人出现在天空中，他们在屏幕中向下移动。玩家的任务是射杀这些外星人。玩家将所有外星人都消灭干净后，将出现一群新的外星人，他们移动的速度更快。只要有外星人撞到了玩家的飞船或到达了屏幕底部，玩家就损失一艘飞船。玩家损失三艘飞船后，游戏结束。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306091446882.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306091510538.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306091511294.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306091519299.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306091523079.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306091621029.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306091622447.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306091627178.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306091629980.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306100903363.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306100918932.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306100929748.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306100941671.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306101048326.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306101544095.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306102019847.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306102120748.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306102150797.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306102203282.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306102204866.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306111129704.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306111134567.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306111142623.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306111201900.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306111204156.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306111205355.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306111206473.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306111211315.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306111214776.webp">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306111434045.webp">
+<meta property="article:published_time" content="2023-06-09T06:13:53.000Z">
+<meta property="article:modified_time" content="2023-06-11T06:41:58.545Z">
+<meta property="article:author" content="ZhJy">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306091446882.webp">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>一个游戏实践-python - ZhJy的随笔</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":"9ed6b05bc34a1a8444354ca8f54caf27","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>ZhJy的随笔</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/static/img/default.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="一个游戏实践-python"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-06-09 14:13" pubdate>
+          2023年6月9日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          37k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          306 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">一个游戏实践-python</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="一个游戏实践-Python学习"><a href="#一个游戏实践-Python学习" class="headerlink" title="一个游戏实践-Python学习"></a>一个游戏实践-Python学习</h1><h2 id="0-游戏概述"><a href="#0-游戏概述" class="headerlink" title="0. 游戏概述"></a>0. 游戏概述</h2><blockquote>
+<p>玩家控制着一艘最初出现在屏幕底部中央的飞船。玩家可以使用箭头键左右移动飞船，还可使用空格键进行射击。游戏开始时，一群外星人出现在天空中，他们在屏幕中向下移动。玩家的任务是射杀这些外星人。玩家将所有外星人都消灭干净后，将出现一群新的外星人，他们移动的速度更快。只要有外星人撞到了玩家的飞船或到达了屏幕底部，玩家就损失一艘飞船。玩家损失三艘飞船后，游戏结束。</p>
+</blockquote>
+<h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1.准备工作"></a>1.准备工作</h2><p>Pygame，这是一组功能强大而有趣的模块，可用于管理图形、动画乃至声音，让你能够更轻松地开发复杂的游戏。通过使用Pygame来处理在屏幕上绘制图像等任务，你不用考虑众多烦琐而艰难的编码工作，而是将重点放在程序的高级逻辑上.</p>
+<p>安装Pygame包</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pip install pygame<br></code></pre></td></tr></table></figure>
+
+<h2 id="2-开始游戏项目"><a href="#2-开始游戏项目" class="headerlink" title="2.开始游戏项目"></a>2.开始游戏项目</h2><h3 id="2-1创建一个空白窗口并响应用户输入"><a href="#2-1创建一个空白窗口并响应用户输入" class="headerlink" title="2.1创建一个空白窗口并响应用户输入"></a>2.1创建一个空白窗口并响应用户输入</h3><p>创建一个空的Pygame窗口，供后面用来绘制游戏元素，如飞船和外星人。我们还将让这个游戏响应用户输入、设置背景色以及加载飞船图像。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> sys <br><br><span class="hljs-keyword">import</span> pygame<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">run_game</span>():<br>    <span class="hljs-comment">#初始化游戏并创建一个屏幕对象</span><br>    pygame.init()<br>    screen = pygame.display.set_mode((<span class="hljs-number">1200</span>,<span class="hljs-number">800</span>))<br>    pygame.display.set_caption(<span class="hljs-string">&quot;外星入侵&quot;</span>)<br><br>    <span class="hljs-comment">#开始游戏的主循环</span><br><br>    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br><br>        <span class="hljs-comment">#监视键盘和鼠标事件</span><br>        <span class="hljs-keyword">for</span> event <span class="hljs-keyword">in</span> pygame.event.get():<br>            <span class="hljs-keyword">if</span> event.<span class="hljs-built_in">type</span> == pygame.QUIT:<br>                sys.exit()<br><br>        <span class="hljs-comment">#让最近绘制的屏幕可见</span><br>        pygame.display.flip()<br><br>run_game()<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>行pygame.init()初始化背景设置，让Pygame能够正确地工作</li>
+<li>调用pygame.display.set_mode()来创建一个名为screen的显示窗口，这个游戏的所有图形元素都将在其中绘制。实参(1200, 800)是一个元组，指定了游戏窗口的尺寸。通过将这些尺寸值传递给pygame.display.set_mode()，我们创建了一个宽1200像素、高800像素的游戏窗口<ul>
+<li>对象screen是一个surface。在Pygame中，surface是屏幕的一部分，用于显示游戏元素。在这个游戏中，每个元素（如外星人或飞船）都是一个surface。display.set_mode()返回的surface表示整个游戏窗口。我们激活游戏的动画循环后，每经过一次循环都将自动重绘这个surface。</li>
+</ul>
+</li>
+<li>游戏由一个while循环控制，其中包含一个事件循环以及管理屏幕更新的代码。事件是用户玩游戏时执行的操作，如按键或移动鼠标。为让程序响应事件，我们编写一个事件循环，以侦听事件，并根据发生的事件执行相应的任务。for循环就是一个事件循环</li>
+<li>使用方法pygame.event.get()访问pygame检测到的事件，所有键盘和鼠标事件都将促使for循环运行。在这个循环中，我们将编写一系列的if语句来检测并响应特定的事件</li>
+<li>单击游戏窗口的关闭按钮时，将检测到pygame.QUIT事件，而我们调用sys.exit()来退出游戏</li>
+<li>调用pygame.display.flip()，命令Pygame让最近绘制的屏幕可见。<ul>
+<li>在每次执行while循环时都绘制一个空屏幕，并擦去旧屏幕，使得只有新屏幕可见。在我们移动游戏元素时，pygame.display.flip()将不断更新屏幕，以显示元素的新位置，并在原来的位置隐藏元素，从而营造平滑移动的效果</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-2设置背景色"><a href="#2-2设置背景色" class="headerlink" title="2.2设置背景色"></a>2.2设置背景色</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python">```<br>    pygame.display.set_caption(<span class="hljs-string">&quot;外星入侵&quot;</span>)<br><br>    <span class="hljs-comment">#设置背景色</span><br>    bg_color = (<span class="hljs-number">230</span>,<span class="hljs-number">230</span>,<span class="hljs-number">230</span>)<br>    <span class="hljs-comment">#开始游戏的主循环</span><br>```<br>        <span class="hljs-comment">#每次循环时都重新绘制屏幕</span><br>        screen.fill(bg_color)<br>        <br>        <span class="hljs-comment">#让最近绘制的屏幕可见</span><br>        pygame.display.flip()<br>```<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>定义一个bg_color，其值为RGB颜色值</li>
+<li>调用screen.fill()，用背景色填充屏幕</li>
+</ul>
+<h3 id="2-3创建设置类"><a href="#2-3创建设置类" class="headerlink" title="2.3创建设置类"></a>2.3创建设置类</h3><p>为了方便对设置的内容进行统一管理，可以将所有涉及到设置放到一个单独的模块中，以免在代码中到处添加设置。可以新增如下Settings类</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Settings</span>():<br>    <span class="hljs-string">&quot;&quot;&quot;存储《外星入侵》的所有设置的类&quot;&quot;&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;&quot;初始化游戏的设置&quot;&quot;&quot;</span><br>        <span class="hljs-comment">#屏幕设置</span><br>        self.screen_width = <span class="hljs-number">1200</span><br>        self.screen_height = <span class="hljs-number">800</span><br>        self.bg_color = (<span class="hljs-number">230</span>, <span class="hljs-number">230</span>, <span class="hljs-number">230</span>)<br></code></pre></td></tr></table></figure>
+
+<p>主程序文件中，我们导入Settings类，调用pygame.init()，再创建一个Settings实例，并将其存储在变量ai_settings中。创建屏幕时，使用了ai_settings的属性screen_width和screen_height；接下来填充屏幕时，也使用了ai_settings来访问背景色</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306091446882.webp" srcset="/img/loading.gif" lazyload></p>
+<h3 id="2-4添加飞船图像"><a href="#2-4添加飞船图像" class="headerlink" title="2.4添加飞船图像"></a>2.4添加飞船图像</h3><p>下面将飞船加入到游戏中。为了在屏幕上绘制玩家的飞船，我们将加载一幅图像，再使用Pygame方法blit()绘制它。</p>
+<p><em>可以使用<a target="_blank" rel="noopener" href="http://pixabay.com/%E7%AD%89%E7%BD%91%E7%AB%99%E6%8F%90%E4%BE%9B%E7%9A%84%E5%9B%BE%E5%BD%A2%EF%BC%8C%E8%BF%99%E4%BA%9B%E5%9B%BE%E5%BD%A2%E6%97%A0%E9%9C%80%E8%AE%B8%E5%8F%AF%EF%BC%8C%E4%BD%A0%E5%8F%AF%E4%BB%A5%E5%AF%B9%E5%85%B6%E8%BF%9B%E8%A1%8C%E4%BF%AE%E6%94%B9%E3%80%82">http://pixabay.com/等网站提供的图形，这些图形无需许可，你可以对其进行修改。</a></em></p>
+<p>在游戏中几乎可以使用任何类型的图像文件，但使用位图（.bmp）文件最为简单，因为Pygame默认加载位图。</p>
+<p>选择图像时，要特别注意其背景色。请尽可能选择背景透明的图像，这样可使用图像编辑器将其背景设置为任何颜色。图像的背景色与游戏的背景色相同时，游戏看起来最漂亮；也可以将游戏的背景色设置成与图像的背景色相同。</p>
+<h3 id="2-5创建ship类"><a href="#2-5创建ship类" class="headerlink" title="2.5创建ship类"></a>2.5创建ship类</h3><p>选择用于表示飞船的图像后，需要将其显示到屏幕上。我们将创建一个名为ship的模块，其中包含Ship类，它负责管理飞船的大部分行为。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pygame<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Ship</span>():<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self,screen</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;初始化飞船并设置其初始位置&quot;&quot;&quot;</span><br>        self.screen = screen<br><br>        <span class="hljs-comment">#加载飞船图像并获取其外接矩形</span><br>        self.image = pygame.image.load(<span class="hljs-string">&#x27;alien_invasion/images/ship.png&#x27;</span>)<br>        self.rect = self.image.get_rect()<br>        self.screen_rect = screen.get_rect()<br><br>        <span class="hljs-comment">#将每艘新飞船放在屏幕的底部中央</span><br>        self.rect.centerx = self.screen_rect.centerx<br>        self.rect.bottom = self.screen_rect.bottom<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">blitme</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;在指定位置绘制飞船&quot;&quot;&quot;</span><br>        self.screen.blit(self.image,self.rect)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>Ship的方法__init__()接受两个参数：引用self和screen，其中后者指定了要将飞船绘制到什么地方。</li>
+<li>调用了pygame.image.load()加载图像，这个函数返回一个表示飞船的surface，而我们将这个surface存储到了self.image中。</li>
+<li>使用get_rect()获取相应surface的属性rect<ul>
+<li>处理rect对象时，可使用矩形四角和中心的<em>x</em>和<em>y</em>坐标。可通过设置这些值来指定矩形的位置</li>
+<li>要将游戏元素居中，可设置相应rect对象的属性center、centerx或centery。要让游戏元素与屏幕边缘对齐，可使用属性top、bottom、left或right；要调整游戏元素的水平或垂直位置，可使用属性x和y，它们分别是相应矩形左上角的<em>x</em>和<em>y</em>坐标。</li>
+<li>在Pygame中，原点(0, 0)位于屏幕左上角，向右下方移动时，坐标值将增大。在1200×800的屏幕上，原点位于左上角，而右下角的坐标为(1200, 800)</li>
+</ul>
+</li>
+<li>将表示屏幕的矩形存储在self.screen_rect中，再将self.rect.centerx（飞船中心的<em>x</em>坐标）设置为表示屏幕的矩形的属性centerx，并将self.rect.bottom（飞船下边缘的<em>y</em>坐标）设置为表示屏幕的矩形的属性bottom。Pygame将使用这些rect属性来放置飞船图像，使其与屏幕下边缘对齐并水平居中</li>
+<li>定义方法blitme()，它根据self.rect指定的位置将图像绘制到屏幕上</li>
+</ul>
+<p><strong>在屏幕上绘制飞船</strong></p>
+<p>在主程序中引入ship类，并调用其方法blitme()</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306091510538.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306091511294.webp" srcset="/img/loading.gif" lazyload></p>
+<h3 id="2-6重构模块game-fuctions"><a href="#2-6重构模块game-fuctions" class="headerlink" title="2.6重构模块game_fuctions"></a>2.6重构模块game_fuctions</h3><p>为简化既有代码的结构，使其更容易扩展，通过创建模块game_fuctions，避免主模块alien_invasion.py太长。</p>
+<p><strong>check_events()</strong></p>
+<p>先把管理事件的代码移到一个名为check_events()的函数中，以简化run_game()并隔离事件管理循环。通过隔离事件循环，可将事件管理与游戏的其他方面（如更新屏幕）分离.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> sys <br><br><span class="hljs-keyword">import</span> pygame<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">check_events</span>():<br>    <span class="hljs-string">&quot;&quot;&quot;响应屏幕和鼠标事件&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">for</span> event <span class="hljs-keyword">in</span> pygame.event.get():<br>        <span class="hljs-keyword">if</span> event.<span class="hljs-built_in">type</span> == pygame.QUIT:<br>            sys.exit()<br></code></pre></td></tr></table></figure>
+
+<p>这个模块中导入了事件检查循环要使用的sys和pygame。当前，函数check_events()不需要任何形参，其函数体复制了alien_invasion.py的事件循环。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306091519299.webp" srcset="/img/loading.gif" lazyload></p>
+<p><strong>update_screen()</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">update_screen</span>(<span class="hljs-params">ai_settings,screen,ship</span>):<br>    <span class="hljs-comment">#每次循环时都重新绘制屏幕</span><br>    screen.fill(ai_settings.bg_color)<br>    ship.blitme()<br><br>    <span class="hljs-comment">#让最近绘制的屏幕可见</span><br>    pygame.display.flip()<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306091523079.webp" srcset="/img/loading.gif" lazyload></p>
+<h3 id="2-7驾驶飞船"><a href="#2-7驾驶飞船" class="headerlink" title="2.7驾驶飞船"></a>2.7驾驶飞船</h3><p>下面来让玩家能够左右移动飞船。为此，我们将编写代码，在用户按左或右箭头键时作出响应</p>
+<p><strong>响应按键</strong></p>
+<p>每当用户按键时，都将在Pygame中注册一个事件。事件都是通过方法pygame.event.get()获取的，因此在函数check_events()中，我们需要指定要检查哪些类型的事件。每次按键都被注册为一个KEYDOWN事件。</p>
+<p>检测到KEYDOWN事件时，我们需要检查按下的是否是特定的键。例如，如果按下的是右箭头键，我们就增大飞船的rect.centerx值，将飞船向右移动：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">elif</span> event.<span class="hljs-built_in">type</span> == pygame.KEYDOWN:<br>    <span class="hljs-keyword">if</span> event.key == pygame.K_RIGHT:<br>        <span class="hljs-comment">#向右移动飞船</span><br>        ship.rect.centerx += <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<p>主程序更新调用的check_events()代码，将ship作为实参传递：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 开始游戏主循环</span><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>: <br>gf.check_events(ship)<br>gf.update_screen(ai_settings, screen, ship)<br></code></pre></td></tr></table></figure>
+
+<p>现在运行alien_invasion.py，则每按右箭头键一次，飞船都将向右移动1像素</p>
+<p><strong>允许不断移动</strong></p>
+<p>玩家按住右箭头键不放时，我们希望飞船不断地向右移动，直到玩家松开为止。我们将让游戏检测pygame.KEYUP事件，以便玩家松开右箭头键时我们能够知道这一点；然后，我们将结合使用KEYDOWN和KEYUP事件，以及一个名为moving_right的标志来实现持续移动。</p>
+<p>飞船不动时，标志moving_right将为False。玩家按下右箭头键时，我们将这个标志设置为True；而玩家松开时，我们将这个标志重新设置为False。</p>
+<p>飞船的属性都由Ship类控制，因此我们将给这个类添加一个名为moving_right的属性和一个名为update()的方法。方法update()检查标志moving_right的状态，如果这个标志为True，就调整飞船的位置。每当需要调整飞船的位置时，我们都调用这个方法。</p>
+<p>修改ship类：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">    <span class="hljs-comment">#移动标志</span><br>    self.moving_right = <span class="hljs-literal">False</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">update</span>(<span class="hljs-params">self</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;根据移动标志调整飞船的位置&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">if</span> self.moving_right:<br>        self.rect.centerx += <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<p>修改game_fuctions.py模块代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">elif</span> event.<span class="hljs-built_in">type</span> == pygame.KEYDOWN:<br>    <span class="hljs-keyword">if</span> event.key == pygame.K_RIGHT:<br>        <span class="hljs-comment">#按键按下时，开始向右移动飞船</span><br>        ship.moving_right = <span class="hljs-literal">True</span><br><br><span class="hljs-keyword">elif</span> event.<span class="hljs-built_in">type</span> == pygame.KEYUP:<br>    <span class="hljs-keyword">if</span> event.key == pygame.K_RIGHT:<br>        <span class="hljs-comment">#按键松开时，结束向右移动飞船</span><br>        ship.moving_right = <span class="hljs-literal">False</span><br></code></pre></td></tr></table></figure>
+
+<p>修改主程序：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br><br>    <span class="hljs-comment">#监视键盘和鼠标事件</span><br>    gf.check_events(ship)<br>    ship.update()<br>    <span class="hljs-comment">#刷新屏幕</span><br>    gf.update_screen(ai_settings,screen,ship)<br></code></pre></td></tr></table></figure>
+
+<p><strong>左右移动</strong></p>
+<p>再次修改Ship类和函数check_events()：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306091621029.webp" srcset="/img/loading.gif" lazyload></p>
+<p>修改game_fuctions.py</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306091622447.webp" srcset="/img/loading.gif" lazyload></p>
+<p><strong>调整飞船的速度</strong></p>
+<p>可以在Settings类中添加属性ship_speed_factor，用于控制飞船的速度</p>
+<p><code>self.ship_speed_factor = 1.5</code>通过将速度设置指定为小数值，可在后面加快游戏的节奏时更细致地控制飞船的速度，然而，rect的centerx等属性只能存储整数值，因此我们需要对Ship类做些修改：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306091627178.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306091629980.webp" srcset="/img/loading.gif" lazyload></p>
+<p><strong>限制飞船的活动范围</strong></p>
+<p>修改Ship类的方法update()，使的飞船不能超出屏幕范围</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> self.moving_right <span class="hljs-keyword">and</span> self.rect.right &lt; self.screen_rect.right:<br>    self.center += self.ai_settings.ship_speed_factor<br><span class="hljs-keyword">if</span> self.moving_left <span class="hljs-keyword">and</span> self.rect.left &gt; <span class="hljs-number">0</span>:<br>    self.center -= self.ai_settings.ship_speed_factor<br></code></pre></td></tr></table></figure>
+
+<p><strong>重构check_events()</strong></p>
+<p>函数check_events()将越来越长，我们将其部分代码放在两个函数中：一个处理KEYDOWN事件，另一个处理KEYUP事件</p>
+<h3 id="2-8-射击"><a href="#2-8-射击" class="headerlink" title="2.8 射击"></a>2.8 射击</h3><p>在settings中添加子弹的设置：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#子弹的设置参数</span><br>self.bullet_speed_factor = <span class="hljs-number">1</span><br>self.bullet_width = <span class="hljs-number">3</span><br>self.bullet_height = <span class="hljs-number">15</span><br>self.bullet_color = (<span class="hljs-number">60</span>, <span class="hljs-number">60</span>, <span class="hljs-number">60</span>)<br></code></pre></td></tr></table></figure>
+
+<p><strong>创建Bullet类</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pygame<br><br><span class="hljs-keyword">from</span> pygame.sprite <span class="hljs-keyword">import</span> Sprite<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Bullet</span>(<span class="hljs-title class_ inherited__">Sprite</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;一个对飞船发射的子弹管理的类&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self,ai_settings,screen,ship</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;在飞船的处的位置创建一个子弹对象&quot;&quot;&quot;</span><br>        <span class="hljs-built_in">super</span>.__init__()<br>        self.screen = screen<br><br>        <span class="hljs-comment">#在（0，0）位置生成一个子弹，并移到飞船所处的位置</span><br>        self.rect = pygame.Rect(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,ai_settings.bullet_width,<br>                                ai_settings.bullet_height)<br>        self.rect.centerx = ship.rect.centerx<br>        self.rect.top = ship.rect.top<br><br>        <span class="hljs-comment">#用小数表示子弹的位置</span><br>        self.y = <span class="hljs-built_in">float</span>(self.rect.y)<br><br>        self.color = ai_settings.bullet_color<br>        self.speed_factor = ai_settings.bullet_speed_factor<br>        <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">update</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;向上移动子弹&quot;&quot;&quot;</span><br>        self.y -= self.speed_factor<br>        <span class="hljs-comment">#更新子弹的位置</span><br>        self.rect.y = self.y<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">draw_bullet</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;重新绘制子弹&quot;&quot;&quot;</span><br>        pygame.draw.rect(self.screen,self.color,self.rect)<br></code></pre></td></tr></table></figure>
+
+<p>Bullet类继承了我们从模块pygame.sprite中导入的Sprite类。通过使用精灵，可将游戏中相关的元素编组，进而同时操作编组中的所有元素。</p>
+<p>定义update()跟draw_bullet()两个方法，用于更新子弹的位置，并在屏幕上绘制出新的子弹。</p>
+<p>属性speed_factor让我们能够随着游戏的进行或根据需要提高子弹的速度，以调整游戏的行为。子弹发射后，其<em>x</em>坐标始终不变，因此子弹将沿直线垂直地往上穿行。</p>
+<p><strong>将子弹存储到编组中</strong></p>
+<p>定义Bullet类和必要的设置后，就可以编写代码了，在玩家每次按空格键时都射出一发子弹。首先，我们将在alien_invasion.py中创建一个编组（group），用于存储所有有效的子弹，以便能够管理发射出去的所有子弹。</p>
+<p>这个编组将是pygame.sprite.Group类的一个实例；pygame.sprite. Group类类似于列表，但提供了有助于开发游戏的额外功能。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306100903363.webp" srcset="/img/loading.gif" lazyload></p>
+<p>将bullets传递给了check_events()和update_screen()。在check_events()中，需要在玩家按空格键时处理bullets；而在update_screen()中，需要更新要绘制到屏幕上的bullets。</p>
+<p>当你对编组调用update()时，编组将自动对其中的每个精灵调用update()，因此代码行bullets.update()将为编组bullets中的每颗子弹调用bullet.update()。</p>
+<p><strong>开火</strong></p>
+<p>在game_functions.py中，我们需要修改check_keydown_events()，以便在玩家按空格键时发射一颗子弹。我们无需修改check_keyup_events()，因为玩家松开空格键时什么都不会发生。我们还需修改update_screen()，确保在调用flip()前在屏幕上重绘每颗子弹</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python">--snip-- <br><span class="hljs-keyword">from</span> bullet <span class="hljs-keyword">import</span> Bullet <br> <span class="hljs-keyword">def</span> <span class="hljs-title function_">check_keydown_events</span>(<span class="hljs-params">event, ai_settings, screen, ship, bullets</span>):<br> --snip-- <br> <span class="hljs-keyword">elif</span> event.key == pygame.K_SPACE: <br> <span class="hljs-comment"># 创建一颗子弹，并将其加入到编组bullets中</span><br> new_bullet = Bullet(ai_settings, screen, ship) <br> bullets.add(new_bullet) <br> --snip-- <br> <span class="hljs-keyword">def</span> <span class="hljs-title function_">check_events</span>(<span class="hljs-params">ai_settings, screen, ship, bullets</span>):<br> <span class="hljs-string">&quot;&quot;&quot;响应按键和鼠标事件&quot;&quot;&quot;</span> <br> <span class="hljs-keyword">for</span> event <span class="hljs-keyword">in</span> pygame.event.get(): <br> --snip-- <br> <span class="hljs-keyword">elif</span> event.<span class="hljs-built_in">type</span> == pygame.KEYDOWN: <br> check_keydown_events(event, ai_settings, screen, ship, bullets) <br> --snip-- <br> <span class="hljs-keyword">def</span> <span class="hljs-title function_">update_screen</span>(<span class="hljs-params">ai_settings, screen, ship, bullets</span>):<br> --snip-- <br> <span class="hljs-comment"># 在飞船和外星人后面重绘所有子弹</span><br> <span class="hljs-keyword">for</span> bullet <span class="hljs-keyword">in</span> bullets.sprites(): <br> bullet.draw_bullet() <br> ship.blitme() <br> --snip--<br></code></pre></td></tr></table></figure>
+
+<p>编组bulltes传递给了check_keydown_events()。玩家按空格键时，创建一颗新子弹（一个名为new_bullet的Bullet实例），并使用方法add()将其加入到编组bullets中；代码bullets.add(new_bullet)将新子弹存储到编组bullets中。</p>
+<p>在check_events()的定义中，我们需要添加形参bullets；调用check_keydown_events()时，我们也需要将bullets作为实参传递给它。</p>
+<p>给在屏幕上绘制子弹的 update_screen() 添加了形参 bullets 。方法bullets.sprites()返回一个列表，其中包含编组bullets中的所有精灵。为在屏幕上绘制发射的所有子弹，我们遍历编组bullets中的精灵，并对每个精灵都调用draw_bullet()。</p>
+<p>如果此时运行alien_invasion.py，将能够左右移动飞船，并发射任意数量的子弹。子弹在屏幕上向上穿行，抵达屏幕顶部后消失。可在settings.py中修改子弹的尺寸、颜色和速度。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306100918932.webp" srcset="/img/loading.gif" lazyload></p>
+<p><strong>删除消失的子弹</strong></p>
+<p>子弹抵达屏幕顶端后消失，这仅仅是因为Pygame无法在屏幕外面绘制它们。这些子弹实际上依然存在，它们的<em>y</em>坐标为负数，且越来越小。这是个问题，因为它们将继续消耗内存和处理能力。</p>
+<p>为此，我们需要检测这样的条件，即表示子弹的rect的bottom属性为零，它表明子弹已穿过屏幕顶端：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 删除已消失的子弹</span><br> <span class="hljs-keyword">for</span> bullet <span class="hljs-keyword">in</span> bullets.copy(): <br> <span class="hljs-keyword">if</span> bullet.rect.bottom &lt;= <span class="hljs-number">0</span>: <br> bullets.remove(bullet) <br> <span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(bullets))<br></code></pre></td></tr></table></figure>
+
+<p>在for循环中，不应从列表或编组中删除条目，因此必须遍历编组的副本。我们使用了方法copy()来设置for循环，这让我们能够在循环中修改bullets。我们检查每颗子弹，看看它是否已从屏幕顶端消失。如果是这样，就将其从bullets中删除。我们使用了一条print语句，以显示当前还有多少颗子弹，从而核实已消失的子弹确实删除了。</p>
+<p><strong>限制子弹的数量</strong></p>
+<p>很多射击游戏都对可同时出现在屏幕上的子弹数量进行限制，以鼓励玩家有目标地射击，因此可以修改settings类，并在game_fuctions中新增子弹前检查当前子弹数量是否小于设定值</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306100929748.webp" srcset="/img/loading.gif" lazyload></p>
+<p><strong>创建update_bullets()函数</strong></p>
+<p>编写并检查子弹管理代码后，可将其移到模块game_functions中，以让主程序文件alien_invasion.py尽可能简单，在game_fuctions.py后面追加一个函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">update_bulltes</span>(<span class="hljs-params">bullets</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;更新子弹位置，并删除已消失的子弹&quot;&quot;&quot;</span><br>    <span class="hljs-comment">#更新子弹位置</span><br>    bullets.update()<br><br>    <span class="hljs-comment">#删除消失的子弹</span><br>    <span class="hljs-keyword">for</span> bullet <span class="hljs-keyword">in</span> bullets.copy():<br>        <span class="hljs-keyword">if</span> bullet.rect.bottom &lt;= <span class="hljs-number">0</span> :<br>            bullets.remove(bullet)  <br></code></pre></td></tr></table></figure>
+
+<p><strong>创建函数 fire_bullet()</strong></p>
+<p>将发射子弹的代码移到一个独立的函数中，这样，在check_keydown_events()中只需使用一行代码来发射子弹，让elif代码块变得非常简单</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">fire_bullet</span>(<span class="hljs-params">ai_settings,screen,ship,bullets</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;如果还没达到子弹数量限制，就发射一个子弹&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(bullets) &lt; ai_settings.bullets_allowed:<br>        new_bullet = Bullet(ai_settings,screen,ship)<br>        bullets.add(new_bullet)    <br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306100941671.webp" srcset="/img/loading.gif" lazyload></p>
+<h2 id="3-外星人"><a href="#3-外星人" class="headerlink" title="3.外星人"></a>3.外星人</h2><p>首先，我们在屏幕上边缘附近添加一个外星人，然后生成一群外星人。我们让这群外星人向两边和下面移动，并删除被子弹击中的外星人。最后，我们将显示玩家拥有的飞船数量，并在玩家的飞船用完后结束游戏。</p>
+<h3 id="3-1创建Alien类"><a href="#3-1创建Alien类" class="headerlink" title="3.1创建Alien类"></a>3.1创建Alien类</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pygame<br><span class="hljs-keyword">from</span> pygame.sprite <span class="hljs-keyword">import</span> Sprite<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Alien</span>(<span class="hljs-title class_ inherited__">Sprite</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;表示单个外星人的类&quot;&quot;&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self,ai_settings,screen</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;初始化外星人并设置其初始位置&quot;&quot;&quot;</span><br>        <span class="hljs-built_in">super</span>().__init__()<br>        self.screen = screen<br>        self.ai_settings = ai_settings<br><br>        <span class="hljs-comment">#加载外星人图像并获取其外接矩形</span><br>        self.image = pygame.image.load(ai_settings.alien_image)<br>        self.rect = self.image.get_rect()<br>        self.screen_rect = screen.get_rect()<br><br>        <span class="hljs-comment">#每个外星人都在左上角附近</span><br>        self.rect.x = self.rect.width<br>        self.rect.y = self.rect.height<br><br>        <span class="hljs-comment">#在外星人的准备位置</span><br>        self.x = <span class="hljs-built_in">float</span>(self.rect.x)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">blitme</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;在指定位置绘制飞船&quot;&quot;&quot;</span><br>        self.screen.blit(self.image,self.rect)<br></code></pre></td></tr></table></figure>
+
+<p>除位置不同外，这个类的大部分代码都与Ship类相似。每个外星人最初都位于屏幕左上角附近，我们将每个外星人的左边距都设置为外星人的宽度，并将上边距设置为外星人的高度</p>
+<p><strong>创建Alien实例</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">run_game</span>(): <br> --snip-- <br> <span class="hljs-comment"># 创建一个外星人</span><br> alien = Alien(ai_settings, screen) <br> <span class="hljs-comment"># 开始游戏主循环</span><br> <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>: <br> gf.check_events(ai_settings, screen, ship, bullets) <br> ship.update() <br> gf.update_bullets(bullets) <br> gf.update_screen(ai_settings, screen, ship, alien, bullets)<br></code></pre></td></tr></table></figure>
+
+<p>导入了新创建的Alien类，并在进入主while循环前创建了一个Alien实例。我们没有修改外星人的位置，因此该while循环没有任何新东西，但我们修改了对update_screen()的调用，传递了一个外星人实例</p>
+<p><strong>让外星人出现在屏幕上</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">update_screen</span>(<span class="hljs-params">ai_settings, screen, ship, alien, bullets</span>): <br> --snip-- <br> <br> <span class="hljs-comment"># 在飞船和外星人后面重绘所有的子弹</span><br> <span class="hljs-keyword">for</span> bullet <span class="hljs-keyword">in</span> bullets: <br> bullet.draw_bullet() <br> ship.blitme() <br> alien.blitme() <br> <br> <span class="hljs-comment"># 让最近绘制的屏幕可见</span><br> pygame.display.flip()<br></code></pre></td></tr></table></figure>
+
+<p>先绘制飞船和子弹，再绘制外星人，让外星人在屏幕上位于最前面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306101048326.webp" srcset="/img/loading.gif" lazyload></p>
+<h3 id="3-2创建一群外星人"><a href="#3-2创建一群外星人" class="headerlink" title="3.2创建一群外星人"></a>3.2创建一群外星人</h3><p>要绘制一群外星人，需要确定一行能容纳多少个外星人以及要绘制多少行外星人。我们将首先计算外星人之间的水平间距，并创建一行外星人，再确定可用的垂直空间，并创建整群外星人</p>
+<p><code>available_space_x = ai_settings.screen_width – (2 * alien_width)</code>:为确定一行可容纳多少个外星人，我们来看看可用的水平空间有多大。屏幕宽度存储在ai_settings.screen_width中，但需要在屏幕两边都留下一定的边距，把它设置为外星人的宽度。由于有两个边距，因此可用于放置外星人的水平空间为屏幕宽度减去外星人宽度的两倍</p>
+<p><code>number_aliens_x = available_space_x / (2 * alien_width) </code>:我们还需要在外星人之间留出一定的空间，即外星人宽度。因此，显示一个外星人所需的水平空间为外星人宽度的两倍：一个宽度用于放置外星人，另一个宽度为外星人右边的空白区域。为确定一行可容纳多少个外星人，我们将可用空间除以外星人宽度的两倍</p>
+<p><strong>创建多行外星人</strong></p>
+<p>为创建一行外星人，首先在alien_invasion.py中创建一个名为aliens的空编组，用于存储全部外星人，再调用game_functions.py中创建外星人群的函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#创建一个用于存储外星人的编组</span><br>   aliens = Group()<br>   <span class="hljs-comment">#创建外星人群</span><br>   gf.create_fleet(ai_settings,screen,aliens)<br><br>   <span class="hljs-comment">#开始游戏的主循环</span><br>   <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br><br>       <span class="hljs-comment">#监视键盘和鼠标事件</span><br>       gf.check_events(ai_settings,screen,ship,bullets)        <br>       ship.update()<br><br>       gf.update_bulltes(bullets)<br><br>       <span class="hljs-comment">#刷新屏幕</span><br>       gf.update_screen(ai_settings,screen,ship,aliens,bullets)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>创建了一个空编组，用于存储所有的外星人。</li>
+<li>调用稍后将编写的函数create_fleet()，并将ai_settings、对象screen和空编组aliens传递给它。</li>
+<li>修改对update_screen()的调用，让它能够访问外星人编组</li>
+</ul>
+<p><strong>创建外星人群</strong></p>
+<p>新函数create_fleet()，我们将它放在game_functions. py的末尾。我们还需要导入Alien类，因此务必在文件game_functions.py开头添加相应的import语句</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">create_fleet</span>(<span class="hljs-params">ai_settings,screen,aliens</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;创建外星人群&quot;&quot;&quot;</span><br>    <span class="hljs-comment"># 创建一个外星人，并计算一行可容纳多少个外星人</span><br>    <span class="hljs-comment"># 外星人间距为外星人宽度</span><br>    alien = Alien(ai_settings, screen)<br>    alien_width = alien.rect.width<br>    available_space_x = ai_settings.screen_width - <span class="hljs-number">2</span> * alien_width<br>    number_aliens_x = <span class="hljs-built_in">int</span>(available_space_x / (<span class="hljs-number">2</span> * alien_width))<br><br>    <span class="hljs-comment">#创建一行外星人</span><br>    <span class="hljs-keyword">for</span> alien_number <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(number_aliens_x):<br>        <span class="hljs-comment"># 创建一个外星人并将其加入当前行</span><br>        alien = Alien(ai_settings,screen)<br>        alien.x = alien_width + <span class="hljs-number">2</span>*alien_width*alien_number<br>        alien.rect.x = alien.x<br>        aliens.add(alien)<br></code></pre></td></tr></table></figure>
+
+<p><strong>重构create_fleet()</strong></p>
+<p>将create_fleet()函数拆分为get_number_aliens_x()和create_alien():</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">create_fleet</span>(<span class="hljs-params">ai_settings,screen,aliens</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;创建外星人群&quot;&quot;&quot;</span><br>    <span class="hljs-comment"># 创建一个外星人，并计算一行可容纳多少个外星人</span><br>    <span class="hljs-comment"># 外星人间距为外星人宽度</span><br>    alien = Alien(ai_settings, screen)<br>    number_aliens_x = get_number_aliens_x(ai_settings, alien.rect.width)<br>    <span class="hljs-keyword">for</span> alien_number <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(number_aliens_x): <br>        create_alien(ai_settings, screen, aliens, alien_number)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_number_aliens_x</span>(<span class="hljs-params">ai_settings,alien_width</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;计算每行可容纳多少个外星人&quot;&quot;&quot;</span><br>    available_space_x = ai_settings.screen_width - <span class="hljs-number">2</span> * alien_width<br>    number_aliens_x = <span class="hljs-built_in">int</span>(available_space_x / (<span class="hljs-number">2</span> * alien_width))<br>    <span class="hljs-keyword">return</span> number_aliens_x<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">create_alien</span>(<span class="hljs-params">ai_settings,screen,aliens,alien_number</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;创建一个外星人并将其放在当前行&quot;&quot;&quot;</span><br>    alien = Alien(ai_settings, screen) <br>    alien_width = alien.rect.width<br>    alien.x = alien_width + <span class="hljs-number">2</span> * alien_width * alien_number <br>    alien.rect.x = alien.x <br>    aliens.add(alien)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>函数get_number_aliens_x()的代码都来自create_fleet()，且未做任何修改。</li>
+<li>函数create_alien()的代码也都来自create_fleet()，且未做任何修改，只是使用刚创建的外星人来获取外星人宽度。</li>
+<li>我们将计算可用水平空间的代码替换为对get_number_aliens_x()的调用，并删除了引用alien_width的代码行，因为现在这是在create_alien()中处理的。然后调用create_alien()。</li>
+</ul>
+<p><strong>添加行</strong></p>
+<p>要创建外星人群，需要计算屏幕可容纳多少行，并对创建一行外星人的循环重复相应的次数.</p>
+<p>为计算可容纳的行数，我们这样计算可用垂直空间：将屏幕高度减去第一行外星人的上边距（外星人高度）、飞船的高度以及最初外星人群与飞船的距离（外星人高度的两倍）：</p>
+<blockquote>
+<p>available_space_y &#x3D; ai_settings.screen_height – 3 * alien_height – ship_height </p>
+</blockquote>
+<p>每行下方都要留出一定的空白区域，并将其设置为外星人的高度。为计算可容纳的行数，我们将可用垂直空间除以外星人高度的两倍（同样，如果这样的计算不对，我们马上就能发现，继而将间距调整为合理的值）。</p>
+<blockquote>
+<p>number_rows &#x3D; available_height_y &#x2F; (2 * alien_height) </p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">create_fleet</span>(<span class="hljs-params">ai_settings,screen,ship,aliens</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;创建外星人群&quot;&quot;&quot;</span><br>    <span class="hljs-comment"># 创建一个外星人，并计算一行可容纳多少个外星人</span><br>    <span class="hljs-comment"># 外星人间距为外星人宽度</span><br>    alien = Alien(ai_settings, screen)<br>    number_aliens_x = get_number_aliens_x(ai_settings, alien.rect.width)<br>    number_rows = get_number_aliens_row(ai_settings,ship.rect.height,alien.rect.height)<br>    <span class="hljs-keyword">for</span> row_number <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(number_rows):<br>        <span class="hljs-keyword">for</span> alien_number <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(number_aliens_x): <br>            create_alien(ai_settings, screen, aliens, alien_number,row_number)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_number_aliens_x</span>(<span class="hljs-params">ai_settings,alien_width</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;计算每行可容纳多少个外星人&quot;&quot;&quot;</span><br>    available_space_x = ai_settings.screen_width - <span class="hljs-number">2</span> * alien_width<br>    number_aliens_x = <span class="hljs-built_in">int</span>(available_space_x / (<span class="hljs-number">2</span> * alien_width))<br>    <span class="hljs-keyword">return</span> number_aliens_x<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_number_aliens_row</span>(<span class="hljs-params">ai_settings,ship_height,alien_height</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;计算可容纳多少行外星人&quot;&quot;&quot;</span><br>    available_apace_y = ai_settings.screen_height - <span class="hljs-number">3</span> * alien_height - ship_height<br>    number_rows = <span class="hljs-built_in">int</span>(available_apace_y / (<span class="hljs-number">2</span> * alien_height))<br>    <span class="hljs-keyword">return</span> number_rows<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">create_alien</span>(<span class="hljs-params">ai_settings,screen,aliens,alien_number,row_number</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;创建一个外星人并将其放在当前行&quot;&quot;&quot;</span><br>    alien = Alien(ai_settings, screen) <br>    alien_width = alien.rect.width<br>    alien.x = alien_width + <span class="hljs-number">2</span> * alien_width * alien_number <br>    alien.rect.x = alien.x <br>    alien.rect.y = alien.rect.height + <span class="hljs-number">2</span> * alien.rect.height * row_number<br>    aliens.add(alien)<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306101544095.webp" srcset="/img/loading.gif" lazyload></p>
+<h3 id="3-3让外星人移动"><a href="#3-3让外星人移动" class="headerlink" title="3.3让外星人移动"></a>3.3让外星人移动</h3><p>下面来让外星人群在屏幕上向右移动，撞到屏幕边缘后下移一定的距离，再沿相反的方向移动。我们将不断地移动所有的外星人，直到所有外星人都被消灭，有外星人撞上飞船，或有外星人抵达屏幕底端</p>
+<p><strong>向右移动外星人</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">update</span>(<span class="hljs-params">self</span>): <br> <span class="hljs-string">&quot;&quot;&quot;向右移动外星人&quot;&quot;&quot;</span> <br> self.x += self.ai_settings.alien_speed_factor <br> self.rect.x = self.x<br></code></pre></td></tr></table></figure>
+
+<p>在settings.py类中增加外星人的移动速度<code>ai_settings.alien_speed_factor </code></p>
+<p>在game_fuctions.py中增加函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">update_aliens</span>(<span class="hljs-params">aliens</span>): <br> <span class="hljs-string">&quot;&quot;&quot;更新外星人群中所有外星人的位置&quot;&quot;&quot;</span> <br> aliens.update()<br></code></pre></td></tr></table></figure>
+
+<p><strong>增加移动方向设置</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 外星人设置</span><br>self.alien_speed_factor = <span class="hljs-number">1</span> <br>self.fleet_drop_speed = <span class="hljs-number">10</span> <br><span class="hljs-comment"># fleet_direction为1表示向右移，为-1表示向左移</span><br>self.fleet_direction = <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<p>设置fleet_drop_speed指定了有外星人撞到屏幕边缘时，外星人群向下移动的速度。将这个速度与水平速度分开是有好处的，这样你就可以分别调整这两种速度了。</p>
+<p>要实现fleet_direction设置，可以将其设置为文本值，如’left’或’right’，但这样就必须编写if-elif语句来检查外星人群的移动方向。鉴于只有两个可能的方向，我们使用值1和-1来表示它们，并在外星人群改变方向时在这两个值之间切换。</p>
+<p>另外，鉴于向右移动时需要增大每个外星人的<em>x</em>坐标，而向左移动时需要减小每个外星人的<em>x</em>坐标，使用数字来表示方向更合理.</p>
+<p><strong>检查是否撞到屏幕</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"> <span class="hljs-keyword">def</span> <span class="hljs-title function_">check_edges</span>(<span class="hljs-params">self</span>): <br> <span class="hljs-string">&quot;&quot;&quot;如果外星人位于屏幕边缘，就返回True&quot;&quot;&quot;</span> <br> screen_rect = self.screen.get_rect() <br> <span class="hljs-keyword">if</span> self.rect.right &gt;= screen_rect.right: <br> <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span> <br> <span class="hljs-keyword">elif</span> self.rect.left &lt;= <span class="hljs-number">0</span>: <br> <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span> <br> <br> <span class="hljs-keyword">def</span> <span class="hljs-title function_">update</span>(<span class="hljs-params">self</span>): <br> <span class="hljs-string">&quot;&quot;&quot;向左或向右移动外星人&quot;&quot;&quot;</span> <br> self.x += (self.ai_settings.alien_speed_factor * <br> self.ai_settings.fleet_direction) <br> self.rect.x = self.x<br></code></pre></td></tr></table></figure>
+
+<p>我们可对任何外星人调用新方法check_edges()，看看它是否位于屏幕左边缘或右边缘。如果外星人的rect的right属性大于或等于屏幕的rect的right属性，就说明外星人位于屏幕右边缘。如果外星人的rect的left属性小于或等于0，就说明外星人位于屏幕左边缘。</p>
+<p>修改了方法update()，将移动量设置为外星人速度和fleet_direction的乘积，让外星人向左或向右移。如果fleet_direction为1，就将外星人当前的<em>x</em>坐标增大alien_speed_factor，从而将外星人向右移；如果fleet_direction为，就将外星人当前的<em>x</em>坐标减去alien_speed_factor，从而将外星人向左移。</p>
+<p><strong>向下移动</strong></p>
+<p>有外星人到达屏幕边缘时，需要将整群外星人下移，并改变它们的移动方向。需要对game_functions.py做重大修改，因为我们要在这里检查是否有外星人到达了左边缘或右边缘。为此，我们编写函数check_fleet_edges()和change_fleet_direction()，并对update_aliens()进行修改：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">check_fleet_edges</span>(<span class="hljs-params">ai_settings, aliens</span>): <br> <span class="hljs-string">&quot;&quot;&quot;有外星人到达边缘时采取相应的措施&quot;&quot;&quot;</span> <br> <span class="hljs-keyword">for</span> alien <span class="hljs-keyword">in</span> aliens.sprites(): <br> <span class="hljs-keyword">if</span> alien.check_edges(): <br> change_fleet_direction(ai_settings, aliens) <br> <span class="hljs-keyword">break</span> <br> <br><span class="hljs-keyword">def</span> <span class="hljs-title function_">change_fleet_direction</span>(<span class="hljs-params">ai_settings, aliens</span>): <br> <span class="hljs-string">&quot;&quot;&quot;将整群外星人下移，并改变它们的方向&quot;&quot;&quot;</span> <br> <span class="hljs-keyword">for</span> alien <span class="hljs-keyword">in</span> aliens.sprites():<br> alien.rect.y += ai_settings.fleet_drop_speed <br> ai_settings.fleet_direction *= -<span class="hljs-number">1</span><br> <br><span class="hljs-keyword">def</span> <span class="hljs-title function_">update_aliens</span>(<span class="hljs-params">ai_settings, aliens</span>): <br> <span class="hljs-string">&quot;&quot;&quot; </span><br><span class="hljs-string"> 检查是否有外星人位于屏幕边缘，并更新整群外星人的位置</span><br><span class="hljs-string"> &quot;&quot;&quot;</span><br> check_fleet_edges(ai_settings, aliens)<br> aliens.update()<br></code></pre></td></tr></table></figure>
+
+<p>在check_fleet_edges()中，我们遍历外星人群，并对其中的每个外星人调用check_edges()。如果check_edges()返回True，我们就知道相应的外星人位于屏幕边缘，需要改变外星人群的方向，因此我们调用change_fleet_direction()并退出循环。在change_fleet_direction()中，我们遍历所有外星人，将每个外星人下移fleet_drop_speed设置的值；然后，将fleet_direction的值修改为其当前值与-1的乘积。</p>
+<p>我们修改了函数update_aliens()，在其中通过调用check_fleet_edges()来确定是否有外星人位于屏幕边缘。现在，函数update_aliens()包含形参ai_settings，因此我们调用它时指定了与ai_settings对应的实参。</p>
+<h3 id="3-4射杀外星人"><a href="#3-4射杀外星人" class="headerlink" title="3.4射杀外星人"></a>3.4射杀外星人</h3><p>游戏编程中，碰撞指的是游戏元素重叠在一起。要让子弹能够击落外星人，我们将使用sprite.groupcollide()检测两个编组的成员之间的碰撞。</p>
+<p><strong>检测子弹与外星人的碰撞</strong></p>
+<p>方法sprite.groupcollide()将每颗子弹的rect同每个外星人的rect进行比较，并返回一个字典，其中包含发生了碰撞的子弹和外星人。在这个字典中，每个键都是一颗子弹，而相应的值都是被击中的外星人</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">update_bullets</span>(<span class="hljs-params">aliens, bullets</span>): <br> <span class="hljs-string">&quot;&quot;&quot;更新子弹的位置，并删除已消失的子弹&quot;&quot;&quot;</span> <br> --snip-- <br> <span class="hljs-comment"># 检查是否有子弹击中了外星人</span><br> <span class="hljs-comment"># 如果是这样，就删除相应的子弹和外星人</span><br> collisions = pygame.sprite.groupcollide(bullets, aliens, <span class="hljs-literal">True</span>, <span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure>
+
+<p>新增的这行代码遍历编组bullets中的每颗子弹，再遍历编组aliens中的每个外星人。每当有子弹和外星人的rect重叠时，groupcollide()就在它返回的字典中添加一个键-值对。两个实参True告诉Pygame删除发生碰撞的子弹和外星人(要模拟能够穿行到屏幕顶端的高能子弹——消灭它击中的每个外星人，可将第一个布尔实参设置为False，并让第二个布尔实参为True。这样被击中的外星人将消失，但所有的子弹都始终有效，直到抵达屏幕顶端后消失。)</p>
+<p><strong>为测试创建大子弹</strong></p>
+<p>测试有些功能时，可以修改游戏的某些设置，以便专注于游戏的特定方面。例如，可以缩小屏幕以减少需要击落的外星人数量，也可以提高子弹的速度，以便能够在单位时间内发射大量子弹。</p>
+<p><strong>生成新的外星人群</strong></p>
+<p>要在外星人群被消灭后又显示一群外星人，首先需要检查编组aliens是否为空。如果为空，就调用create_fleet()。我们将在update_bullets()中执行这种检查，因为外星人都是在这里被消灭的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(aliens) == <span class="hljs-number">0</span>:<br>    <span class="hljs-comment"># 删除现有的子弹并生成新的外星人群</span><br>    bullets.empty()<br>    create_fleet(ai_settings,screen,ship,aliens)<br></code></pre></td></tr></table></figure>
+
+<p><strong>提高子弹速度</strong></p>
+<p>如果你现在尝试在这个游戏中射杀外星人，可能发现子弹的速度比以前慢，这是因为在每次循环中， Pygame 需要做的工作更多了。为提高子弹的速度，可调整 settings.py 中bullet_speed_factor的值。</p>
+<p><strong>重构update_bullets()</strong></p>
+<p>下面来重构update_bullets()，使其不再完成那么多任务。我们将把处理子弹和外星人碰撞的代码移到一个独立的函数中</p>
+<h3 id="3-5结束游戏"><a href="#3-5结束游戏" class="headerlink" title="3.5结束游戏"></a>3.5结束游戏</h3><p><strong>检测外星人与飞船的碰撞</strong></p>
+<p>我们首先检查外星人和飞船之间的碰撞，以便外星人撞上飞船时我们能够作出合适的响应。我们在更新每个外星人的位置后立即检测外星人和飞船之间的碰撞。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">update_aliens</span>(<span class="hljs-params">ai_settings,ship,aliens</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;更新外星人的位置&quot;&quot;&quot;</span><br>    check_fleet_edges(ai_settings,aliens)<br>    aliens.update()<br><br>    <span class="hljs-comment"># 检测外星人与飞船的碰撞</span><br>    <span class="hljs-keyword">if</span> pygame.sprite.groupcollide(ship,aliens):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;飞船被击中啦！&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>方法spritecollideany()接受两个实参：一个精灵和一个编组。它检查编组是否有成员与精灵发生了碰撞，并在找到与精灵发生了碰撞的成员后就停止遍历编组。在这里，它遍历编组aliens，并返回它找到的第一个与飞船发生了碰撞的外星人。</p>
+<p>如果没有发生碰撞，spritecollideany()将返回None，因此Ø处的if代码块不会执行。如果找到了与飞船发生碰撞的外星人，它就返回这个外星人，因此if代码块将执行：打印“Ship hit!!!”。（有外星人撞到飞船时，需要执行的任务很多：需要删除余下的所有外星人和子弹，让飞船重新居中，以及创建一群新的外星人。</p>
+<p><strong>响应外星人与飞船的碰撞</strong></p>
+<p>现在需要确定外星人与飞船发生碰撞时，该做些什么。我们不销毁ship实例并创建一个新的ship实例，而是通过跟踪游戏的统计信息来记录飞船被撞了多少次（跟踪统计信息还有助于记分）。</p>
+<p>下面来编写一个用于跟踪游戏统计信息的新类——GameStats，并将其保存为文件game_stats.py：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">GameStats</span>():<br>    <span class="hljs-string">&quot;&quot;&quot;跟踪游戏的统计信息&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self,ai_settings</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;初始化统计信息&quot;&quot;&quot;</span><br>        self.ai_settings = ai_settings<br>        self.reset_stats()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">reset_stats</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;初始化在游戏运行期间可能变化的统计信息&quot;&quot;&quot;</span><br>        self.ships_left = self.ai_settings.ship_limit<br></code></pre></td></tr></table></figure>
+
+<p>在这个游戏运行期间，我们只创建一个GameStats实例，但每当玩家开始新游戏时，需要重置一些统计信息。为此，我们在方法reset_stats()中初始化大部分统计信息，而不是在__init__()中直接初始化它们。我们在__init__()中调用这个方法，这样创建GameStats实例时将妥善地设置这些统计信息，同时在玩家开始新游戏时也能调用reset_stats()。</p>
+<p>当前只有一项统计信息——ships_left，其值在游戏运行期间将不断变化。一开始玩家拥有的飞船数存储在settings.py的ship_limit中.</p>
+<p>我们还需对alien_invasion.py做些修改，以创建一个GameStats实例：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306102019847.webp" srcset="/img/loading.gif" lazyload></p>
+<p>我们导入了新类GameStats，创建了一个名为stats的实例，再调用update_aliens()并添加了实参stats、screen和ship。在有外星人撞到飞船时，我们将使用这些实参来跟踪玩家还有多少艘飞船，以及创建一群新的外星人.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">update_aliens</span>(<span class="hljs-params">ai_settings,stats,screen,ship,aliens</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;更新外星人的位置&quot;&quot;&quot;</span><br>    check_fleet_edges(ai_settings,aliens)<br>    aliens.update()<br><br>    <span class="hljs-comment"># 检测外星人与飞船的碰撞</span><br>    <span class="hljs-keyword">if</span> pygame.sprite.spritecollideany(ship,aliens):<br>        ship_hit(ai_settings,screen,ship,aliens)<br>        <span class="hljs-comment"># print(f&#x27;飞船被击中啦！&#x27;)</span><br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">ship_hit</span>(<span class="hljs-params">ai_settings, stats, screen, ship, aliens, bullets</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;响应被外星人碰撞到的飞船&quot;&quot;&quot;</span><br>    <span class="hljs-comment"># 将ships_left减1</span><br>    stats.ships_left -= <span class="hljs-number">1</span><br><br>    <span class="hljs-comment">#清空外星人列表和子弹列表</span><br>    aliens.empty()<br>    bullets.empty()<br><br>    <span class="hljs-comment">#创建一群外星人，并将飞船放到屏幕底端中央</span><br>    create_fleet(ai_settings,screen,ship,aliens)<br>    ship.center_ship()<br><br>    <span class="hljs-comment"># 暂停</span><br>    sleep(<span class="hljs-number">0.5</span>)<br></code></pre></td></tr></table></figure>
+
+<p>我们首先从模块time中导入了函数sleep()，以便使用它来让游戏暂停。新函数ship_hit()在飞船被外星人撞到时作出响应。在这个函数内部，将余下的飞船数减1，然后清空编组aliens和bullets。</p>
+<p>接下来，我们创建一群新的外星人，并将飞船居中，稍后将在Ship类中添加方法center_ship()。最后，我们更新所有元素后（但在将修改显示到屏幕前）暂停，让玩家知道其飞船被撞到了。屏幕将暂时停止变化，让玩家能够看到外星人撞到了飞船。函数sleep()执行完毕后，将接着执行函数update_screen().</p>
+<p>更新了update_aliens()的定义，使其包含形参stats、screen和bullets，让它能够在调用ship_hit()时传递这些值.</p>
+<p><strong>有外星人到达屏幕底端</strong></p>
+<p>如果有外星人到达屏幕底端，我们将像有外星人撞到飞船那样作出响应。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">check_aliens_bottom</span>(<span class="hljs-params">ai_settings, stats,screen,ship,aliens,bullets</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;检测是否有外星人抵达屏幕底端&quot;&quot;&quot;</span><br>    screen_rect = screen.get_rect()<br>    <span class="hljs-keyword">for</span> alien <span class="hljs-keyword">in</span> aliens.sprites():<br>        <span class="hljs-keyword">if</span> alien.rect.bottom &gt;= screen_rect.bottom:<br>            <span class="hljs-comment">#像与飞船碰撞一样的处理</span><br>            ship_hit(ai_settings,stats,screen,ship,aliens,bullets)<br>            <span class="hljs-keyword">break</span><br></code></pre></td></tr></table></figure>
+
+<p>函数check_aliens_bottom()检查是否有外星人到达了屏幕底端。到达屏幕底端后，外星人的属性rect.bottom的值大于或等于屏幕的属性rect.bottom的值。如果有外星人到达屏幕底端，我们就调用ship_hit()；只要检测到一个外星人到达屏幕底端，就无需检查其他外星人，因此我们在调用ship_hit()后退出循环。</p>
+<p>我们在更新所有外星人的位置并检测是否有外星人和飞船发生碰撞后调用check_aliens_bottom()</p>
+<p><strong>结束游戏</strong></p>
+<p>现在这个游戏看起来更完整了，但它永远都不会结束，只是ships_left不断变成更小的负数。</p>
+<p>下面在GameStats中添加一个作为标志的属性game_active，以便在玩家的飞船用完后结束游戏.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, settings</span>): <br>--snip-- <br><span class="hljs-comment"># 游戏刚启动时处于活动状态</span><br>self.game_active = <span class="hljs-literal">True</span><br></code></pre></td></tr></table></figure>
+
+<p>现在在ship_hit()中添加代码，在玩家的飞船都用完后将game_active设置为False</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">ship_hit</span>(<span class="hljs-params">ai_settings, stats, screen, ship, aliens, bullets</span>): <br> <span class="hljs-string">&quot;&quot;&quot;响应飞船被外星人撞到&quot;&quot;&quot;</span> <br> <span class="hljs-keyword">if</span> stats.ships_left &gt; <span class="hljs-number">0</span>: <br>     <span class="hljs-comment"># 将ships_left减1 </span><br>     stats.ships_left -= <span class="hljs-number">1</span> <br>     --snip-- <br>     <span class="hljs-comment">#暂停一会儿</span><br>     sleep(<span class="hljs-number">0.5</span>) <br> <span class="hljs-keyword">else</span>: <br> 	stats.game_active = <span class="hljs-literal">False</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>确定应运行游戏的哪个部分</strong></p>
+<p>在alien_invasion.py中，我们需要确定游戏的哪些部分在任何情况下都应运行，哪些部分仅在游戏处于活动状态时才运行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br><br>    <span class="hljs-comment">#监视键盘和鼠标事件</span><br>    gf.check_events(ai_settings,screen,ship,bullets) <br><br>    <span class="hljs-keyword">if</span> stats.game_active:       <br>        ship.update()      <br>        gf.update_bulltes(ai_settings,screen,ship,bullets,aliens)<br>        gf.update_aliens(ai_settings, stats, screen, ship, aliens,bullets)<br><br><br>    <span class="hljs-comment">#刷新屏幕</span><br>    gf.update_screen(ai_settings,screen,ship,aliens,bullets)<br></code></pre></td></tr></table></figure>
+
+<h2 id="4-记分系统"><a href="#4-记分系统" class="headerlink" title="4.记分系统"></a>4.记分系统</h2><h3 id="4-1添加PLAY按钮"><a href="#4-1添加PLAY按钮" class="headerlink" title="4.1添加PLAY按钮"></a>4.1添加PLAY按钮</h3><p>将添加一个Play按钮，它在游戏开始前出现，并在游戏结束后再次出现，让玩家能够开始新游戏</p>
+<p>下面让游戏一开始处于非活动状态，并提示玩家单击Play按钮来开始游戏。为此，在game_stats.py中将<code>self.game_active = False</code></p>
+<p><strong>创建button类</strong></p>
+<p>由于Pygame没有内置创建按钮的方法，我们创建一个Button类，用于创建带标签的实心矩形</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pygame.font<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Button</span>():<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self,ai_settings,screen,msg</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;初始化按钮&quot;&quot;&quot;</span><br>        self.screen = screen<br>        self.screen_rect = screen.get_rect()<br><br>        <span class="hljs-comment">#设置按钮的大小和其他属性</span><br>        self.width, self.height = <span class="hljs-number">200</span>, <span class="hljs-number">50</span><br>        self.button_color = (<span class="hljs-number">0</span>,<span class="hljs-number">255</span>,<span class="hljs-number">0</span>)<br>        self.text_color = (<span class="hljs-number">255</span>,<span class="hljs-number">255</span>,<span class="hljs-number">255</span>)<br>        self.font = pygame.font.SysFont(<span class="hljs-literal">None</span>,<span class="hljs-number">48</span>)<br><br>        <span class="hljs-comment">#创建按钮的rect对象，并使其居中</span><br>        self.rect = pygame.Rect(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,self.width,self.height)<br>        self.rect.center = self.screen_rect.center<br><br>        <span class="hljs-comment">#按钮标签只需创建一次</span><br>        self.prep_msg(msg)<br></code></pre></td></tr></table></figure>
+
+<p>首先，我们导入了模块pygame.font，它让Pygame能够将文本渲染到屏幕上。方法__init__()接受参数self，对象ai_settings和screen，以及msg，其中msg是要在按钮中显示的文本。</p>
+<p>我们设置按钮的尺寸，然后通过设置button_color让按钮的rect对象为亮绿色，并通过设置text_color让文本为白色。</p>
+<p>指定使用什么字体来渲染文本。实参None让Pygame使用默认字体，而48指定了文本的字号。</p>
+<p>为让按钮在屏幕上居中，我们创建一个表示按钮的rect对象，并将其center属性设置为屏幕的center属性。</p>
+<p>Pygame通过将你要显示的字符串渲染为图像来处理文本。调用prep_msg()来处理这样的渲染。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">prep_msg</span>(<span class="hljs-params">self,msg</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;将msg渲染为图像，并使其在按钮居中&quot;&quot;&quot;</span><br>    self.msg_image = self.font.render(msg,<span class="hljs-literal">True</span>,self.text_color,<br>                                      self.button_color)<br>    self.msg_image_rect = self.msg_image.get_rect()<br>    self.msg_image_rect.center = self.rect.center<br></code></pre></td></tr></table></figure>
+
+<p>调用screen.fill()来绘制表示按钮的矩形，再调用screen.blit()，并向它传递一幅图像以及与该图像相关联的rect对象，从而在屏幕上绘制文本图像</p>
+<p><strong>在屏幕上绘制按钮</strong></p>
+<p>使用Button类来创建一个Play按钮。鉴于只需要一个Play按钮，我们直接在alien_invasion.py中创建它</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#绘制一个开始按钮</span><br>play_button = Button(ai_settings,screen,<span class="hljs-string">&#x27;Play&#x27;</span>)<br><span class="hljs-comment">#开始游戏的主循环</span><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br><br>    <span class="hljs-comment">#监视键盘和鼠标事件</span><br>    gf.check_events(ai_settings,screen,ship,bullets) <br><br>    <span class="hljs-keyword">if</span> stats.game_active:       <br>        ship.update()      <br>        gf.update_bulltes(ai_settings,screen,ship,bullets,aliens)<br>        gf.update_aliens(ai_settings, stats, screen, ship, aliens,<br>                         bullets)<br><br><br>    <span class="hljs-comment">#刷新屏幕</span><br>    gf.update_screen(ai_settings,screen,stats,ship,aliens,bullets,<br>                     play_button)<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306102120748.webp" srcset="/img/loading.gif" lazyload></p>
+<p><strong>开始游戏</strong></p>
+<p>为在玩家单击Play按钮时开始新游戏，需在game_functions.py中添加如下代码，以监视与这个按钮相关的鼠标事件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">check_events</span>(<span class="hljs-params">ai_settings,screen,stats,play_button,ship,bullets</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;响应屏幕和鼠标事件&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">for</span> event <span class="hljs-keyword">in</span> pygame.event.get():<br>        <span class="hljs-keyword">if</span> event.<span class="hljs-built_in">type</span> == pygame.QUIT:<br>            sys.exit()<br>        <span class="hljs-keyword">elif</span> event.<span class="hljs-built_in">type</span> == pygame.KEYDOWN:<br>            check_keydown_events(event,ai_settings,screen,ship,bullets)<br><br>        <span class="hljs-keyword">elif</span> event.<span class="hljs-built_in">type</span> == pygame.KEYUP:<br>            <span class="hljs-comment">#按键松开时，结束向右移动飞船</span><br>            check_keyup_events(event,ship)<br>        <span class="hljs-keyword">elif</span> event.<span class="hljs-built_in">type</span> == pygame.K_q:<br>            <span class="hljs-comment">#按q退出游戏</span><br>            sys.exit()<br>        <span class="hljs-keyword">elif</span> event.<span class="hljs-built_in">type</span> == pygame.MOUSEBUTTONDOWN:<br>            <span class="hljs-comment">#鼠标按下</span><br>            mouse_x, mouse_y = pygame.mouse.get_pos()<br>            check_play_button(stats,play_button,mouse_x,mouse_y)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">check_play_button</span>(<span class="hljs-params">stats,play_button,mouse_x,mouse_y</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;在玩家单击Play按钮时开始新游戏&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">if</span> play_button.rect.collidepoint(mouse_x, mouse_y):<br>        stats.game_active = <span class="hljs-literal">True</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>重置游戏</strong></p>
+<p>为在玩家每次单击Play按钮时都重置游戏，需要重置统计信息、删除现有的外星人和子弹、创建一群新的外星人，并让飞船居中，如下所示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">check_play_button</span>(<span class="hljs-params">ai_settings,screen,stats,play_button,ship,aliens,</span><br><span class="hljs-params">                      bullets,mouse_x,mouse_y</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;在玩家单击Play按钮时开始新游戏&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">if</span> play_button.rect.collidepoint(mouse_x, mouse_y):<br>        <span class="hljs-comment">#重置统计信息</span><br>        stats.reset_stats()<br>        stats.game_active = <span class="hljs-literal">True</span><br><br>        <span class="hljs-comment">#清空外星人信息及子弹信息</span><br>        aliens.empty()<br>        bullets.empty()<br><br>        <span class="hljs-comment">#创建一群新的外星人和飞船，并让飞船居中</span><br>        create_fleet(ai_settings,screen,ship,aliens)<br>        ship.center_ship()<br></code></pre></td></tr></table></figure>
+
+<p><strong>将 Play 按钮切换到非活动状态</strong></p>
+<p>当前，Play按钮存在一个问题，那就是即便Play按钮不可见，玩家单击其原来所在的区域时，游戏依然会作出响应。游戏开始后，如果玩家不小心单击了Play按钮原来所处的区域，游戏将重新开始！</p>
+<p>为修复这个问题，可让游戏仅在game_active为False时才开始</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">check_play_button</span>(<span class="hljs-params">ai_settings,screen,stats,play_button,ship,aliens,</span><br><span class="hljs-params">                      bullets,mouse_x,mouse_y</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;在玩家单击Play按钮时开始新游戏&quot;&quot;&quot;</span><br>    button_clicked = play_button.rect.collidepoint(mouse_x, mouse_y)<br>    <span class="hljs-keyword">if</span> button_clicked <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> stats.game_active:<br>        <span class="hljs-comment">#重置统计信息</span><br>        stats.reset_stats()<br>        stats.game_active = <span class="hljs-literal">True</span><br><br>        <span class="hljs-comment">#清空外星人信息及子弹信息</span><br>        aliens.empty()<br>        bullets.empty()<br><br>        <span class="hljs-comment">#创建一群新的外星人和飞船，并让飞船居中</span><br>        create_fleet(ai_settings,screen,ship,aliens)<br>        ship.center_ship()<br></code></pre></td></tr></table></figure>
+
+<p>标志button_clicked的值为True或False，仅当玩家单击了Play按钮且游戏当前处于非活动状态时，游戏才重新开始。</p>
+<p><strong>隐藏光标</strong></p>
+<p>为让玩家能够开始游戏，我们要让光标可见，但游戏开始后，光标只会添乱。为修复这种问题，我们在游戏处于活动状态时让光标不可见：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> button_clicked <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> stats.game_active:<br>    <span class="hljs-comment"># 隐藏光标</span><br>    pygame.mouse.set_visible(<span class="hljs-literal">False</span>)<br></code></pre></td></tr></table></figure>
+
+<p>通过向set_visible()传递False，让Pygame在光标位于游戏窗口内时将其隐藏起来</p>
+<h3 id="4-2提高等级"><a href="#4-2提高等级" class="headerlink" title="4.2提高等级"></a>4.2提高等级</h3><p>当前，将整群外星人都消灭干净后，玩家将提高一个等级，但游戏的难度并没有变。下面来增加一点趣味性：每当玩家将屏幕上的外星人都消灭干净后，加快游戏的节奏，让游戏玩起来更难</p>
+<p><strong>修改速度设置</strong></p>
+<p>先重新组织Settings类，将游戏设置划分成静态的和动态的两组。对于随着游戏进行而变化的设置，我们还确保它们在开始新游戏时被重置</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#以什么样的速度加快游戏节奏</span><br>self.speedup_scale = <span class="hljs-number">1.1</span><br><br>self.initialize_dynamic_settings()<br></code></pre></td></tr></table></figure>
+
+<p>我们添加了设置speedup_scale，用于控制游戏节奏的加快速度：2表示玩家每提高一个等级，游戏的节奏就翻倍；1表示游戏节奏始终不变。将其设置为1.1能够将游戏节奏提高到够快，让游戏既有难度，又并非不可完成。最后，我们调用initialize_dynamic_settings()，以初始化随游戏进行而变化的属性.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">initialize_dynamic_settings</span>(<span class="hljs-params">self</span>): <br>    <span class="hljs-string">&quot;&quot;&quot;初始化随游戏进行而变化的设置&quot;&quot;&quot;</span> <br>    self.ship_speed_factor = <span class="hljs-number">1.5</span> <br>    self.bullet_speed_factor = <span class="hljs-number">3</span> <br>    self.alien_speed_factor = <span class="hljs-number">1</span> <br>    <span class="hljs-comment"># fleet_direction为1表示向右；为-1表示向左</span><br>    self.fleet_direction = <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<p>这个方法设置了飞船、子弹和外星人的初始速度。随游戏的进行，我们将提高这些速度，而每当玩家开始新游戏时，都将重置这些速度。在这个方法中，我们还设置了fleet_direction，使得游戏刚开始时，外星人总是向右移动。每当玩家提高一个等级时，我们都使用increase_speed()来提高飞船、子弹和外星人的速度</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">increase_speed</span>(<span class="hljs-params">self</span>): <br>    <span class="hljs-string">&quot;&quot;&quot;提高速度设置&quot;&quot;&quot;</span> <br>    self.ship_speed_factor *= self.speedup_scale <br>    self.bullet_speed_factor *= self.speedup_scale <br>    self.alien_speed_factor *= self.speedup_scale<br></code></pre></td></tr></table></figure>
+
+<p>为提高这些游戏元素的速度，我们将每个速度设置都乘以speedup_scale的值。</p>
+<p>在check_bullet_alien_collisions()中，我们在整群外星人都被消灭后调用increase_speed()来加快游戏的节奏，再创建一群新的外星人</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306102150797.webp" srcset="/img/loading.gif" lazyload></p>
+<p><strong>重置速度</strong></p>
+<p>每当玩家开始新游戏时，我们都需要将发生了变化的设置重置为初始值，否则新游戏开始时，速度设置将是前一次游戏增加了的值</p>
+<h3 id="4-3记分"><a href="#4-3记分" class="headerlink" title="4.3记分"></a>4.3记分</h3><p>下面来实现一个记分系统，以实时地跟踪玩家的得分，并显示最高得分、当前等级和余下的飞船数。</p>
+<p>得分是游戏的一项统计信息，因此我们在GameStats中添加一个score属性</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">reset_stats</span>(<span class="hljs-params">self</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;初始化在游戏运行期间可能变化的统计信息&quot;&quot;&quot;</span><br>    self.ships_left = self.ai_settings.ship_limit<br>    self.score = <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
+<p>为在每次开始游戏时都重置得分，我们在reset_stats()而不是__init__()中初始化score</p>
+<p><strong>显示得分</strong></p>
+<p>为在屏幕上显示得分，我们首先创建一个新类Scoreboard。就当前而言，这个类只显示当前得分，但后面我们也将使用它来显示最高得分、等级和余下的飞船数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pygame.font<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Scoreboard</span>(): <br>    <span class="hljs-string">&quot;&quot;&quot;显示得分信息的类&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, ai_settings, screen, stats</span>): <br>        <span class="hljs-string">&quot;&quot;&quot;初始化显示得分涉及的属性&quot;&quot;&quot;</span> <br>        self.screen = screen <br>        self.screen_rect = screen.get_rect() <br>        self.ai_settings = ai_settings <br>        self.stats = stats <br> <br>        <span class="hljs-comment"># 显示得分信息时使用的字体设置</span><br>        self.text_color = (<span class="hljs-number">30</span>, <span class="hljs-number">30</span>, <span class="hljs-number">30</span>)<br>        self.font = pygame.font.SysFont(<span class="hljs-literal">None</span>, <span class="hljs-number">48</span>) <br>        <span class="hljs-comment"># 准备初始得分图像</span><br>        self.prep_score()<br></code></pre></td></tr></table></figure>
+
+<p>由于Scoreboard在屏幕上显示文本，因此我们首先导入模块pygame.font。接下来，我们在__init__()中包含形参ai_settings、screen和stats，让它能够报告我们跟踪的值。然后，我们设置文本颜色并实例化一个字体对象。为将要显示的文本转换为图像，我们调用了prep_score()</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">prep_score</span>(<span class="hljs-params">self</span>): <br>    <span class="hljs-string">&quot;&quot;&quot;将得分转换为一幅渲染的图像&quot;&quot;&quot;</span><br>    score_str = <span class="hljs-built_in">str</span>(self.stats.score)<br>    self.score_image = self.font.render(score_str, <span class="hljs-literal">True</span>, self.text_color<br>                                        , self.ai_settings.bg_color) <br> <br>    <span class="hljs-comment"># 将得分放在屏幕右上角</span><br>    self.score_rect = self.score_image.get_rect() <br>    self.score_rect.right = self.screen_rect.right - <span class="hljs-number">20</span> <br>    self.score_rect.top = <span class="hljs-number">20</span><br></code></pre></td></tr></table></figure>
+
+<p>在prep_score()中，我们首先将数字值stats.score转换为字符串（见），再将这个字符串传递给创建图像的render()。为在屏幕上清晰地显示得分，我们向render()传递了屏幕背景色，以及文本颜色。</p>
+<p>我们将得分放在屏幕右上角，并在得分增大导致这个数字更宽时让它向左延伸。为确保得分始终锚定在屏幕右边，我们创建了一个名为score_rect的rect，让其右边缘与屏幕右边缘相距20像素，并让其上边缘与屏幕上边缘也相距20像素。</p>
+<p>最后，我们创建方法show_score()，用于显示渲染好的得分图像。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">show_score</span>(<span class="hljs-params">self</span>): <br>    <span class="hljs-string">&quot;&quot;&quot;在屏幕上显示得分&quot;&quot;&quot;</span> <br>    self.screen.blit(self.score_image, self.score_rect)<br></code></pre></td></tr></table></figure>
+
+<p><strong>创建记分牌</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 创建存储游戏统计信息的实例，并创建记分牌</span><br>stats = GameStats(ai_settings) <br>sb = Scoreboard(ai_settings, screen, stats)<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306102203282.webp" srcset="/img/loading.gif" lazyload></p>
+<p>为显示得分，将update_screen()修改成下面这样:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306102204866.webp" srcset="/img/loading.gif" lazyload></p>
+<p><strong>在外星人被消灭时更新得分</strong></p>
+<p>为在屏幕上实时地显示得分，每当有外星人被击中时，我们都更新stats.score的值，再调用prep_score()更新得分图像。但在此之前，我们需要指定玩家每击落一个外星人都将得到多少个点<code>self.alien_points = 50</code></p>
+<p>在check_bullet_alien_collisions()中，每当有外星人被击落时，都更新得分：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">check_bullet_alien_collisions</span>(<span class="hljs-params">ai_settings, screen, ship, stats,</span><br><span class="hljs-params">                                  sb,aliens, bullets</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;响应子弹和外星人的碰撞&quot;&quot;&quot;</span> <br>    <span class="hljs-comment"># 删除发生碰撞的子弹和外星人</span><br>    collisions =  pygame.sprite.groupcollide(bullets,aliens,<span class="hljs-literal">True</span>,<span class="hljs-literal">True</span>)<br><br>    <span class="hljs-keyword">if</span> collisions:<br>        stats.score += ai_settings.alien_points<br>        sb.prep_score()<br></code></pre></td></tr></table></figure>
+
+<p>更新check_bullet_alien_collisions()的定义，在其中包含了形参stats和sb，让它能够更新得分和记分牌。有子弹撞到外星人时，Pygame返回一个字典（collisions）。我们检查这个字典是否存在，如果存在，就将得分加上一个外星人值的点数。接下来，我们调用prep_score()来创建一幅显示最新得分的新图像</p>
+<p><strong>将消灭的每个外星人的点数都计入得分</strong></p>
+<p>当前，我们的代码可能遗漏了一些被消灭的外星人。例如，如果在一次循环中有两颗子弹射中了外星人，或者因子弹更宽而同时击中了多个外星人，玩家将只能得到一个被消灭的外星人的点数。为修复这种问题，我们来调整检测子弹和外星人碰撞的方式。</p>
+<p>在check_bullet_alien_collisions()中，与外星人碰撞的子弹都是字典collisions中的一个键；而与每颗子弹相关的值都是一个列表，其中包含该子弹撞到的外星人。我们遍历字典collisions，确保将消灭的每个外星人的点数都记入得分</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">check_bullet_alien_collisions</span>(<span class="hljs-params">ai_settings, screen, ship, stats,</span><br><span class="hljs-params">                                  sb,aliens, bullets</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;响应子弹和外星人的碰撞&quot;&quot;&quot;</span> <br>    <span class="hljs-comment"># 删除发生碰撞的子弹和外星人</span><br>    collisions =  pygame.sprite.groupcollide(bullets,aliens,<span class="hljs-literal">True</span>,<span class="hljs-literal">True</span>)<br><br>    <span class="hljs-keyword">if</span> collisions:<br>        <span class="hljs-keyword">for</span> aliens <span class="hljs-keyword">in</span> collisions.values():<br>            stats.score += ai_settings.alien_points * <span class="hljs-built_in">len</span>(aliens)<br>            sb.prep_score()<br></code></pre></td></tr></table></figure>
+
+<p><strong>提高点数</strong></p>
+<p>玩家每提高一个等级，游戏都变得更难，因此处于较高的等级时，外星人的点数应更高。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306111129704.webp" srcset="/img/loading.gif" lazyload></p>
+<p>我们定义了点数提高的速度，并称之为score_scale。很小的节奏加快速度（1.1）让游戏很快就变得极具挑战性，但为让记分发生显著的变化，需要将点数的提高速度设置为更大的值（1.5）。现在，我们在加快游戏节奏的同时，提高了每个外星人的点数。为让点数为整数，我们使用了函数int()。</p>
+<p><strong>将得分整圆</strong></p>
+<p>大多数街机风格的射击游戏都将得分显示为10的整数倍，下面让我们的记分系统遵循这个原则。我们还将设置得分的格式，在大数字中添加用逗号表示的千位分隔符。我们在Scoreboard中修改成这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">prep_score</span>(<span class="hljs-params">self</span>): <br>    <span class="hljs-string">&quot;&quot;&quot;将得分转换为一幅渲染的图像&quot;&quot;&quot;</span><br>    rounded_score = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">round</span>(self.stats.score, -<span class="hljs-number">1</span>))<br>    score_str =  <span class="hljs-string">&quot;&#123;:,&#125;&quot;</span>.<span class="hljs-built_in">format</span>(rounded_score)<br></code></pre></td></tr></table></figure>
+
+<p>函数round()通常让小数精确到小数点后多少位，其中小数位数是由第二个实参指定的。然而，如果将第二个实参指定为负数，round()将圆整到最近的10、100、1000等整数倍。让Python将stats.score的值圆整到最近的10的整数倍，并将结果存储到rounded_score中.</p>
+<p>使用了一个字符串格式设置指令，它让Python将数值转换为字符串时在其中插入逗号，例如，输出1,000,000而不是1000000。如果你现在运行这个游戏，看到的将是10的整数倍的整洁得分</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306111134567.webp" srcset="/img/loading.gif" lazyload></p>
+<p><strong>最高得分</strong></p>
+<p>每个玩家都想超过游戏的最高得分记录。下面来跟踪并显示最高得分，给玩家提供要超越的目标。我们将最高得分存储在GameStats中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">GameStats</span>():<br>    <span class="hljs-string">&quot;&quot;&quot;跟踪游戏的统计信息&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self,ai_settings</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;初始化统计信息&quot;&quot;&quot;</span><br>        self.ai_settings = ai_settings<br>        <span class="hljs-comment">#游戏刚启动时处于非活动状态</span><br>        self.game_active = <span class="hljs-literal">False</span><br>        self.reset_stats()<br>        <span class="hljs-comment"># 在任何情况下都不应重置最高得分</span><br>        self.high_score = <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
+<p>下面来修改Scoreboard以显示最高得分。先来修改方法_<em>init</em>_()：</p>
+<p><code>self.prep_high_score()</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">prep_high_score</span>(<span class="hljs-params">self</span>): <br>    <span class="hljs-string">&quot;&quot;&quot;将最高得分转换为渲染的图像&quot;&quot;&quot;</span> <br>    high_score = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">round</span>(self.stats.high_score, -<span class="hljs-number">1</span>))<br>    high_score_str = <span class="hljs-string">&quot;&#123;:,&#125;&quot;</span>.<span class="hljs-built_in">format</span>(high_score)<br>    self.high_score_image = self.font.render(high_score_str, <span class="hljs-literal">True</span>, <br>    self.text_color, self.ai_settings.bg_color) <br><br>    <span class="hljs-comment">#将最高得分放在屏幕顶部中央</span><br>    self.high_score_rect = self.high_score_image.get_rect() <br>    self.high_score_rect.centerx = self.screen_rect.centerx <br>    self.high_score_rect.top = self.score_rect.top<br></code></pre></td></tr></table></figure>
+
+<p>我们将最高得分圆整到最近的10的整数倍，并添加了用逗号表示的千分位分隔符。然后，我们根据最高得分生成一幅图像，使其水平居中，并将其top属性设置为当前得分图像的top属性。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">show_score</span>(<span class="hljs-params">self</span>): <br>    <span class="hljs-string">&quot;&quot;&quot;在屏幕上显示得分&quot;&quot;&quot;</span> <br>    self.screen.blit(self.score_image, self.score_rect)<br>    self.screen.blit(self.high_score_image, self.high_score_rect)<br></code></pre></td></tr></table></figure>
+
+<p>为检查是否诞生了新的最高得分，我们在game_functions.py中添加一个新函数check_high_score()：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">check_high_score</span>(<span class="hljs-params">stats, sb</span>): <br>    <span class="hljs-string">&quot;&quot;&quot;检查是否诞生了新的最高得分&quot;&quot;&quot;</span> <br>    <span class="hljs-keyword">if</span> stats.score &gt; stats.high_score: <br>        stats.high_score = stats.score <br>        sb.prep_high_score()<br></code></pre></td></tr></table></figure>
+
+<p>函数check_high_score()包含两个形参：stats和sb。它使用stats来比较当前得分和最高得分，并在必要时使用sb来修改最高得分图像.</p>
+<p>在check_bullet_alien_collisions()中，每当有外星人被消灭，都需要在更新得分后调用check_high_score()</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306111142623.webp" srcset="/img/loading.gif" lazyload></p>
+<p><strong>显示等级</strong></p>
+<p>为在游戏中显示玩家的等级，首先需要在GameStats中添加一个表示当前等级的属性。为确保每次开始新游戏时都重置等级，在reset_stats()中初始化它</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">reset_stats</span>(<span class="hljs-params">self</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;初始化在游戏运行期间可能变化的统计信息&quot;&quot;&quot;</span><br>    self.ships_left = self.ai_settings.ship_limit<br>    self.score = <span class="hljs-number">0</span><br>    self.level = <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
+<p>为让Scoreboard能够在当前得分下方显示当前等级，我们在__init__()中调用了一个新方法prep_level()</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">prep_level</span>(<span class="hljs-params">self</span>): <br>    <span class="hljs-string">&quot;&quot;&quot;将等级转换为渲染的图像&quot;&quot;&quot;</span><br>    self.level_image = self.font.render(<span class="hljs-built_in">str</span>(self.stats.level), <span class="hljs-literal">True</span>, <br>    self.text_color, self.ai_settings.bg_color) <br><br>    <span class="hljs-comment"># 将等级放在得分下方</span><br>    self.level_rect = self.level_image.get_rect()<br>    self.level_rect.right = self.score_rect.right<br>    self.level_rect.top = self.score_rect.bottom + <span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
+
+<p>方法prep_level()根据存储在stats.level中的值创建一幅图像，并将其right属性设置为得分的right属性。然后，将top属性设置为比得分图像的bottom属性大10像素，以便在得分和等级之间留出一定的空间。</p>
+<p>修改show_score()函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">show_score</span>(<span class="hljs-params">self</span>): <br>    <span class="hljs-string">&quot;&quot;&quot;在屏幕上显示得分&quot;&quot;&quot;</span> <br>    self.screen.blit(self.score_image, self.score_rect)<br>    self.screen.blit(self.high_score_image, self.high_score_rect)<br>    self.screen.blit(self.level_image, self.level_rect)<br></code></pre></td></tr></table></figure>
+
+<p>在check_bullet_alien_collisions()中提高等级，并更新等级图像</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 如果外星人都被消灭了，重新生成新的外星人群</span><br><span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(aliens) == <span class="hljs-number">0</span>:<br>    <span class="hljs-comment">#如果外星人都被消灭，则提高一个等级</span><br>    bullets.empty()<br>    ai_settings.increase_speed()<br><br>    <span class="hljs-comment">#提高等级</span><br>    stats.level += <span class="hljs-number">1</span><br>    sb.prep_level()<br>    create_fleet(ai_settings,screen,ship,aliens)<br></code></pre></td></tr></table></figure>
+
+<p>如果整群外星人都被消灭，我们就将stats.level的值加1，并调用prep_level()，以确保正确地显示新等级.</p>
+<p>为确保开始新游戏时更新记分和等级图像，在按钮Play被单击时触发重置</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">check_play_button</span>(<span class="hljs-params">ai_settings,screen,stats,sb,play_button,ship,aliens,</span><br><span class="hljs-params">                      bullets,mouse_x,mouse_y</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;在玩家单击Play按钮时开始新游戏&quot;&quot;&quot;</span><br>    button_clicked = play_button.rect.collidepoint(mouse_x, mouse_y)<br>    <span class="hljs-keyword">if</span> button_clicked <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> stats.game_active:<br>        <span class="hljs-comment">#重置游戏设置</span><br>        ai_settings.initialize_dynamic_settings()<br><br>        <span class="hljs-comment"># 隐藏光标</span><br>        pygame.mouse.set_visible(<span class="hljs-literal">False</span>)<br>        <span class="hljs-comment">#重置统计信息</span><br>        stats.reset_stats()<br>        stats.game_active = <span class="hljs-literal">True</span><br><br>        <span class="hljs-comment">#重置记分牌图像</span><br>        sb.prep_score() <br>        sb.prep_high_score() <br>        sb.prep_level()<br></code></pre></td></tr></table></figure>
+
+<p>check_play_button()的定义需要包含对象sb。为重置记分牌图像，我们在重置相关游戏设置后调用prep_score()、prep_high_score()和prep_level(),在check_events()中，现在需要向check_play_button()传递sb，让它能够访问记分牌对象.</p>
+<p><strong>显示余下的飞船</strong></p>
+<p>最后，我们来显示玩家还有多少艘飞船，但使用图形而不是数字。为此，我们在屏幕左上角绘制飞船图像来指出还余下多少艘飞船，就像众多经典的街机游戏那样</p>
+<p>需要让Ship继承Sprite，以便能够创建飞船编组</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Ship</span>():<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self,ai_settings,screen</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;初始化飞船并设置其初始位置&quot;&quot;&quot;</span><br>        <span class="hljs-built_in">super</span>().__init__()<br></code></pre></td></tr></table></figure>
+
+<p>导入了Sprite，让Ship继承Sprite （见），并在__init__()的开头就调用了super()</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306111201900.webp" srcset="/img/loading.gif" lazyload></p>
+<p>修改Scoreboard，在其中创建一个可供显示的飞船编组。下面是其中的import语句和方法__init__():</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306111204156.webp" srcset="/img/loading.gif" lazyload></p>
+<p>鉴于要创建一个飞船编组，我们导入Group和Ship类。调用prep_level()后，我们调用了prep_ships()。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">prep_ships</span>(<span class="hljs-params">self</span>): <br>    <span class="hljs-string">&quot;&quot;&quot;显示还余下多少艘飞船&quot;&quot;&quot;</span><br>    self.ships = Group()<br>    <span class="hljs-keyword">for</span> ship_number <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(self.stats.ships_left): <br>        ship = Ship(self.ai_settings, self.screen)<br>        ship.rect.x = <span class="hljs-number">10</span> + ship_number * ship.rect.width<br>        ship.rect.y = <span class="hljs-number">10</span><br>        self.ships.add(ship)<br></code></pre></td></tr></table></figure>
+
+<p>方法prep_ships()创建一个空编组self.ships，用于存储飞船实例。为填充这个编组，根据玩家还有多少艘飞船运行一个循环相应的次数。在这个循环中，我们创建一艘新飞船，并设置其<em>x</em>坐标，让整个飞船编组都位于屏幕左边，且每艘飞船的左边距都为10像素。</p>
+<p>我们还将<em>y</em>坐标设置为离屏幕上边缘10像素，让所有飞船都与得分图像对齐。最后，我们将每艘新飞船都添加到编组ships中</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306111205355.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306111206473.webp" srcset="/img/loading.gif" lazyload></p>
+<p>我们还在飞船被外星人撞到时调用prep_ships()，从而在玩家损失一艘飞船时更新飞船图像</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306111211315.webp" srcset="/img/loading.gif" lazyload></p>
+<p>首先，我们在update_aliens()的定义中添加了形参sb。然后，我们向ship_hit()和check_aliens_bottom()都传递了sb，让它们都能够访问记分牌对象。</p>
+<p>接下来，我们更新了ship_hit()的定义，使其包含形参sb。我们在将ships_left的值减1后调用了prep_ships()，这样每次损失了飞船时，显示的飞船数都是正确的。</p>
+<p>在check_aliens_bottom()中需要调用ship_hit()，因此对这个函数进行更新</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306111214776.webp" srcset="/img/loading.gif" lazyload></p>
+<p>现在，check_aliens_bottom()包含形参sb，并在调用ship_hit()时传递了实参sb。</p>
+<p>最后，在alien_invasion.py中修改调用update_aliens()的代码，向它传递实参sb</p>
+<p><img src="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306111434045.webp" srcset="/img/loading.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Python/">#Python</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>一个游戏实践-python</div>
+      <div>http://example.com/2023/06/09/一个游戏实践-python/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ZhJy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年6月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/06/08/%E4%BD%BF%E7%94%A8API-Web%E5%BA%94%E7%94%A8%E7%BC%96%E7%A8%8B/" title="使用API-Web应用编程">
+                        <span class="hidden-mobile">使用API-Web应用编程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="twikoo"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      Fluid.utils.createScript('https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js', function() {
+        var options = Object.assign(
+          {"envId":"https://twikoo.okko.tk","region":"ap-shanghai","path":"window.location.pathname"},
+          {
+            el: '#twikoo',
+            path: 'window.location.pathname',
+            onCommentLoaded: function() {
+              var imgSelector = '#twikoo .tk-content img:not(.tk-owo-emotion)';
+              Fluid.plugins.imageCaption(imgSelector);
+              Fluid.plugins.fancyBox(imgSelector);
+            }
+          }
+        )
+        twikoo.init(options)
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/static/js/duration.js"></script> </div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
