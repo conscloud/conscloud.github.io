@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306081044833.webp">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306081046154.webp">
 <meta property="article:published_time" content="2023-06-05T13:54:01.000Z">
-<meta property="article:modified_time" content="2023-06-11T06:46:41.251Z">
+<meta property="article:modified_time" content="2023-06-11T08:53:50.972Z">
 <meta property="article:author" content="ZhJy">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary_large_image">
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          12k 字
+          14k 字
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          102 分钟
+          118 分钟
         
       </span>
     
@@ -500,6 +500,39 @@
 
 <p>上述代码使用 ANSI 转义序列设置了不同颜色的文本，并通过 <code>print</code> 函数打印到终端。输出结果将根据设置的颜色显示不同的文本颜色。要恢复默认的文本颜色，可以使用 <code>RESET</code> 序列。</p>
 <p>请注意，ANSI 转义序列的可用性和效果可能因终端类型和操作系统而异。在某些情况下，它可能无法在某些终端或操作系统上正常工作。</p>
+<h2 id="18-变量作用域"><a href="#18-变量作用域" class="headerlink" title="18.变量作用域"></a>18.变量作用域</h2><p>变量作用域是指在程序中定义的变量所能被访问的范围或可见性。它决定了变量在程序的哪些部分可以被引用或修改。</p>
+<p>在Python中，有以下几种变量作用域：</p>
+<ol>
+<li>全局作用域（Global Scope）：在整个程序中都可以访问的变量称为全局变量，它在程序的任何地方都是可见的。</li>
+<li>局部作用域（Local Scope）：在函数内部定义的变量称为局部变量，它只能在函数内部被访问。</li>
+<li>嵌套作用域（Enclosing Scope）：在嵌套的函数中，内部函数可以访问外部函数中定义的变量。</li>
+</ol>
+<p>变量的作用域规则如下：</p>
+<ul>
+<li>在函数内部，可以访问该函数内部定义的变量、外部函数中定义的变量和全局变量。</li>
+<li>在函数外部，只能访问全局变量。</li>
+<li>如果在函数内部使用了与外部作用域相同名称的变量，会创建一个新的局部变量，覆盖外部作用域中的变量。</li>
+<li>在嵌套函数中，内部函数可以访问外部函数的变量，但不能修改它们（除非使用 <code>nonlocal</code> 关键字）。</li>
+</ul>
+<p>了解变量作用域对于正确理解和使用变量非常重要，它可以帮助避免命名冲突、提高代码的可读性和可维护性。</p>
+<h2 id="19-lambda创建匿名函数"><a href="#19-lambda创建匿名函数" class="headerlink" title="19.lambda创建匿名函数"></a>19.lambda创建匿名函数</h2><p>使用 lambda 表达式可以创建匿名函数。Lambda 表达式是一种快速定义简单函数的方式，它可以接受任意数量的参数，并返回一个表达式的结果。</p>
+<p>下面是使用 lambda 表达式创建函数的示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 创建一个接受两个参数并返回它们之和的 lambda 函数</span><br>addition = <span class="hljs-keyword">lambda</span> x, y: x + y<br><br><span class="hljs-comment"># 调用 lambda 函数并打印结果</span><br><span class="hljs-built_in">print</span>(addition(<span class="hljs-number">3</span>, <span class="hljs-number">5</span>))  <span class="hljs-comment"># 输出: 8</span><br></code></pre></td></tr></table></figure>
+
+<p>在上面的示例中，<code>addition</code> 是一个 lambda 函数，它接受两个参数 <code>x</code> 和 <code>y</code>，并返回它们的和。可以直接调用 <code>addition(3, 5)</code> 来执行 lambda 函数，并打印结果。</p>
+<p>Lambda 表达式通常用于需要定义简单函数且不需要命名的场景。它可以在需要函数的地方直接使用，也可以作为参数传递给其他函数。需要注意的是，lambda 表达式不能包含复杂的语句块，只能包含一个表达式，并且返回该表达式的结果。</p>
+<h2 id="20-tkinter画图形"><a href="#20-tkinter画图形" class="headerlink" title="20.tkinter画图形"></a>20.tkinter画图形</h2><p><code>tkinter</code> 是 Python 的标准图形用户界面（GUI）库，它提供了一组用于创建图形界面的工具和组件。<code>tkinter</code> 是 Python 的内置库，因此在安装 Python 后，无需额外安装即可使用它。</p>
+<p><code>tkinter</code> 基于 Tcl&#x2F;Tk 工具包，它提供了一种简单和直观的方式来创建窗口、按钮、文本框、标签等各种图形界面组件，并通过编写事件处理程序来响应用户的交互操作。</p>
+<p>通过 <code>tkinter</code>，您可以创建各种类型的桌面应用程序，包括简单的工具、图形化配置界面、数据可视化应用等。</p>
+<p>以下是一个简单的 <code>tkinter</code> 示例，创建一个窗口并显示一个标签：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> tkinter <span class="hljs-keyword">as</span> tk<br><br><span class="hljs-comment"># 创建主窗口</span><br>window = tk.Tk()<br><br><span class="hljs-comment"># 创建标签</span><br>label = tk.Label(window, text=<span class="hljs-string">&quot;Hello, tkinter!&quot;</span>)<br>label.pack()<br><br><span class="hljs-comment"># 运行主循环</span><br>window.mainloop()<br></code></pre></td></tr></table></figure>
+
+<p>这段代码创建了一个主窗口，并在窗口中显示了一个标签。<code>Tk()</code> 函数用于创建主窗口对象，<code>Label</code> 函数用于创建标签对象，<code>pack()</code> 方法用于将标签放置到主窗口中，<code>mainloop()</code> 方法用于启动主循环，使窗口保持显示状态。</p>
+<p>下面这个例子是画一个圆形：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> tkinter <span class="hljs-keyword">as</span> tk<br><br><span class="hljs-comment"># 创建主窗口</span><br>window = tk.Tk()<br><br><span class="hljs-comment"># 创建画布</span><br>canvas = tk.Canvas(window, width=<span class="hljs-number">400</span>, height=<span class="hljs-number">400</span>)<br>canvas.pack()<br><br><span class="hljs-comment"># 绘制圆形</span><br>circle = canvas.create_oval(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">300</span>, <span class="hljs-number">300</span>, fill=<span class="hljs-string">&quot;red&quot;</span>)<br><br><span class="hljs-comment"># 运行主循环</span><br>window.mainloop()<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，我们首先创建了一个主窗口，并在窗口中创建了一个画布。然后，使用 <code>create_oval()</code> 方法在画布上绘制了一个圆形。<code>create_oval()</code> 方法接受四个参数，分别是圆形的左上角和右下角坐标。我们将圆形的左上角坐标设为 (100, 100)，右下角坐标设为 (300, 300)，这样圆形的直径就是 200 像素。最后，我们使用 <code>fill</code> 参数指定了圆形的填充颜色。</p>
+<p>您可以根据需要调整圆形的位置、大小和颜色。通过 <code>Canvas</code> 组件的其他方法和属性，还可以绘制线条、矩形、多边形等其他图形，并实现更复杂的绘图效果。</p>
 
                 
               </div>
