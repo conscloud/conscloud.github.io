@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306081044833.webp">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/conscloud/picgotemp/imgplus/202306081046154.webp">
 <meta property="article:published_time" content="2023-06-05T13:54:01.000Z">
-<meta property="article:modified_time" content="2023-06-12T12:56:07.255Z">
+<meta property="article:modified_time" content="2023-06-16T06:14:52.360Z">
 <meta property="article:author" content="ZhJy">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary_large_image">
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          15k 字
+          20k 字
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          123 分钟
+          169 分钟
         
       </span>
     
@@ -548,6 +548,86 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 使用匿名函数对两个列表的元素进行相加</span><br>a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br>b = [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]<br>result = <span class="hljs-built_in">map</span>(<span class="hljs-keyword">lambda</span> x, y: x + y, a, b)<br><span class="hljs-comment"># 输出结果为迭代器对象：&lt;map object at 0x000001&gt;</span><br><span class="hljs-built_in">print</span>(result)<br><br><span class="hljs-comment"># 将迭代器转换为列表</span><br>result_list = <span class="hljs-built_in">list</span>(result)<br><span class="hljs-comment"># 输出结果为列表：[5, 7, 9]</span><br><span class="hljs-built_in">print</span>(result_list)<br></code></pre></td></tr></table></figure>
 
 <p>在上面的示例中，<code>map()</code>函数将匿名函数 <code>lambda x, y: x + y</code> 应用于列表 <code>a</code> 和 <code>b</code> 的对应元素上，返回一个迭代器。通过将迭代器转换为列表，我们可以获取应用函数后的结果列表。在本例中，结果列表为 <code>[5, 7, 9]</code>，即对应位置元素相加的结果。</p>
+<h2 id="22-旋转列表"><a href="#22-旋转列表" class="headerlink" title="22.旋转列表"></a>22.旋转列表</h2><p><code>deque.rotate</code> 是 <code>collections</code> 模块中 <code>deque</code> 类提供的一个方法，用于循环移动双向队列中的元素。</p>
+<p>语法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">deque.rotate(n)<br></code></pre></td></tr></table></figure>
+
+<p>其中，<code>deque</code> 是一个双向队列对象，<code>n</code> 是要旋转的元素数量。当 <code>n</code> 为正数时，元素向右移动；当 <code>n</code> 为负数时，元素向左移动。</p>
+<p>具体操作如下：</p>
+<ul>
+<li>当 <code>n</code> 的绝对值小于等于队列长度时，元素按照指定的数量进行循环移动。</li>
+<li>当 <code>n</code> 的绝对值大于队列长度时，元素会循环移动多个周期，效果与取模运算类似。</li>
+</ul>
+<p>下面是一个例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> deque<br><br>queue = deque([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>])<br>queue.rotate(<span class="hljs-number">2</span>)  <span class="hljs-comment"># 向右循环移动2个元素</span><br><br><span class="hljs-built_in">print</span>(queue)  <span class="hljs-comment"># 输出: deque([4, 5, 1, 2, 3])</span><br></code></pre></td></tr></table></figure>
+
+<p>在上述例子中，初始队列为 <code>[1, 2, 3, 4, 5]</code>，通过 <code>queue.rotate(2)</code> 将队列中的元素向右循环移动了 2 个位置，得到的结果为 <code>[4, 5, 1, 2, 3]</code>。</p>
+<h2 id="23-if-name-x3D-x3D-‘main‘"><a href="#23-if-name-x3D-x3D-‘main‘" class="headerlink" title="23.if name &#x3D;&#x3D; ‘main‘"></a>23.if <strong>name</strong> &#x3D;&#x3D; ‘<strong>main</strong>‘</h2><p><code>if __name__ == &#39;__main__&#39;:</code> 是 Python 中常用的条件语句，用于判断当前模块是否作为主程序运行。</p>
+<p>当一个 Python 文件被直接运行时，即通过命令行或脚本执行时，<code>__name__</code> 属性的值会被设置为 <code>&#39;__main__&#39;</code>。而当一个模块被导入到其他文件中时，<code>__name__</code> 属性的值为模块的名称。</p>
+<p>因此，<code>if __name__ == &#39;__main__&#39;:</code> 的作用是用于判断当前模块是否作为主程序运行。当条件成立时，即当前模块作为主程序运行时，可以执行一些特定的代码块，通常用于测试、调试或执行特定的任务。</p>
+<p>例如，假设有一个名为 <code>example.py</code> 的模块文件，其中包含如下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">foo</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello, foo!&quot;</span>)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">bar</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello, bar!&quot;</span>)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    foo()<br>    bar()<br></code></pre></td></tr></table></figure>
+
+<p>当直接运行 <code>example.py</code> 文件时，输出结果为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">Hello, foo!<br>Hello, bar!<br></code></pre></td></tr></table></figure>
+
+<p>而当该模块被导入到其他文件中时，<code>foo()</code> 和 <code>bar()</code> 函数不会自动执行，因为 <code>__name__</code> 属性的值不为 <code>&#39;__main__&#39;</code>。</p>
+<h2 id="24-进制转换"><a href="#24-进制转换" class="headerlink" title="24.进制转换"></a>24.进制转换</h2><p>二进制（Binary）、八进制（Octal）、十进制（Decimal）和十六进制（Hexadecimal）是不同的数制系统，用于表示数值。</p>
+<ul>
+<li>二进制：使用 0 和 1 表示数字，以 <code>0b</code> 或 <code>0B</code> 前缀开头，如 0b010101。在计算机中，二进制是最基本的数制，因为计算机以位（0 和 1）表示信息。在 Python 中，可以使用 <code>0b</code> 或 <code>0B</code> 前缀来表示二进制数，例如 <code>0b10</code> 表示二进制的 10，其十进制值为 2。</li>
+<li>八进制：使用 0-7 的数字表示，以 <code>0o</code> 或 <code>0O</code> 前缀开头，如 0o1234567。八进制是以 3 位二进制为一个单位进行表示，每个八进制位对应于 3 个二进制位。在 Python 中，可以使用 <code>0o</code> 或 <code>0O</code> 前缀来表示八进制数，例如 <code>0o10</code> 表示八进制的 10，其十进制值为 8。</li>
+<li>十进制：使用 0-9 的数字表示，不需要前缀，如 0123456789。十进制是我们常用的十个数字的表示方式，是我们日常生活中最常见的数值表示法。</li>
+<li>十六进制：使用 0-9 和 A-F 的数字和字母表示，以 <code>0x</code> 或 <code>0X</code> 前缀开头，如 0x123456789ABCDEF。十六进制是以 4 位二进制为一个单位进行表示，每个十六进制位对应于 4 个二进制位。在 Python 中，可以使用 <code>0x</code> 或 <code>0X</code> 前缀来表示十六进制数，例如 <code>0x10</code> 表示十六进制的 10，其十进制值为 16。</li>
+</ul>
+<p>不同进制的数值表示法在计算机科学和编程中具有不同的应用场景。例如，二进制常用于处理位运算和存储二进制数据，八进制和十六进制常用于表示内存地址或颜色值。</p>
+<p>Python 提供了内置函数 <code>bin()</code>、<code>oct()</code>、<code>int()</code> 和 <code>hex()</code> 来在不同进制之间进行转换。</p>
+<p>以下是一些示例代码片段，展示了在不同进制之间进行转换的示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 十进制转二进制</span><br>decimal = <span class="hljs-number">10</span><br>binary = <span class="hljs-built_in">bin</span>(decimal)<br><span class="hljs-built_in">print</span>(binary)  <span class="hljs-comment"># 输出: 0b1010</span><br><br><span class="hljs-comment"># 十进制转八进制</span><br>decimal = <span class="hljs-number">10</span><br>octal = <span class="hljs-built_in">oct</span>(decimal)<br><span class="hljs-built_in">print</span>(octal)  <span class="hljs-comment"># 输出: 0o12</span><br><br><span class="hljs-comment"># 十进制转十六进制</span><br>decimal = <span class="hljs-number">16</span><br>hexadecimal = <span class="hljs-built_in">hex</span>(decimal)<br><span class="hljs-built_in">print</span>(hexadecimal)  <span class="hljs-comment"># 输出: 0x10</span><br><br><span class="hljs-comment"># 二进制转十进制</span><br>binary = <span class="hljs-string">&#x27;0b1010&#x27;</span><br>decimal = <span class="hljs-built_in">int</span>(binary,<span class="hljs-number">2</span>)<br><span class="hljs-built_in">print</span>(decimal)    <span class="hljs-comment">#输出：10</span><br><br><span class="hljs-comment"># 八进制转十进制</span><br>octal = <span class="hljs-string">&#x27;0o12&#x27;</span><br>decimal = <span class="hljs-built_in">int</span>(octal,<span class="hljs-number">8</span>)<br><span class="hljs-built_in">print</span>(decimal)  <span class="hljs-comment">#输出：10</span><br><br><span class="hljs-comment">#十六进制转十进制</span><br>hexadecimal = <span class="hljs-string">&#x27;0xff&#x27;</span><br>decimal = <span class="hljs-built_in">int</span>(hexadecimal,<span class="hljs-number">16</span>)<br><span class="hljs-built_in">print</span>(decimal)  <span class="hljs-comment">#输出：255</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="25-结构体变量传递"><a href="#25-结构体变量传递" class="headerlink" title="25.结构体变量传递"></a>25.结构体变量传递</h2><p>在Python中，可以使用<code>collections.namedtuple</code>创建一个具有命名字段的结构体。它创建一个新的元组子类，并为每个字段分配一个名称，使得可以通过名称访问结构体的字段。</p>
+<p>下面是一个示例代码，展示了如何创建结构体并进行变量传递：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> namedtuple<br><br><span class="hljs-comment"># 创建结构体</span><br>Person = namedtuple(<span class="hljs-string">&#x27;Person&#x27;</span>, [<span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>, <span class="hljs-string">&#x27;gender&#x27;</span>])<br><br><span class="hljs-comment"># 创建结构体变量</span><br>person1 = Person(name=<span class="hljs-string">&#x27;Alice&#x27;</span>, age=<span class="hljs-number">25</span>, gender=<span class="hljs-string">&#x27;Female&#x27;</span>)<br><br><span class="hljs-comment"># 传递结构体变量</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">print_person_info</span>(<span class="hljs-params">person</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Name: <span class="hljs-subst">&#123;person.name&#125;</span>&quot;</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Age: <span class="hljs-subst">&#123;person.age&#125;</span>&quot;</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Gender: <span class="hljs-subst">&#123;person.gender&#125;</span>&quot;</span>)<br><br><span class="hljs-comment"># 调用函数打印结构体变量的信息</span><br>print_person_info(person1)<br></code></pre></td></tr></table></figure>
+
+<p>通过定义结构体，我们可以创建具有指定字段的结构体变量，并将其传递给其他函数或方法进行处理。在函数内部，可以通过结构体变量的字段名来访问和操作结构体的数据。</p>
+<h2 id="26-生成器函数（generator-）"><a href="#26-生成器函数（generator-）" class="headerlink" title="26.生成器函数（generator()）"></a>26.生成器函数（generator()）</h2><p>生成器函数是一种特殊的函数，它使用关键字 <code>yield</code> 来产生一个值序列。与普通函数不同的是，生成器函数在执行过程中可以暂停并保存当前的状态，然后在下一次调用时从暂停的地方继续执行，返回一个值，并再次暂停。这样可以节省内存并实现惰性计算。</p>
+<p>生成器函数的定义方式与普通函数相似，但使用 <code>yield</code> 关键字来产生值，而不是使用 <code>return</code> 关键字。每次调用生成器函数时，会返回一个生成器对象，通过调用生成器对象的 <code>__next__()</code> 或 <code>next()</code> 方法可以逐个获取生成器函数中的值。</p>
+<p>以下是一个简单的生成器函数的示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_generator</span>():<br>    <span class="hljs-keyword">yield</span> <span class="hljs-number">1</span><br>    <span class="hljs-keyword">yield</span> <span class="hljs-number">2</span><br>    <span class="hljs-keyword">yield</span> <span class="hljs-number">3</span><br><br><span class="hljs-comment"># 调用生成器函数，获取生成器对象</span><br>gen = my_generator()<br><br><span class="hljs-comment"># 使用生成器对象的 __next__() 或 next() 方法逐个获取生成器函数中的值</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(gen))  <span class="hljs-comment"># 输出: 1</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(gen))  <span class="hljs-comment"># 输出: 2</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">next</span>(gen))  <span class="hljs-comment"># 输出: 3</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个示例中，<code>my_generator()</code> 是一个生成器函数，使用 <code>yield</code> 语句产生了三个值：1、2 和 3。通过调用生成器函数 <code>my_generator()</code> 获取生成器对象 <code>gen</code>，然后使用 <code>next()</code> 函数或生成器对象的 <code>__next__()</code> 方法逐个获取生成器函数中的值，并将其打印出来。</p>
+<p>生成器函数还可以接收参数，用于控制生成器函数的行为和产生不同的值序列。生成器函数可以使用循环、条件语句和其他的控制结构来动态地生成值，具有很高的灵活性和可扩展性。</p>
+<p>需要注意的是，当生成器函数的代码执行完毕或遇到 <code>return</code> 语句时，会抛出 <code>StopIteration</code> 异常来表示生成器已经遍历完毕。因此，在使用 <code>next()</code> 函数或生成器对象的 <code>__next__()</code> 方法获取生成器对象的值时，需要注意捕获 <code>StopIteration</code> 异常以避免程序异常退出。</p>
+<h2 id="27-高阶函数"><a href="#27-高阶函数" class="headerlink" title="27.高阶函数"></a>27.高阶函数</h2><p>高阶函数是指可以接受函数作为参数或将函数作为返回值的函数。在Python中，函数是一等公民，因此可以像其他对象一样被传递给函数，这就是高阶函数的特性之一。</p>
+<p>以下是一些常见的高阶函数的示例：</p>
+<ol>
+<li><code>map()</code> 函数：接受一个函数和一个可迭代对象，将函数应用于可迭代对象的每个元素，并返回一个新的可迭代对象。示例：</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]<br>squares = <span class="hljs-built_in">map</span>(<span class="hljs-keyword">lambda</span> x: x ** <span class="hljs-number">2</span>, numbers)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">list</span>(squares))  <span class="hljs-comment"># 输出: [1, 4, 9, 16, 25]</span><br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><code>filter()</code> 函数：接受一个函数和一个可迭代对象，根据函数的返回值对可迭代对象进行过滤，并返回一个新的可迭代对象。示例：</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]<br>even_numbers = <span class="hljs-built_in">filter</span>(<span class="hljs-keyword">lambda</span> x: x % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>, numbers)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">list</span>(even_numbers))  <span class="hljs-comment"># 输出: [2, 4]</span><br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><code>reduce()</code> 函数：接受一个函数和一个可迭代对象，将函数应用于可迭代对象的前两个元素，然后将结果与下一个元素继续应用函数，直到遍历完所有元素并返回最终结果。示例：</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> reduce<br><br>numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]<br>product = reduce(<span class="hljs-keyword">lambda</span> x, y: x * y, numbers)<br><span class="hljs-built_in">print</span>(product)  <span class="hljs-comment"># 输出: 120 (1 * 2 * 3 * 4 * 5)</span><br></code></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><code>sorted()</code> 函数：接受一个可迭代对象，并根据指定的排序规则对其进行排序，并返回一个新的列表。可以通过传递 <code>key</code> 参数来指定排序规则所依据的函数。示例：</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">numbers = [<span class="hljs-number">5</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>]<br>sorted_numbers = <span class="hljs-built_in">sorted</span>(numbers)<br><span class="hljs-built_in">print</span>(sorted_numbers)  <span class="hljs-comment"># 输出: [1, 2, 3, 4, 5]</span><br><br>words = [<span class="hljs-string">&#x27;apple&#x27;</span>, <span class="hljs-string">&#x27;banana&#x27;</span>, <span class="hljs-string">&#x27;cherry&#x27;</span>, <span class="hljs-string">&#x27;date&#x27;</span>]<br>sorted_words = <span class="hljs-built_in">sorted</span>(words, key=<span class="hljs-built_in">len</span>)<br><span class="hljs-built_in">print</span>(sorted_words)  <span class="hljs-comment"># 输出: [&#x27;date&#x27;, &#x27;apple&#x27;, &#x27;banana&#x27;, &#x27;cherry&#x27;]</span><br></code></pre></td></tr></table></figure>
+
+<p>这些只是高阶函数的一些示例，Python中还有其他许多内置的高阶函数和库中提供的高阶函数。通过使用高阶函数，可以简化代码、提高代码的可读性和灵活性，并充分发挥函数作为一等公民的优势。</p>
+<h2 id="28-装饰器（Decorator）"><a href="#28-装饰器（Decorator）" class="headerlink" title="28.装饰器（Decorator）"></a>28.装饰器（Decorator）</h2><p>代码运行期间动态增加功能的方式，称之为“装饰器”（Decorator）。本质上，decorator就是一个返回函数的高阶函数。装饰器是一种特殊的Python函数，用于修改其他函数的行为。装饰器可以在不修改原函数代码的情况下添加额外的功能或行为。</p>
+<p>装饰器的使用方式是通过在被装饰函数的定义之前使用 <code>@装饰器函数名</code> 的语法来应用装饰器。</p>
+<p>下面是一个简单的装饰器示例，用于记录函数的执行时间：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">timing_decorator</span>(<span class="hljs-params">func</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>(<span class="hljs-params">*args, **kwargs</span>):<br>        start_time = time.time()<br>        result = func(*args, **kwargs)<br>        end_time = time.time()<br>        execution_time = end_time - start_time<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;函数 <span class="hljs-subst">&#123;func.__name__&#125;</span> 的执行时间为 <span class="hljs-subst">&#123;execution_time&#125;</span> 秒&quot;</span>)<br>        <span class="hljs-keyword">return</span> result<br>    <span class="hljs-keyword">return</span> wrapper<br><br><span class="hljs-meta">@timing_decorator</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_function</span>():<br>    <span class="hljs-comment"># 函数的具体实现</span><br>    <span class="hljs-keyword">pass</span><br><br>my_function()<br></code></pre></td></tr></table></figure>
+
+<p>在上面的示例中，<code>timing_decorator</code> 是一个装饰器函数，它接受一个函数作为参数，并返回一个新的函数 <code>wrapper</code>。<code>wrapper</code> 函数在被装饰的函数执行前后添加了计时的逻辑，并打印出执行时间。</p>
+<p>通过在 <code>my_function</code> 函数的定义之前使用 <code>@timing_decorator</code>，我们将 <code>my_function</code> 函数应用了装饰器。当我们调用 <code>my_function</code> 时，实际上是调用了被装饰后的 <code>wrapper</code> 函数，从而实现了计时的功能。</p>
+<p>装饰器的使用使得我们可以在不修改原函数代码的情况下，灵活地添加额外的功能或行为，提高代码的可复用性和可维护性。在实际开发中，装饰器常用于日志记录、性能分析、权限控制等方面。</p>
 
                 
               </div>
