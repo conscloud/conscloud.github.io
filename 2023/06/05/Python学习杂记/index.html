@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          20k 字
+          22k 字
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          169 分钟
+          184 分钟
         
       </span>
     
@@ -628,6 +628,48 @@
 <p>在上面的示例中，<code>timing_decorator</code> 是一个装饰器函数，它接受一个函数作为参数，并返回一个新的函数 <code>wrapper</code>。<code>wrapper</code> 函数在被装饰的函数执行前后添加了计时的逻辑，并打印出执行时间。</p>
 <p>通过在 <code>my_function</code> 函数的定义之前使用 <code>@timing_decorator</code>，我们将 <code>my_function</code> 函数应用了装饰器。当我们调用 <code>my_function</code> 时，实际上是调用了被装饰后的 <code>wrapper</code> 函数，从而实现了计时的功能。</p>
 <p>装饰器的使用使得我们可以在不修改原函数代码的情况下，灵活地添加额外的功能或行为，提高代码的可复用性和可维护性。在实际开发中，装饰器常用于日志记录、性能分析、权限控制等方面。</p>
+<h2 id="29-非公开函数或变量"><a href="#29-非公开函数或变量" class="headerlink" title="29.非公开函数或变量"></a>29.非公开函数或变量</h2><p>非公开函数或变量是指在Python中使用下划线（_）作为前缀命名的函数或变量。这种命名约定表示这些函数或变量是供内部使用的，不应该被外部代码直接访问或调用。</p>
+<p>非公开函数和变量的命名约定是一种约定俗成的规范，并不会强制限制对它们的访问。在Python中，它们仍然是可以被访问和使用的，只是开发者之间通过命名约定来暗示它们的用途和意图，建议不要在外部代码中直接使用。</p>
+<p>以下是一个示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">_internal_function</span>():<br>    <span class="hljs-comment"># 非公开函数，供内部使用</span><br>    <span class="hljs-keyword">pass</span><br><br>public_variable = <span class="hljs-number">42</span>  <span class="hljs-comment"># 公开变量</span><br><br>_internal_variable = <span class="hljs-number">10</span>  <span class="hljs-comment"># 非公开变量</span><br></code></pre></td></tr></table></figure>
+
+<p>在上述示例中，<code>_internal_function</code> 是一个非公开函数，<code>_internal_variable</code> 是一个非公开变量。虽然它们可以在外部访问，但是根据命名约定，开发者应该将它们视为供内部使用的实体，避免在外部代码中直接使用。</p>
+<p>请注意，Python并不强制限制对非公开函数或变量的访问权限，这只是一种约定俗成的规范。在编写代码时，开发者应该尊重这种约定，遵循良好的编程实践，以提高代码的可维护性和可读性。</p>
+<h2 id="30-正则表达式"><a href="#30-正则表达式" class="headerlink" title="30.正则表达式"></a>30.正则表达式</h2><p>在正则表达式中，如果直接给出字符，就是精确匹配。用<code>\d</code>可以匹配一个数字，<code>\w</code>可以匹配一个字母或数字，所以：</p>
+<ul>
+<li><code>&#39;00\d&#39;</code>可以匹配<code>&#39;007&#39;</code>，但无法匹配<code>&#39;00A&#39;</code>；</li>
+<li><code>&#39;\d\d\d&#39;</code>可以匹配<code>&#39;010&#39;</code>；</li>
+<li><code>&#39;\w\w\d&#39;</code>可以匹配<code>&#39;py3&#39;</code>；</li>
+</ul>
+<ul>
+<li><code>.</code>可以匹配任意字符，所以：<ul>
+<li><code>&#39;py.&#39;</code>可以匹配<code>&#39;pyc&#39;</code>、<code>&#39;pyo&#39;</code>、<code>&#39;py!&#39;</code>等等。</li>
+</ul>
+</li>
+</ul>
+<p>要匹配变长的字符，在正则表达式中，用<code>*</code>表示任意个字符（包括0个），用<code>+</code>表示至少一个字符，用<code>?</code>表示0个或1个字符，用<code>&#123;n&#125;</code>表示n个字符，用<code>&#123;n,m&#125;</code>表示n-m个字符：</p>
+<p>来看一个复杂的例子：<code>\d&#123;3&#125;\s+\d&#123;3,8&#125;</code>。</p>
+<p>我们来从左到右解读一下：</p>
+<ol>
+<li><code>\d&#123;3&#125;</code>表示匹配3个数字，例如<code>&#39;010&#39;</code>；</li>
+<li><code>\s</code>可以匹配一个空格（也包括Tab等空白符），所以<code>\s+</code>表示至少有一个空格，例如匹配<code>&#39; &#39;</code>，<code>&#39; &#39;</code>等；</li>
+<li><code>\d&#123;3,8&#125;</code>表示3-8个数字，例如<code>&#39;1234567&#39;</code>。</li>
+</ol>
+<p>综合起来，上面的正则表达式可以匹配以任意个空格隔开的带区号的电话号码。</p>
+<p>如果要匹配<code>&#39;010-12345&#39;</code>这样的号码呢？由于<code>&#39;-&#39;</code>是特殊字符，在正则表达式中，要用<code>&#39;\&#39;</code>转义，所以，上面的正则是<code>\d&#123;3&#125;\-\d&#123;3,8&#125;</code>。</p>
+<p>但是，仍然无法匹配<code>&#39;010 - 12345&#39;</code>，因为带有空格。所以我们需要更复杂的匹配方式。</p>
+<p><strong>进阶</strong></p>
+<p>要做更精确地匹配，可以用<code>[]</code>表示范围，比如：</p>
+<ul>
+<li><code>[0-9a-zA-Z\_]</code>可以匹配一个数字、字母或者下划线；</li>
+<li><code>[0-9a-zA-Z\_]+</code>可以匹配至少由一个数字、字母或者下划线组成的字符串，比如<code>&#39;a100&#39;</code>，<code>&#39;0_Z&#39;</code>，<code>&#39;Py3000&#39;</code>等等；</li>
+<li><code>[a-zA-Z\_][0-9a-zA-Z\_]*</code>可以匹配由字母或下划线开头，后接任意个由一个数字、字母或者下划线组成的字符串，也就是Python合法的变量；</li>
+<li><code>[a-zA-Z\_][0-9a-zA-Z\_]&#123;0, 19&#125;</code>更精确地限制了变量的长度是1-20个字符（前面1个字符+后面最多19个字符）。</li>
+</ul>
+<p><code>A|B</code>可以匹配A或B，所以<code>(P|p)ython</code>可以匹配<code>&#39;Python&#39;</code>或者<code>&#39;python&#39;</code>。</p>
+<p><code>^</code>表示行的开头，<code>^\d</code>表示必须以数字开头。</p>
+<p><code>$</code>表示行的结束，<code>\d$</code>表示必须以数字结束。</p>
+<p>你可能注意到了，<code>^py</code>也可以匹配<code>&#39;python&#39;</code>，但是加上<code>^py$</code>就变成了整行匹配，就只能匹配<code>&#39;py&#39;</code>了。</p>
 
                 
               </div>
