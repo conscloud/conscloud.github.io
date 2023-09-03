@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          36k 字
+          52k 字
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          299 分钟
+          434 分钟
         
       </span>
     
@@ -464,6 +464,20 @@
 <p>例子:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&#x27;=&#123;0:10&#125; = &#123;1:10&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(<span class="hljs-string">&#x27;spam&#x27;</span>, <span class="hljs-number">123.456</span>)    <span class="hljs-comment"># 输出&#x27;=spam       =    123.456&#x27;</span><br><span class="hljs-string">&#x27;=&#123;0:&gt;10&#125;=&#x27;</span>.<span class="hljs-built_in">format</span>(<span class="hljs-string">&#x27;test&#x27;</span>)                    <span class="hljs-comment"># 输出&#x27;=      test=&#x27;</span><br><span class="hljs-string">&#x27;=&#123;0:&lt;10&#125;=&#x27;</span>.<span class="hljs-built_in">format</span>(<span class="hljs-string">&#x27;test&#x27;</span>)                    <span class="hljs-comment"># 输出&#x27;=test      =&#x27;</span><br><span class="hljs-string">&#x27;=&#123;0:^10&#125;=&#x27;</span>.<span class="hljs-built_in">format</span>(<span class="hljs-string">&#x27;test&#x27;</span>)                    <span class="hljs-comment"># 输出&#x27;=   test   =&#x27;</span><br><span class="hljs-string">&#x27;&#123;0:X&#125;, &#123;1:o&#125;, &#123;2:b&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>)   <span class="hljs-comment"># 输出&#x27;FF, 377, 11111111&#x27;</span><br><span class="hljs-string">&#x27;My name is &#123;0:&#123;1&#125;&#125;.&#x27;</span>.<span class="hljs-built_in">format</span>(<span class="hljs-string">&#x27;Fred&#x27;</span>, <span class="hljs-number">8</span>)       <span class="hljs-comment"># 输出&#x27;My name is Fred    .&#x27;  动态指定参数</span><br></code></pre></td></tr></table></figure>
 
+<h3 id="4-textwrap"><a href="#4-textwrap" class="headerlink" title="4.textwrap"></a>4.textwrap</h3><p><code>textwrap</code> 模块是 Python 标准库中的一个模块，它提供了一些用于格式化和包装文本的函数和类。主要用于将长文本按照指定的宽度进行自动换行和格式化，以适应给定的输出区域。</p>
+<p>以下是一些常用的 <code>textwrap</code> 模块函数和类：</p>
+<ol>
+<li><code>textwrap.wrap(text, width)</code>：将文本按照指定的宽度进行分割，返回一个列表，每个元素表示一行文本。</li>
+<li><code>textwrap.fill(text, width)</code>：将文本按照指定的宽度进行自动换行，并返回一个格式化后的文本字符串。</li>
+<li><code>textwrap.shorten(text, width, placeholder=&#39;...&#39;)</code>：将文本缩短至指定的宽度，超出部分用指定的占位符替代。</li>
+<li><code>textwrap.dedent(text)</code>：去除文本块中的公共缩进。</li>
+<li><code>textwrap.indent(text, prefix)</code>：在文本块的每一行前添加指定的前缀。</li>
+<li><code>textwrap.TextWrapper</code> 类：提供了更多高级的文本包装和格式化选项，可以定制换行、缩进、对齐等参数。</li>
+</ol>
+<p>以下是一个示例，展示了如何使用 <code>textwrap</code> 模块来格式化文本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> textwrap<br><br>text = <span class="hljs-string">&quot;This is a long piece of text that needs to be wrapped properly to fit within the specified width.&quot;</span><br><br><span class="hljs-comment"># 使用 textwrap.wrap 进行文本分割</span><br>wrapped_lines = textwrap.wrap(text, width=<span class="hljs-number">30</span>)<br><span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> wrapped_lines:<br>    <span class="hljs-built_in">print</span>(line)<br><br><span class="hljs-comment"># 使用 textwrap.fill 进行文本换行和格式化</span><br>formatted_text = textwrap.fill(text, width=<span class="hljs-number">30</span>)<br><span class="hljs-built_in">print</span>(formatted_text)<br></code></pre></td></tr></table></figure>
+
+<p>你可以根据需要在输出中查看不同的格式化结果。请注意，<code>textwrap</code> 模块提供了更多的选项和功能，可以根据具体需求进行定制。</p>
 <h2 id="13-列表的一些内置方法"><a href="#13-列表的一些内置方法" class="headerlink" title="13.列表的一些内置方法"></a>13.列表的一些内置方法</h2><p>列表是 Python 中的内置数据类型之一，它提供了丰富的内置方法来操作和处理列表。以下是一些常用的列表内置方法：</p>
 <ol>
 <li><code>append()</code>: 在列表末尾添加一个元素。</li>
@@ -729,7 +743,41 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><br>text = <span class="hljs-string">&quot;Hello, world! How are you?&quot;</span><br><br><span class="hljs-comment"># 将字符串中的 &quot;world&quot; 替换为 &quot;Python&quot;</span><br>new_text = re.sub(<span class="hljs-string">r&quot;world&quot;</span>, <span class="hljs-string">&quot;Python&quot;</span>, text)<br><br><span class="hljs-built_in">print</span>(new_text)<br></code></pre></td></tr></table></figure>
 
 <p>在这个示例中，我们使用 <code>re.sub()</code> 将字符串中的 “world” 替换为 “Python”。函数将匹配到的第一个 “world” 替换为 “Python”，并返回替换后的新字符串。</p>
-<h2 id="31-intertools"><a href="#31-intertools" class="headerlink" title="31.intertools"></a>31.intertools</h2><h3 id="1-groupby"><a href="#1-groupby" class="headerlink" title="1.groupby()"></a>1.groupby()</h3><p><code>groupby()</code> 是 Python 中 <code>itertools</code> 模块中的一个函数，它用于对可迭代对象进行分组操作。它根据指定的键函数对可迭代对象中的元素进行分组，并返回一个迭代器，每个分组都是一个元组，包含一个键和相应的元素迭代器。</p>
+<h2 id="31-intertools"><a href="#31-intertools" class="headerlink" title="31.intertools"></a>31.intertools</h2><p><code>itertools</code> 模块提供了许多用于迭代和组合的工具函数。以下是一些常用的 <code>itertools</code> 方法：</p>
+<ol>
+<li><p><code>count(start=0, step=1)</code>：生成一个无限递增的迭代器，从 <code>start</code> 开始，以 <code>step</code> 为步长。</p>
+</li>
+<li><p><code>cycle(iterable)</code>：对可迭代对象进行无限循环。</p>
+</li>
+<li><p><code>repeat(elem, times=None)</code>：生成一个无限重复 <code>elem</code> 的迭代器，如果指定了 <code>times</code> 参数，则重复指定次数。</p>
+</li>
+<li><p><code>chain(*iterables)</code>：将多个可迭代对象连接成一个迭代器。</p>
+</li>
+<li><p><code>zip_longest(*iterables, fillvalue=None)</code>：将多个可迭代对象的元素逐个配对，使用 <code>fillvalue</code> 填充缺失的值。</p>
+</li>
+<li><p><code>combinations(iterable, r)</code>：生成可迭代对象中长度为 <code>r</code> 的所有组合。</p>
+</li>
+<li><p><code>permutations(iterable, r=None)</code>：生成可迭代对象中长度为 <code>r</code> 的所有排列。</p>
+</li>
+<li><p><code>product(*iterables, repeat=1)</code>：生成多个可迭代对象的笛卡尔积。</p>
+</li>
+<li><p><code>groupby(iterable, key=None)</code>：将可迭代对象中相邻且相等的元素分组。</p>
+</li>
+<li><p><code>accumulate(iterable, func=operator.add)</code>：对可迭代对象进行累积计算。</p>
+</li>
+<li><p><code>starmap(function, iterable)</code>：将函数应用于可迭代对象中的每个元素。</p>
+</li>
+<li><p><code>tee(iterable, n=2)</code>：生成多个独立的迭代器副本。</p>
+</li>
+<li><p><code>islice(iterable, start, stop, step=None)</code>：对可迭代对象进行切片操作。</p>
+</li>
+<li><p><code>dropwhile(predicate, iterable)</code>：跳过满足条件的元素，然后迭代剩余的元素。</p>
+</li>
+<li><p><code>takewhile(predicate, iterable)</code>：迭代满足条件的元素，然后停止。</p>
+<p>等等</p>
+</li>
+</ol>
+<h3 id="1-groupby"><a href="#1-groupby" class="headerlink" title="1.groupby()"></a>1.groupby()</h3><p><code>groupby()</code> 是 Python 中 <code>itertools</code> 模块中的一个函数，它用于对可迭代对象进行分组操作。它根据指定的键函数对可迭代对象中的元素进行分组，并返回一个迭代器，每个分组都是一个元组，包含一个键和相应的元素迭代器。</p>
 <p><code>groupby(iterable, key=None)</code> 的语法如下：</p>
 <ul>
 <li><code>iterable</code>：要分组的可迭代对象。</li>
@@ -743,6 +791,54 @@
 
 <p>在这个示例中，我们使用 <code>groupby()</code> 对列表 <code>numbers</code> 进行分组。由于未指定键函数，因此默认按照元素的原始值进行分组。然后，我们遍历每个分组并打印键和对应的元素列表。</p>
 <p>请注意，<code>groupby()</code> 返回的是一个迭代器，因此需要通过遍历来访问分组结果。</p>
+<h3 id="2-combinations-和-combinations-with-replacement"><a href="#2-combinations-和-combinations-with-replacement" class="headerlink" title="2.combinations 和 combinations_with_replacement"></a>2.combinations 和 combinations_with_replacement</h3><p><code>combinations</code> 和 <code>combinations_with_replacement</code> 都是 Python 标准库中 <code>itertools</code> 模块提供的用于生成组合的函数，它们的区别在于生成的组合方式不同：</p>
+<ol>
+<li><code>combinations(iterable, r)</code>： 这个函数生成给定可迭代对象中长度为 <code>r</code> 的所有可能组合，但不考虑元素的顺序。换句话说，它生成的组合中的元素不重复，且顺序不同的组合算作不同。</li>
+<li><code>combinations_with_replacement(iterable, r)</code>： 这个函数也生成给定可迭代对象中长度为 <code>r</code> 的所有可能组合，但允许元素重复。换句话说，它生成的组合中的元素可以重复出现，且顺序不同的组合算作不同。</li>
+</ol>
+<p>下面是一个示例，说明这两个函数的区别：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> combinations, combinations_with_replacement<br><br>data = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br><br><span class="hljs-comment"># 使用 combinations 生成组合（元素不重复，顺序不同的组合）</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Combinations:&quot;</span>)<br><span class="hljs-keyword">for</span> r <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(data) + <span class="hljs-number">1</span>):<br>    <span class="hljs-keyword">for</span> comb <span class="hljs-keyword">in</span> combinations(data, r):<br>        <span class="hljs-built_in">print</span>(comb)<br><br><span class="hljs-comment"># 使用 combinations_with_replacement 生成组合（元素可以重复，顺序不同的组合）</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\nCombinations with Replacement:&quot;</span>)<br><span class="hljs-keyword">for</span> r <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(data) + <span class="hljs-number">1</span>):<br>    <span class="hljs-keyword">for</span> comb <span class="hljs-keyword">in</span> combinations_with_replacement(data, r):<br>        <span class="hljs-built_in">print</span>(comb)<br></code></pre></td></tr></table></figure>
+
+<p>在上面的示例中，我们通过两种方式生成了给定数据 <code>[1, 2, 3]</code> 的组合。你可以运行这段代码，观察输出结果，更好地理解这两个函数的区别。</p>
+<h3 id="3-product"><a href="#3-product" class="headerlink" title="3.product()"></a>3.product()</h3><p><code>itertools.product</code> 是 Python 标准库中的一个函数，用于生成多个可迭代对象的笛卡尔积。它会返回所有可能的元组组合，其中每个元组的一个元素来自于每个输入的可迭代对象。通常用于生成多个集合、列表等的所有可能组合。</p>
+<p>以下是 <code>itertools.product</code> 的基本使用方法示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> product<br><br><span class="hljs-comment"># 生成两个可迭代对象的所有组合</span><br>colors = [<span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;green&#x27;</span>, <span class="hljs-string">&#x27;blue&#x27;</span>]<br>sizes = [<span class="hljs-string">&#x27;small&#x27;</span>, <span class="hljs-string">&#x27;medium&#x27;</span>, <span class="hljs-string">&#x27;large&#x27;</span>]<br><br><span class="hljs-comment"># 生成颜色和尺寸的所有组合</span><br>color_size_combinations = <span class="hljs-built_in">list</span>(product(colors, sizes))<br><span class="hljs-built_in">print</span>(color_size_combinations)<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">[(<span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;small&#x27;</span>), (<span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;medium&#x27;</span>), (<span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;large&#x27;</span>), (<span class="hljs-string">&#x27;green&#x27;</span>, <span class="hljs-string">&#x27;small&#x27;</span>), (<span class="hljs-string">&#x27;green&#x27;</span>, <span class="hljs-string">&#x27;medium&#x27;</span>), (<span class="hljs-string">&#x27;green&#x27;</span>, <span class="hljs-string">&#x27;large&#x27;</span>), (<span class="hljs-string">&#x27;blue&#x27;</span>, <span class="hljs-string">&#x27;small&#x27;</span>), (<span class="hljs-string">&#x27;blue&#x27;</span>, <span class="hljs-string">&#x27;medium&#x27;</span>), (<span class="hljs-string">&#x27;blue&#x27;</span>, <span class="hljs-string">&#x27;large&#x27;</span>)]<br></code></pre></td></tr></table></figure>
+
+<p>在上述示例中，<code>product(colors, sizes)</code> 生成了所有颜色和尺寸的组合。</p>
+<p>你可以将 <code>itertools.product</code> 用于多个可迭代对象，生成这些可迭代对象的笛卡尔积。这在处理组合问题时非常有用，比如在找到多个数组的所有可能组合时。</p>
+<h3 id="4-permutations"><a href="#4-permutations" class="headerlink" title="4.permutations()"></a>4.permutations()</h3><p><code>permutations()</code>函数是Python中<code>itertools</code>模块提供的一个函数，用于生成指定序列的所有可能排列。它返回一个迭代器，可以用于获取序列的不同排列组合。</p>
+<p>以下是<code>permutations()</code>函数的基本使用示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> permutations<br><br><span class="hljs-comment"># 创建一个序列</span><br>sequence = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br><br><span class="hljs-comment"># 获取序列的所有排列</span><br>perm = permutations(sequence)<br><br><span class="hljs-comment"># 将排列转换为列表</span><br>perm_list = <span class="hljs-built_in">list</span>(perm)<br><br><span class="hljs-comment"># 打印所有排列</span><br><span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> perm_list:<br>    <span class="hljs-built_in">print</span>(p)<br></code></pre></td></tr></table></figure>
+
+<p>在上面的示例中，我们首先导入<code>permutations</code>函数，然后创建一个包含整数1、2和3的序列。接下来，我们使用<code>permutations()</code>函数生成这个序列的所有排列。最后，我们将排列转换为一个列表，并打印出所有的排列组合。</p>
+<p>输出结果将显示所有可能的排列，例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)<br>(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>)<br>(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>)<br>(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>)<br>(<span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>)<br>(<span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="5-permutations-与product-的区别"><a href="#5-permutations-与product-的区别" class="headerlink" title="5.permutations()与product()的区别"></a>5.permutations()与product()的区别</h3><p><code>permutations()</code>和<code>product()</code>是Python中<code>itertools</code>模块提供的两个函数，用于生成序列的不同组合，但它们之间有一些关键区别：</p>
+<ol>
+<li><strong>排列 vs. 组合：</strong><ul>
+<li><code>permutations(iterable, r)</code>: 生成指定长度 <code>r</code> 的排列，包括了所有元素的不同顺序排列。如果不指定 <code>r</code>，则默认为序列的长度。每个元素仅在结果中出现一次。</li>
+<li><code>product(*iterables, repeat=1)</code>: 生成笛卡尔积，包括了多个可迭代对象中所有可能的组合，可以包含重复的元素。</li>
+</ul>
+</li>
+<li><strong>结果类型：</strong><ul>
+<li><code>permutations()</code>返回的结果是一个排列的迭代器，其中每个排列是一个元组。</li>
+<li><code>product()</code>返回的结果是笛卡尔积的迭代器，其中每个组合是一个元组。</li>
+</ul>
+</li>
+<li><strong>使用场景：</strong><ul>
+<li><code>permutations()</code>通常用于生成不同元素的排列，例如生成字母的不同排列。</li>
+<li><code>product()</code>通常用于生成多个可迭代对象的所有组合，可能包含相同元素的组合。</li>
+</ul>
+</li>
+</ol>
+<p>下面是两个函数的简单示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> permutations, product<br><br><span class="hljs-comment"># 生成排列</span><br>perm = permutations([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">2</span>)<br>perm_list = <span class="hljs-built_in">list</span>(perm)<br><span class="hljs-built_in">print</span>(perm_list)  <span class="hljs-comment"># 输出: [(1, 2), (1, 3), (2, 1), (2, 3), (3, 1), (3, 2)]</span><br><br><span class="hljs-comment"># 生成笛卡尔积</span><br>prod = product([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>])<br>prod_list = <span class="hljs-built_in">list</span>(prod)<br><span class="hljs-built_in">print</span>(prod_list)  <span class="hljs-comment"># 输出: [(1, &#x27;a&#x27;), (1, &#x27;b&#x27;), (2, &#x27;a&#x27;), (2, &#x27;b&#x27;)]</span><br></code></pre></td></tr></table></figure>
+
+<p>在上面的示例中，<code>permutations()</code>生成了包含2个元素的排列，而<code>product()</code>生成了两个可迭代对象的笛卡尔积。</p>
 <h2 id="32数字相关"><a href="#32数字相关" class="headerlink" title="32数字相关"></a>32数字相关</h2><h3 id="1-decimal模块"><a href="#1-decimal模块" class="headerlink" title="1. decimal模块"></a>1. decimal模块</h3><p><code>decimal</code>模块是Python中用于高精度数学运算的模块。它提供了一种Decimal数据类型，可以用于执行浮点数运算，并且具有固定的精度，避免了浮点数运算中的精度损失问题。</p>
 <p>在Python中，通常使用<code>float</code>类型来表示浮点数，但是由于浮点数的存储方式是二进制表示，导致在进行一些简单的算术运算时可能会出现精度丢失。例如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">x = <span class="hljs-number">0.1</span> + <span class="hljs-number">0.2</span><br><span class="hljs-built_in">print</span>(x)  <span class="hljs-comment"># 输出为 0.30000000000000004</span><br></code></pre></td></tr></table></figure>
@@ -776,6 +872,251 @@
 <p>需要注意的是，<code>Fraction</code>模块仅适用于有理数，无法处理无理数（例如π和√2）。如果需要处理无理数，可以考虑使用<code>decimal</code>模块或其他数学计算库。</p>
 <h2 id="33文件"><a href="#33文件" class="headerlink" title="33文件"></a>33文件</h2><h3 id="1-文件的基本操作"><a href="#1-文件的基本操作" class="headerlink" title="1.文件的基本操作"></a>1.文件的基本操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python">output = <span class="hljs-built_in">open</span>(<span class="hljs-string">r&#x27;C:\spam&#x27;</span>, <span class="hljs-string">&#x27;w&#x27;</span>)          <span class="hljs-comment"># 打开输出文件，用于写</span><br><span class="hljs-built_in">input</span> = <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;data&#x27;</span>, <span class="hljs-string">&#x27;r&#x27;</span>)               <span class="hljs-comment"># 打开输入文件，用于读。打开的方式可以为&#x27;w&#x27;, &#x27;r&#x27;, &#x27;a&#x27;, &#x27;wb&#x27;, &#x27;rb&#x27;, &#x27;ab&#x27;等</span><br>fp.read([size])                         <span class="hljs-comment"># size为读取的长度，以byte为单位</span><br>fp.readline([size])                     <span class="hljs-comment"># 读一行，如果定义了size，有可能返回的只是一行的一部分</span><br>fp.readlines([size])                    <span class="hljs-comment"># 把文件每一行作为一个list的一个成员，并返回这个list。其实它的内部是通过循环调用readline()来实现的。如果提供size参数，size是表示读取内容的总长。</span><br>fp.readable()                           <span class="hljs-comment"># 是否可读</span><br>fp.write(<span class="hljs-built_in">str</span>)                           <span class="hljs-comment"># 把str写到文件中，write()并不会在str后加上一个换行符</span><br>fp.writelines(seq)                      <span class="hljs-comment"># 把seq的内容全部写到文件中(多行一次性写入)</span><br>fp.writeable()                          <span class="hljs-comment"># 是否可写</span><br>fp.close()                              <span class="hljs-comment"># 关闭文件。</span><br>fp.flush()                              <span class="hljs-comment"># 把缓冲区的内容写入硬盘</span><br>fp.fileno()                             <span class="hljs-comment"># 返回一个长整型的”文件标签“</span><br>fp.isatty()                             <span class="hljs-comment"># 文件是否是一个终端设备文件（unix系统中的）</span><br>fp.tell()                               <span class="hljs-comment"># 返回文件操作标记的当前位置，以文件的开头为原点</span><br>fp.<span class="hljs-built_in">next</span>()                               <span class="hljs-comment"># 返回下一行，并将文件操作标记位移到下一行。把一个file用于for … in file这样的语句时，就是调用next()函数来实现遍历的。</span><br>fp.seek(offset[,whence])                <span class="hljs-comment"># 将文件打开操作标记移到offset的位置。whence为0表示从头开始计算，1表示以当前位置为原点计算。2表示以文件末尾为原点进行计算。</span><br>fp.seekable()                           <span class="hljs-comment"># 是否可以seek</span><br>fp.truncate([size])                     <span class="hljs-comment"># 把文件裁成规定的大小，默认的是裁到当前文件操作标记的位置。</span><br><span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;data&#x27;</span>): <br>    <span class="hljs-built_in">print</span>(line)                         <span class="hljs-comment"># 使用for语句，比较适用于打开比较大的文件</span><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;data&#x27;</span>) <span class="hljs-keyword">as</span> file:<br>    <span class="hljs-built_in">print</span>(file.readline())              <span class="hljs-comment"># 使用with语句，可以保证文件关闭</span><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;data&#x27;</span>) <span class="hljs-keyword">as</span> file:<br>    lines = file.readlines()            <span class="hljs-comment"># 一次读入文件所有行，并关闭文件</span><br><span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;f.txt&#x27;</span>, encoding = <span class="hljs-string">&#x27;latin-1&#x27;</span>)     <span class="hljs-comment"># Python3.x Unicode文本文件</span><br><span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;f.bin&#x27;</span>, <span class="hljs-string">&#x27;rb&#x27;</span>)                     <span class="hljs-comment"># Python3.x 二进制bytes文件</span><br><span class="hljs-comment"># 文件对象还有相应的属性：buffer closed encoding errors line_buffering name newlines等</span><br></code></pre></td></tr></table></figure>
 
+<h2 id="34collections"><a href="#34collections" class="headerlink" title="34collections"></a>34collections</h2><p><code>collections</code> 是 Python 中的一个模块，提供了一些额外的数据类型和数据结构，用于在处理数据时扩展标准数据类型的功能。以下是一些常见的 <code>collections</code> 类型和它们的主要功能：</p>
+<ol>
+<li><code>Counter</code>：用于计数可迭代对象中元素的出现次数，并返回一个字典，其中键是元素，值是计数。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Counter<br><br><span class="hljs-comment"># 创建一个计数器对象</span><br>counter = Counter([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>])<br><br><span class="hljs-comment"># 访问元素的计数</span><br><span class="hljs-built_in">print</span>(counter[<span class="hljs-number">2</span>])  <span class="hljs-comment"># 输出 2</span><br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><code>defaultdict</code>：是字典的一个子类，允许为字典的值指定默认数据类型。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> defaultdict<br><br><span class="hljs-comment"># 创建一个默认字典，值的默认类型为 int</span><br>my_dict = defaultdict(<span class="hljs-built_in">int</span>)<br><br><span class="hljs-comment"># 如果访问不存在的键，会自动初始化为默认值</span><br>my_dict[<span class="hljs-string">&#x27;a&#x27;</span>] += <span class="hljs-number">1</span>  <span class="hljs-comment"># 等同于 my_dict[&#x27;a&#x27;] = my_dict[&#x27;a&#x27;] + 1</span><br><br><span class="hljs-built_in">print</span>(my_dict[<span class="hljs-string">&#x27;a&#x27;</span>])  <span class="hljs-comment"># 输出 1</span><br><span class="hljs-built_in">print</span>(my_dict[<span class="hljs-string">&#x27;b&#x27;</span>])  <span class="hljs-comment"># 输出 0，因为 &#x27;b&#x27; 不存在于字典中</span><br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><code>deque</code>：是双端队列的实现，提供了高效的插入和删除操作，适合用于队列和栈。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> deque<br><br><span class="hljs-comment"># 创建一个双端队列</span><br>my_deque = deque([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br><br><span class="hljs-comment"># 在左侧添加元素</span><br>my_deque.appendleft(<span class="hljs-number">0</span>)<br><br><span class="hljs-comment"># 在右侧添加元素</span><br>my_deque.append(<span class="hljs-number">4</span>)<br><br><span class="hljs-comment"># 弹出左侧元素</span><br>left_element = my_deque.popleft()<br><br><span class="hljs-built_in">print</span>(my_deque)        <span class="hljs-comment"># 输出 deque([0, 1, 2, 3, 4])</span><br><span class="hljs-built_in">print</span>(left_element)    <span class="hljs-comment"># 输出 0</span><br></code></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><code>namedtuple</code>：用于创建带字段名的元组，可提高代码的可读性。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> namedtuple<br><br><span class="hljs-comment"># 创建一个名为 &#x27;Person&#x27; 的命名元组，包含 &#x27;name&#x27; 和 &#x27;age&#x27; 两个字段</span><br>Person = namedtuple(<span class="hljs-string">&#x27;Person&#x27;</span>, [<span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>])<br><br><span class="hljs-comment"># 创建一个 Person 对象</span><br>person = Person(name=<span class="hljs-string">&#x27;Alice&#x27;</span>, age=<span class="hljs-number">30</span>)<br><br><span class="hljs-built_in">print</span>(person.name)  <span class="hljs-comment"># 输出 &#x27;Alice&#x27;</span><br><span class="hljs-built_in">print</span>(person.age)   <span class="hljs-comment"># 输出 30</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p><em>classmethod</em> somenamedtuple.<strong>_make</strong>(<em>iterable</em>)，类方法从存在的序列或迭代实例创建一个新实例	</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">t = [<span class="hljs-number">11</span>, <span class="hljs-number">22</span>]<br>Point._make(t)<br>Point(x=<span class="hljs-number">11</span>, y=<span class="hljs-number">22</span>)<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="35MATH"><a href="#35MATH" class="headerlink" title="35MATH"></a>35MATH</h2><h3 id="1-三角函数-计算正弦、余弦、正切、余切"><a href="#1-三角函数-计算正弦、余弦、正切、余切" class="headerlink" title="1.三角函数-计算正弦、余弦、正切、余切"></a>1.三角函数-计算正弦、余弦、正切、余切</h3><p>在 Python 中，你可以使用 <code>math</code> 模块来进行正弦（sine）、余弦（cosine）、正切（tangent）和余切（cotangent）等数学运算。以下是它们的基本用法：</p>
+<p>首先，确保你已经导入了 <code>math</code> 模块：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> math<br></code></pre></td></tr></table></figure>
+
+<p>然后，你可以使用以下函数进行这些运算：</p>
+<ol>
+<li><p>正弦（sine）：<code>math.sin(x)</code></p>
+<p>正弦函数返回给定角度 <code>x</code> 的正弦值，其中 <code>x</code> 应该以弧度为单位。如果你有角度而不是弧度，你可以使用 <code>math.radians()</code> 函数将角度转换为弧度。</p>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> math<br><br>angle_in_radians = math.radians(<span class="hljs-number">30</span>)  <span class="hljs-comment"># 将角度转换为弧度</span><br>sine_value = math.sin(angle_in_radians)<br><span class="hljs-built_in">print</span>(sine_value)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>余弦（cosine）：<code>math.cos(x)</code></p>
+<p>余弦函数返回给定角度 <code>x</code> 的余弦值，也需要以弧度为单位的输入。</p>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> math<br><br>angle_in_radians = math.radians(<span class="hljs-number">45</span>)  <span class="hljs-comment"># 将角度转换为弧度</span><br>cosine_value = math.cos(angle_in_radians)<br><span class="hljs-built_in">print</span>(cosine_value)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>正切（tangent）：<code>math.tan(x)</code></p>
+<p>正切函数返回给定角度 <code>x</code> 的正切值，同样需要以弧度为单位的输入。</p>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> math<br><br>angle_in_radians = math.radians(<span class="hljs-number">60</span>)  <span class="hljs-comment"># 将角度转换为弧度</span><br>tangent_value = math.tan(angle_in_radians)<br><span class="hljs-built_in">print</span>(tangent_value)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>余切（cotangent）：<code>1 / math.tan(x)</code></p>
+<p>余切函数返回给定角度 <code>x</code> 的余切值，可以通过 <code>1 / math.tan(x)</code> 来计算。</p>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> math<br><br>angle_in_radians = math.radians(<span class="hljs-number">75</span>)  <span class="hljs-comment"># 将角度转换为弧度</span><br>cotangent_value = <span class="hljs-number">1</span> / math.tan(angle_in_radians)<br><span class="hljs-built_in">print</span>(cotangent_value)<br></code></pre></td></tr></table></figure></li>
+</ol>
+<p>请注意，这些函数都要求输入的角度是以弧度为单位的，因此在进行计算之前，你可能需要使用 <code>math.radians()</code> 函数将角度转换为弧度。这些函数返回浮点数值，表示对应的三角函数值。</p>
+<h3 id="2-三角函数–根据正弦、余弦、正切、余切计算角度"><a href="#2-三角函数–根据正弦、余弦、正切、余切计算角度" class="headerlink" title="2.三角函数–根据正弦、余弦、正切、余切计算角度"></a>2.三角函数–根据正弦、余弦、正切、余切计算角度</h3><p><code>math</code> 模块中的正弦、余弦、正切和余切等函数用于计算三角形中的角度，通常是通过已知边长和角度来解决三角形的问题。这些函数可以帮助你计算三角形的角度，但需要具备足够的已知信息来进行计算。</p>
+<p>以下是一些常见的用法示例：</p>
+<ol>
+<li><p><strong>计算角的正弦值（Sine）：</strong></p>
+<p>如果你知道一个三角形的某个角的正弦值以及对边的长度，你可以使用反正弦函数 <code>math.asin()</code> 来计算这个角度。例如，如果你知道正弦值为 <code>0.5</code>，对边长度为 <code>5</code>，你可以这样计算角度：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> math<br><br>sine_value = <span class="hljs-number">0.5</span><br>opposite_side_length = <span class="hljs-number">5</span><br><br>angle_in_radians = math.asin(sine_value)<br>angle_in_degrees = math.degrees(angle_in_radians)<br><span class="hljs-built_in">print</span>(angle_in_degrees)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>计算角的余弦值（Cosine）：</strong></p>
+<p>类似地，如果你知道一个角的余弦值以及邻边的长度，你可以使用反余弦函数 <code>math.acos()</code> 来计算这个角度。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> math<br><br>cosine_value = <span class="hljs-number">0.866</span>  <span class="hljs-comment"># 余弦值</span><br>adjacent_side_length = <span class="hljs-number">5</span><br><br>angle_in_radians = math.acos(cosine_value)<br>angle_in_degrees = math.degrees(angle_in_radians)<br><span class="hljs-built_in">print</span>(angle_in_degrees)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>计算角的正切值（Tangent）：</strong></p>
+<p>如果你知道一个角的正切值以及对边的长度，你可以使用反正切函数 <code>math.atan()</code> 来计算这个角度。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> math<br><br>tangent_value = <span class="hljs-number">1.732</span>  <span class="hljs-comment"># 正切值</span><br>opposite_side_length = <span class="hljs-number">5</span><br><br>angle_in_radians = math.atan(tangent_value)<br>angle_in_degrees = math.degrees(angle_in_radians)<br><span class="hljs-built_in">print</span>(angle_in_degrees)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>计算角的余切值（Cotangent）：</strong></p>
+<p>类似地，如果你知道一个角的余切值以及邻边的长度，你可以计算角度。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> math<br><br>cotangent_value = <span class="hljs-number">2.0</span>  <span class="hljs-comment"># 余切值</span><br>adjacent_side_length = <span class="hljs-number">5</span><br><br>angle_in_radians = math.atan(<span class="hljs-number">1</span> / cotangent_value)<br>angle_in_degrees = math.degrees(angle_in_radians)<br><span class="hljs-built_in">print</span>(angle_in_degrees)<br></code></pre></td></tr></table></figure></li>
+</ol>
+<p>上述示例假设你已知某个角的三角函数值以及相关边的长度。通常，要计算一个三角形的角，你需要已知至少一个角的三角函数值和相关边的长度，或者你需要其他相关信息，如其他已知角度或边长。然后，你可以使用这些函数来解决问题。</p>
+<h3 id="3-三角函数-知道边求角度"><a href="#3-三角函数-知道边求角度" class="headerlink" title="3.三角函数-知道边求角度"></a>3.三角函数-知道边求角度</h3><p>如果你已知三角形的三条边的长度，你可以使用三角函数的反函数来计算对应的角度。以下是计算三角形角度的一般步骤：</p>
+<ol>
+<li>确保你有三角形的三个边的长度。</li>
+<li>使用余弦定理计算任一角的余弦值。</li>
+<li>使用反余弦函数 <code>math.acos()</code> 来计算该角的弧度值。</li>
+<li>可选：将弧度值转换为度数。</li>
+</ol>
+<p>这里是一个示例，假设你已知三角形的三边长度 <code>a</code>、<code>b</code> 和 <code>c</code>，并且你想计算对应于边 <code>a</code> 的角度：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> math<br><br><span class="hljs-comment"># 已知边长</span><br>a = <span class="hljs-number">5.0</span><br>b = <span class="hljs-number">4.0</span><br>c = <span class="hljs-number">3.0</span><br><br><span class="hljs-comment"># 使用余弦定理计算角A的余弦值</span><br>cos_A = (b**<span class="hljs-number">2</span> - c**<span class="hljs-number">2</span> - a**<span class="hljs-number">2</span>) / (-<span class="hljs-number">2</span> * b * c)<br><br><span class="hljs-comment"># 使用反余弦函数计算弧度值</span><br>angle_A_radians = math.acos(cos_A)<br><br><span class="hljs-comment"># 将弧度值转换为度数</span><br>angle_A_degrees = math.degrees(angle_A_radians)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Angle A (degrees):&quot;</span>, angle_A_degrees)<br></code></pre></td></tr></table></figure>
+
+<p>这个示例中，我们使用余弦定理计算了角 A 的余弦值，然后使用反余弦函数 <code>math.acos()</code> 计算了角 A 的弧度值，最后将弧度值转换为度数。</p>
+<p>请注意，如果你想计算其他角的度数，可以通过类似的方式计算。根据需要，你可以替换 <code>a</code>、<code>b</code> 和 <code>c</code> 的值，以计算其他角的度数。</p>
+<h2 id="36-Numpy"><a href="#36-Numpy" class="headerlink" title="36. Numpy"></a>36. Numpy</h2><p>NumPy (Numerical Python) 是一个Python库，用于处理和执行科学计算和数值运算。它提供了一个强大的多维数组对象（通常称为NumPy数组或ndarray）和许多用于操作这些数组的函数。NumPy是数据科学和机器学习领域的核心工具之一，它可以用于执行各种数学、统计和数据处理任务。</p>
+<p>以下是一些常见的NumPy功能和用法：</p>
+<ol>
+<li><p><strong>创建NumPy数组</strong>：使用 <code>numpy.array()</code> 函数可以从Python列表或元组创建NumPy数组。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>arr = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>])<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>数组操作</strong>：NumPy提供了各种操作数组的函数，包括索引、切片、重塑、合并和分割等。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 切片操作</span><br>subset = arr[<span class="hljs-number">2</span>:<span class="hljs-number">4</span>]<br><br><span class="hljs-comment"># 数组合并</span><br>arr1 = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br>arr2 = np.array([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>])<br>result = np.concatenate((arr1, arr2))<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>数学运算</strong>：NumPy支持向量化操作，可以对整个数组执行数学运算，而不需要显式循环。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br>b = np.array([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>])<br><br>result = a + b  <span class="hljs-comment"># 数组加法</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>统计和线性代数</strong>：NumPy包括许多统计函数和线性代数操作，如均值、方差、矩阵乘法等。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">mean = np.mean(arr)<br>dot_product = np.dot(arr1, arr2)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>随机数生成</strong>：NumPy提供了生成随机数的函数，可以用于模拟、实验和统计分析。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><br>random_numbers = np.random.rand(<span class="hljs-number">5</span>)  <span class="hljs-comment"># 生成5个随机数</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>广播</strong>：NumPy允许不同形状的数组进行运算，通过广播机制自动扩展数组的维度。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">a = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br>b = <span class="hljs-number">2</span><br><br>result = a * b  <span class="hljs-comment"># 数组与标量相乘，广播b到与a相同的形状</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>文件输入&#x2F;输出</strong>：NumPy支持读取和写入数组数据到磁盘。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">np.save(<span class="hljs-string">&#x27;data.npy&#x27;</span>, arr)  <span class="hljs-comment"># 保存数组到文件</span><br>loaded_arr = np.load(<span class="hljs-string">&#x27;data.npy&#x27;</span>)  <span class="hljs-comment"># 从文件加载数组</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<p>这只是NumPy的一些功能和用法的概述。NumPy在数据科学、数值计算、机器学习等领域具有广泛的应用，因为它提供了高效的数据结构和操作，以及丰富的数学和统计函数。</p>
+<h3 id="1-inner与outer"><a href="#1-inner与outer" class="headerlink" title="1. inner与outer"></a>1. inner与outer</h3><p><code>numpy.inner()</code> 和 <code>numpy.outer()</code> 是 NumPy 中用于进行向量和矩阵运算的两个不同的函数，它们有不同的用途和行为：</p>
+<ol>
+<li><p>**<code>numpy.inner()</code>**：</p>
+<p><code>numpy.inner(a, b)</code> 函数计算两个数组的内积（dot product）。对于一维数组，这是标准的点积运算。对于多维数组，它会将最后一个轴上的元素相乘并求和。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>a = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br>b = np.array([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>])<br><br>result = np.inner(a, b)  <span class="hljs-comment"># 结果为 1*4 + 2*5 + 3*6 = 32</span><br></code></pre></td></tr></table></figure>
+
+<p>对于多维数组，<code>numpy.inner()</code> 会按照特定的规则进行内积运算。</p>
+</li>
+<li><p>**<code>numpy.outer()</code>**：</p>
+<p><code>numpy.outer(a, b)</code> 函数计算两个数组的外积（outer product）。外积是将第一个数组的每个元素与第二个数组的每个元素相乘而得到的矩阵。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>a = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br>b = np.array([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>])<br><br>result = np.outer(a, b)<br></code></pre></td></tr></table></figure>
+
+<p>这将生成一个2D矩阵，其元素是两个输入数组中的元素相乘的结果：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">array([[ <span class="hljs-number">4</span>,  <span class="hljs-number">5</span>,  <span class="hljs-number">6</span>],<br>       [ <span class="hljs-number">8</span>, <span class="hljs-number">10</span>, <span class="hljs-number">12</span>],<br>       [<span class="hljs-number">12</span>, <span class="hljs-number">15</span>, <span class="hljs-number">18</span>]])<br></code></pre></td></tr></table></figure></li>
+</ol>
+<p>总结：</p>
+<ul>
+<li><code>numpy.inner()</code> 用于计算两个数组的内积，结果是一个标量或者按一定规则计算多维数组的内积。</li>
+<li><code>numpy.outer()</code> 用于计算两个数组的外积，结果是一个矩阵，其中的元素是两个输入数组中的元素相乘的结果。</li>
+</ul>
+<h3 id="2-numpy-poly"><a href="#2-numpy-poly" class="headerlink" title="2. numpy.poly"></a>2. numpy.poly</h3><p><code>numpy.poly</code> 是 NumPy 中的一个模块，用于处理多项式的系数和操作多项式。它提供了多种用于创建、操作和分析多项式的函数。</p>
+<p>以下是一些 <code>numpy.poly</code> 模块中常用的函数和用法：</p>
+<ol>
+<li><p>**<code>numpy.poly1d</code>**：</p>
+<p><code>numpy.poly1d(c)</code> 创建一个一维多项式，其中 <code>c</code> 是多项式的系数列表。这个函数可以将系数转换为多项式对象，从而可以进行多项式的操作。</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs makefile">import numpy as np<br><br>coefficients = [1, 2, 3]  <span class="hljs-comment"># 多项式系数</span><br>poly = np.poly1d(coefficients)<br><br><span class="hljs-comment"># 使用多项式对象进行多项式运算</span><br>result = poly(2)  <span class="hljs-comment"># 计算多项式在 x=2 处的值</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>numpy.polyadd</code>**：</p>
+<p><code>numpy.polyadd(p1, p2)</code> 计算两个多项式 <code>p1</code> 和 <code>p2</code> 的和。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">import</span> numpy as np<br><br><span class="hljs-attribute">p1</span> = np.poly1d([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br><span class="hljs-attribute">p2</span> = np.poly1d([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>])<br><br><span class="hljs-attribute">result</span> = np.polyadd(p1, p2)  # 计算 p1 + p2<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>numpy.polysub</code>**：</p>
+<p><code>numpy.polysub(p1, p2)</code> 计算两个多项式 <code>p1</code> 和 <code>p2</code> 的差。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">import</span> numpy as np<br><br><span class="hljs-attribute">p1</span> = np.poly1d([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br><span class="hljs-attribute">p2</span> = np.poly1d([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>])<br><br><span class="hljs-attribute">result</span> = np.polysub(p1, p2)  # 计算 p1 - p2<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>numpy.polymul</code>**：</p>
+<p><code>numpy.polymul(p1, p2)</code> 计算两个多项式 <code>p1</code> 和 <code>p2</code> 的乘积。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">import</span> numpy as np<br><br><span class="hljs-attribute">p1</span> = np.poly1d([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br><span class="hljs-attribute">p2</span> = np.poly1d([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>])<br><br><span class="hljs-attribute">result</span> = np.polymul(p1, p2)  # 计算 p1 * p2<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>numpy.polydiv</code>**：</p>
+<p><code>numpy.polydiv(p1, p2)</code> 计算多项式 <code>p1</code> 除以多项式 <code>p2</code> 的商和余数。</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs maxima">import numpy as <span class="hljs-built_in">np</span><br><br>p1 = <span class="hljs-built_in">np</span>.poly1d([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br>p2 = <span class="hljs-built_in">np</span>.poly1d([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>])<br><br><span class="hljs-built_in">quotient</span>, <span class="hljs-built_in">remainder</span> = <span class="hljs-built_in">np</span>.polydiv(p1, p2)<br></code></pre></td></tr></table></figure></li>
+</ol>
+<p>这些是 <code>numpy.poly</code> 模块中的一些常用函数，用于处理多项式。多项式在科学计算、工程和数据分析中经常用到，这些函数使得多项式的创建和操作变得更加方便。</p>
+<h3 id="3-nump-roots"><a href="#3-nump-roots" class="headerlink" title="3. nump.roots"></a>3. nump.roots</h3><p><code>numpy.roots</code> 是 NumPy 中的一个函数，用于计算多项式的根（或零点）。给定一个多项式的系数，<code>numpy.roots</code> 可以返回该多项式的根。根是使多项式等于零的值。</p>
+<p>以下是 <code>numpy.roots</code> 函数的用法示例：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><span class="hljs-comment"># 定义多项式的系数（从高次到低次）</span><br>coefficients = [<span class="hljs-number">1</span>, <span class="hljs-number">-6</span>, <span class="hljs-number">11</span>, <span class="hljs-number">-6</span>]<br><br><span class="hljs-comment"># 计算多项式的根</span><br>roots = np.roots(coefficients)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;多项式的根：&quot;</span>, roots)<br></code></pre></td></tr></table></figure>
+
+<p>在这个示例中，我们定义了一个多项式的系数 <code>[1, -6, 11, -6]</code>，这对应于多项式 <code>x^3 - 6x^2 + 11x - 6</code>。然后，我们使用 <code>np.roots()</code> 计算了这个多项式的根。运行这段代码会得到多项式的根：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">多项式的根： <span class="hljs-selector-attr">[3. 2. 1.]</span><br></code></pre></td></tr></table></figure>
+
+<p>这表示多项式有三个根，分别是 3、2 和 1。</p>
+<p>注意，多项式的次数由系数的数量确定。对于一个 n 次多项式，将需要 n+1 个系数。多项式的根可以是实数或复数，具体取决于多项式的系数。</p>
+<h3 id="4-numpy-polyint"><a href="#4-numpy-polyint" class="headerlink" title="4.numpy.polyint"></a>4.numpy.polyint</h3><p><code>numpy.polyint</code> 是 NumPy 中的一个函数，用于对多项式进行不定积分。它接受一个多项式的系数作为输入，并返回其不定积分（即原函数）的系数。</p>
+<p>以下是 <code>numpy.polyint</code> 函数的用法示例：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><span class="hljs-comment"># 定义多项式的系数（从高次到低次）</span><br>coefficients = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br><br><span class="hljs-comment"># 计算多项式的不定积分</span><br>integral_coefficients = np.polyint(coefficients)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;多项式的不定积分系数：&quot;</span>, integral_coefficients)<br></code></pre></td></tr></table></figure>
+
+<p>在这个示例中，我们定义了一个多项式的系数 <code>[1, 2, 3]</code>，这对应于多项式 <code>x^2 + 2x + 3</code>。然后，我们使用 <code>np.polyint()</code> 计算了这个多项式的不定积分的系数。运行这段代码会得到多项式的不定积分的系数：</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs accesslog">多项式的不定积分系数： <span class="hljs-string">[0.33333333 1.         3.         0.        ]</span><br></code></pre></td></tr></table></figure>
+
+<p>这个结果表示多项式的不定积分系数为 <code>[0.33333333, 1, 3, 0]</code>，这对应于不定积分的多项式 <code>0.33333333x^3 + x^2 + 3x + C</code>，其中 <code>C</code> 是积分常数。</p>
+<p><code>numpy.polyint</code> 可以帮助你计算多项式的不定积分，这在数学和工程计算中经常用到。</p>
+<h3 id="5-numpy-polyder"><a href="#5-numpy-polyder" class="headerlink" title="5.numpy.polyder"></a>5.numpy.polyder</h3><p><code>numpy.polyder</code> 是 NumPy 中的一个函数，用于计算多项式的导数。给定一个多项式的系数，<code>numpy.polyder</code> 可以返回其导数的系数。</p>
+<p>以下是 <code>numpy.polyder</code> 函数的用法示例：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><span class="hljs-comment"># 定义多项式的系数（从高次到低次）</span><br>coefficients = [<span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>]<br><br><span class="hljs-comment"># 计算多项式的导数</span><br>derivative_coefficients = np.polyder(coefficients)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;多项式的导数系数：&quot;</span>, derivative_coefficients)<br></code></pre></td></tr></table></figure>
+
+<p>在这个示例中，我们定义了一个多项式的系数 <code>[3, 2, 1]</code>，这对应于多项式 <code>3x^2 + 2x + 1</code>。然后，我们使用 <code>np.polyder()</code> 计算了这个多项式的导数的系数。运行这段代码会得到多项式的导数的系数：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">多项式的导数系数： <span class="hljs-selector-attr">[6 2]</span><br></code></pre></td></tr></table></figure>
+
+<p>这个结果表示多项式的导数系数为 <code>[6, 2]</code>，这对应于多项式的一阶导数 <code>6x + 2</code>。</p>
+<p><code>numpy.polyder</code> 可以帮助你计算多项式的导数，这在微积分和工程计算中经常用到。</p>
+<h3 id="6-numpy-polyval"><a href="#6-numpy-polyval" class="headerlink" title="6.numpy.polyval"></a>6.numpy.polyval</h3><p><code>numpy.polyval</code> 是 NumPy 中的一个函数，用于计算多项式函数在给定点的值。它接受两个参数：多项式的系数和点的值，并返回多项式在给定点的函数值。</p>
+<p>以下是 <code>numpy.polyval</code> 函数的用法示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><span class="hljs-comment"># 定义多项式的系数（从高次到低次）</span><br>coefficients = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br><br><span class="hljs-comment"># 计算多项式在 x=2 处的值</span><br>x = <span class="hljs-number">2</span><br>result = np.polyval(coefficients, x)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;多项式在 x=<span class="hljs-subst">&#123;x&#125;</span> 处的值：<span class="hljs-subst">&#123;result&#125;</span>&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>在这个示例中，我们定义了一个多项式的系数 <code>[1, 2, 3]</code>，这对应于多项式 <code>x^2 + 2x + 3</code>。然后，我们使用 <code>np.polyval()</code> 计算了这个多项式在 x&#x3D;2 处的值。运行这段代码会得到多项式在给定点的值：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">多项式在 <span class="hljs-attribute">x</span>=2 处的值：11<br></code></pre></td></tr></table></figure>
+
+<p>这表示多项式在 x&#x3D;2 处的值为 11。</p>
+<p><code>numpy.polyval</code> 对于计算多项式函数在特定点的值非常方便，这在数学和工程计算中经常用到。</p>
+<h3 id="7-numpy-polyfit"><a href="#7-numpy-polyfit" class="headerlink" title="7.numpy.polyfit"></a>7.numpy.polyfit</h3><p><code>numpy.polyfit</code> 是 NumPy 中的一个函数，用于拟合多项式到一组数据点。它接受输入数据点的 x 坐标、y 坐标以及所需的多项式的次数，然后返回多项式的系数，这些系数可以用于描述拟合的多项式函数。</p>
+<p>以下是 <code>numpy.polyfit</code> 函数的用法示例：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">import</span> numpy as np<br><br><span class="hljs-comment"># 输入数据点</span><br><span class="hljs-attribute">x</span> = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>])<br><span class="hljs-attribute">y</span> = np.array([<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">6</span>, <span class="hljs-number">10</span>, <span class="hljs-number">15</span>])<br><br><span class="hljs-comment"># 使用 numpy.polyfit 进行多项式拟合</span><br><span class="hljs-attribute">degree</span> = <span class="hljs-number">2</span>  # 拟合多项式的次数<br><span class="hljs-attribute">coefficients</span> = np.polyfit(x, y, degree)<br><br><span class="hljs-attribute">print</span>(<span class="hljs-string">&quot;拟合多项式的系数：&quot;</span>, coefficients)<br></code></pre></td></tr></table></figure>
+
+<p>在这个示例中，我们有一组数据点 <code>(x, y)</code>，并希望用一个二次多项式来拟合这些数据点。我们通过设置 <code>degree</code> 变量为 2 来指定拟合多项式的次数。然后，我们使用 <code>np.polyfit()</code> 函数进行拟合，它返回了拟合多项式的系数。运行这段代码会得到拟合多项式的系数：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">拟合多项式的系数： <span class="hljs-selector-attr">[ 1.  -1.   1.]</span><br></code></pre></td></tr></table></figure>
+
+<p>这表示拟合的多项式为 <code>1*x^2 - 1*x + 1</code>。</p>
+<p>您可以根据数据和所需的拟合多项式的次数来使用 <code>numpy.polyfit</code> 来拟合数据并得到多项式的系数。这在数据分析、曲线拟合等领域非常有用。</p>
+<h3 id="8-numpy-concatenate"><a href="#8-numpy-concatenate" class="headerlink" title="8.numpy.concatenate"></a>8.numpy.concatenate</h3><p><code>numpy.concatenate</code> 是 NumPy 中用于连接（拼接）数组的函数。它允许您将两个或多个数组沿指定的轴连接在一起，创建一个新的数组。</p>
+<p>以下是 <code>numpy.concatenate</code> 函数的基本用法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><span class="hljs-comment"># 创建两个数组</span><br>arr1 = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br>arr2 = np.array([<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>])<br><br><span class="hljs-comment"># 使用 numpy.concatenate 连接数组</span><br>result = np.concatenate((arr1, arr2))<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;连接后的数组：&quot;</span>, result)<br></code></pre></td></tr></table></figure>
+
+<p>在这个示例中，我们首先创建了两个NumPy数组 <code>arr1</code> 和 <code>arr2</code>，然后使用 <code>np.concatenate()</code> 函数将它们连接在一起。默认情况下，<code>np.concatenate()</code> 将数组沿着第一个轴（轴索引为0）连接。</p>
+<p>运行这段代码会得到连接后的数组：</p>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tap">连接后的数组： [1<span class="hljs-number"> 2 </span>3<span class="hljs-number"> 4 </span>5 6]<br></code></pre></td></tr></table></figure>
+
+<p>您还可以指定连接的轴，以便在不同的方向上连接数组。例如，您可以将它们连接在行方向（轴0）或列方向（轴1）上。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 在行方向上连接数组</span><br>result_row = np.concatenate((arr1, arr2), axis=<span class="hljs-number">0</span>)<br><br><span class="hljs-comment"># 在列方向上连接数组</span><br>result_col = np.concatenate((arr1, arr2), axis=<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+
+<p><code>numpy.concatenate</code> 是一个非常有用的函数，可以在数据处理中用于合并不同的数据集或数组。您可以通过指定轴来控制连接的方向。</p>
+<h2 id="37-Calendar模块"><a href="#37-Calendar模块" class="headerlink" title="37. Calendar模块"></a>37. Calendar模块</h2><p>在Python中，有一个名为<code>calendar</code>的标准库模块，用于处理日期和日历信息。<code>calendar</code>模块提供了各种函数和类，可以用于生成、格式化和操作日历信息。</p>
+<p>以下是一些<code>calendar</code>模块中常用的功能和类：</p>
+<ol>
+<li><p>**<code>calendar.month(year, month)</code>**：</p>
+<p>这个函数用于生成指定年份和月份的日历。它返回一个多行字符串，表示指定月份的日历。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> calendar<br><br>year = <span class="hljs-number">2023</span><br>month = <span class="hljs-number">8</span><br><br>cal = calendar.month(year, month)<br><span class="hljs-built_in">print</span>(cal)<br></code></pre></td></tr></table></figure>
+
+<p>这会生成并打印出2023年8月的日历。</p>
+</li>
+<li><p>**<code>calendar.month_name</code> 和 <code>calendar.day_name</code>**：</p>
+<p>这两个变量是字符串列表，分别包含了月份名称和星期几的名称。例如，<code>calendar.month_name[1]</code> 返回 “January”，<code>calendar.day_name[3]</code> 返回 “Wednesday”。</p>
+</li>
+<li><p><strong><code>calendar.TextCalendar</code> 类</strong>：</p>
+<p>这是一个类，用于生成文本日历。您可以使用它来生成指定年份和月份的日历，并以文本形式输出。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> calendar<br><br>year = <span class="hljs-number">2023</span><br>month = <span class="hljs-number">8</span><br><br>cal = calendar.TextCalendar(calendar.SUNDAY)<br><span class="hljs-built_in">print</span>(cal.formatmonth(year, month))<br></code></pre></td></tr></table></figure>
+
+<p>这会生成并打印出2023年8月的文本日历。</p>
+</li>
+<li><p><strong><code>calendar.HTMLCalendar</code> 类</strong>：</p>
+<p>这是一个类，用于生成HTML格式的日历。它与<code>TextCalendar</code>类类似，但生成的日历以HTML表格的形式呈现。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> calendar<br><br>year = <span class="hljs-number">2023</span><br>month = <span class="hljs-number">8</span><br><br>cal = calendar.HTMLCalendar(calendar.SUNDAY)<br><span class="hljs-built_in">print</span>(cal.formatmonth(year, month))<br></code></pre></td></tr></table></figure>
+
+<p>这会生成并打印出2023年8月的HTML日历。</p>
+</li>
+</ol>
+<p><code>calendar</code>模块还包括其他函数和类，用于处理日期、计算日期差异、确定星期几等。这些功能使得在Python中处理日期和日历信息变得相对容易。根据具体需求，您可以选择适合您应用程序的方法和类。</p>
+<h3 id="1-给定日期计算周几"><a href="#1-给定日期计算周几" class="headerlink" title="1.给定日期计算周几"></a>1.给定日期计算周几</h3><p><code>calendar</code> 模块可以帮助您计算星期几，特别是给定日期的星期几。要计算星期几，您可以使用 <code>calendar.weekday(year, month, day)</code> 函数，它返回一个整数，其中0代表星期一，1代表星期二，以此类推，6代表星期日。</p>
+<p>以下是如何使用 <code>calendar</code> 模块计算给定日期的星期几的示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> calendar<br><br><span class="hljs-comment"># 指定日期</span><br>year = <span class="hljs-number">2023</span><br>month = <span class="hljs-number">8</span><br>day = <span class="hljs-number">27</span>  <span class="hljs-comment"># 日期</span><br><br><span class="hljs-comment"># 使用 calendar.weekday() 计算星期几</span><br>weekday_index = calendar.weekday(year, month, day)<br><br><span class="hljs-comment"># 根据索引获取星期几的名称</span><br>weekdays = [<span class="hljs-string">&quot;Monday&quot;</span>, <span class="hljs-string">&quot;Tuesday&quot;</span>, <span class="hljs-string">&quot;Wednesday&quot;</span>, <span class="hljs-string">&quot;Thursday&quot;</span>, <span class="hljs-string">&quot;Friday&quot;</span>, <span class="hljs-string">&quot;Saturday&quot;</span>, <span class="hljs-string">&quot;Sunday&quot;</span>]<br>weekday_name = weekdays[weekday_index]<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;year&#125;</span>-<span class="hljs-subst">&#123;month:02d&#125;</span>-<span class="hljs-subst">&#123;day:02d&#125;</span> 是 <span class="hljs-subst">&#123;weekday_name&#125;</span>&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>在这个示例中，我们首先指定了一个日期（2023年8月27日），然后使用 <code>calendar.weekday()</code> 函数计算星期几的索引。接着，我们创建了一个包含星期几名称的列表 <code>weekdays</code>，并根据索引获取了星期几的名称。</p>
+<p>运行这段代码会输出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">2023-08-27 是 Sunday<br></code></pre></td></tr></table></figure>
+
+<p>这表示2023年8月27日是星期日。您可以根据需要更改日期来计算不同日期的星期几。</p>
 
                 
               </div>
